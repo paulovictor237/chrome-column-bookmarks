@@ -1,0 +1,103 @@
+[
+  {
+    "children": [
+      {
+        "children": [
+          {
+            "dateAdded": 1658275204793,
+            "id": "6",
+            "index": 0,
+            "parentId": "1",
+            "title": "Creating a Chrome extension with React and TypeScript - LogRocket Blog",
+            "url": "https://blog.logrocket.com/creating-chrome-extension-react-typescript/"
+          },
+          {
+            "dateAdded": 1658334779917,
+            "id": "8",
+            "index": 1,
+            "parentId": "1",
+            "title": "GitHub",
+            "url": "https://github.com/paulovictor237?tab=repositories"
+          },
+          {
+            "dateAdded": 1658335192252,
+            "id": "9",
+            "index": 2,
+            "parentId": "1",
+            "title": "Gists",
+            "url": "https://gist.github.com/paulovictor237/0eac5ffd5090875086b0033ec37422b4"
+          },
+          {
+            "dateAdded": 1658335250631,
+            "id": "10",
+            "index": 3,
+            "parentId": "1",
+            "title": "Tailwind CSS",
+            "url": "https://tailwindcss.com/docs/installation/using-postcss"
+          },
+          {
+            "dateAdded": 1658337719669,
+            "id": "11",
+            "index": 4,
+            "parentId": "1",
+            "title": "YouTube",
+            "url": "https://www.youtube.com/"
+          },
+          {
+            "children": [
+              {
+                "dateAdded": 1658346545659,
+                "id": "14",
+                "index": 0,
+                "parentId": "13",
+                "title": "Nova guia",
+                "url": "edge://newtab/"
+              }
+            ],
+            "dateAdded": 1658346539811,
+            "dateGroupModified": 1658346549299,
+            "id": "13",
+            "index": 5,
+            "parentId": "1",
+            "title": "Nova pasta"
+          }
+        ],
+        "dateAdded": 1658192485714,
+        "dateGroupModified": 1658350180885,
+        "id": "1",
+        "index": 0,
+        "parentId": "0",
+        "title": "Barra de favoritos"
+      },
+      {
+        "children": [
+          {
+            "dateAdded": 1658346219169,
+            "id": "12",
+            "index": 0,
+            "parentId": "2",
+            "title": "Extensionizr - boilerplate for your chrome extension",
+            "url": "https://extensionizr.com/!#{%22modules%22:[%22hidden-mode%22,%22with-bg%22,%22with-persistent-bg%22,%22no-options%22,%22no-override%22],%22boolean_perms%22:[],%22match_ptrns%22:[]}"
+          },
+          {
+            "dateAdded": 1658352249763,
+            "id": "15",
+            "index": 1,
+            "parentId": "2",
+            "title": "Export JS Object to JSON & Download File - React - CodeSandbox",
+            "url": "https://codesandbox.io/s/4t2xb?file=/src/App.js:1399-1605"
+          }
+        ],
+        "dateAdded": 1658192485714,
+        "dateGroupModified": 1658352249763,
+        "id": "2",
+        "index": 1,
+        "parentId": "0",
+        "title": "Outros favoritos"
+      }
+    ],
+    "dateAdded": 1658333736738,
+    "id": "0",
+    "title": ""
+  }
+]
