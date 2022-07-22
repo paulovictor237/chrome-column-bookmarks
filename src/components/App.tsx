@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import logo from '../assets/logo.svg';
 import { getBookmarks } from '../services/chromeService';
+import { getFaviconUrl } from "../utils/getFaviconUrl";
 import { ChromeBookmark } from "./../types/ChromeBookmark";
 import './App.css';
 
@@ -31,6 +32,9 @@ function App() {
     link.click();
   };
 
+  const url = 'https://www.youtube.com'
+  const faviconSrc = url && getFaviconUrl(url);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -38,6 +42,16 @@ function App() {
         <h1 className="text-3xl font-bold underline">
           Hello world [ <span className='text-red-600'>{process.env.NODE_ENV}</span> ] !
         </h1>
+        <span className='flex items-center rounded-sm'>
+          {url && <img
+            className='h-6 w-6 min-w-6 mr-3'
+            src={faviconSrc}
+            alt="description"
+          />}
+          <span className="select-none tracking-normal font-medium overflow-hidden focus:text-indigo-700 hover:text-red-700 text-lg">
+            youtube
+          </span>
+        </span>
         <div className="App">
           <h1>Hello CodeSandbox</h1>
           <h2>Start editing to see some magic happen!</h2>
