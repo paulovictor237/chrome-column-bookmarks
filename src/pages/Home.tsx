@@ -1,13 +1,11 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import LineLink from '../components/ui/LineLink';
+import Column from '../components/ui/Column';
 import Header from '../layouts/Header';
-import { RootState } from '../store';
+
 import { booksActions, fetchBooksmark } from '../store/booksmarkReducer';
-import './Home.css';
 
 function App() {
-  const booksmark = useSelector((state: RootState) => state.booksReducer.booksmark);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,17 +16,11 @@ function App() {
     getData();
   }, [dispatch])
 
-  console.log(booksmark)
-
-  const url = 'https://www.youtube.com'
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <Header />
-        <LineLink url={url} />
-      </header >
-    </div >
+    <div className='h-full w-full fixed'>
+      <Header />
+      <Column />
+    </div>
   );
 }
 

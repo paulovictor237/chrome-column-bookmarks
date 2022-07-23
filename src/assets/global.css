@@ -2,28 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  /* width: 600px;
-  height: 400px; */
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-
-:root {
-  --red: #E87779;
-  --green: #00AD17;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -38,8 +16,7 @@ a {
 
 html,
 body {
-  padding: 0;
-  margin: 0;
+  @apply bg-stone-700 m-0 p-0
 }
 
 body,
@@ -49,12 +26,15 @@ select,
 button {
   font: 400 1rem "Roboto", sans-serif;
   -webkit-appearance: none;
-
-  &:focus {
+  /* &:focus {
     outline: none;
-  }
+  } */
 }
 
-.button:hover {
-  filter: brightness(1.2);
+.heightHeader {
+  @apply h-14
+}
+
+.heightColumn {
+  height: calc(100vh - 3.5rem);
 }
