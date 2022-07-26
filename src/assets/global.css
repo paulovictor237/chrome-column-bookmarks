@@ -16,7 +16,7 @@ a {
 
 html,
 body {
-  @apply bg-stone-700 m-0 p-0
+  @apply bg-dark800 m-0 p-0
 }
 
 body,
@@ -25,6 +25,7 @@ textarea,
 select,
 button {
   font: 400 1rem "Roboto", sans-serif;
+  color: #fff;
   -webkit-appearance: none;
   /* &:focus {
     outline: none;
@@ -37,4 +38,35 @@ button {
 
 .heightColumn {
   height: calc(100vh - 3.5rem);
+}
+
+.sc2::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+.sc2::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.sc2::-webkit-scrollbar-thumb {
+  background-color: #11171a;
+  border-radius: 10px;
+}
+
+/* Scroll 1 */
+.sc1::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.sc1::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+}
+
+.sc1::-webkit-scrollbar-thumb {
+  background-color: #dfdfdf;
+  border-radius: 10px;
 }

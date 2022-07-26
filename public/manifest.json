@@ -3,6 +3,11 @@
   "description": "The power of React and TypeScript for building interactive Chrome extensions",
   "version": "1.0",
   "manifest_version": 3,
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
   "action": {
     "default_popup": "index.html",
     "default_title": "Open the popup"
@@ -17,5 +22,6 @@
   },
   "permissions": [
     "bookmarks"
-  ]
+  ],
+  "content_security_policy": "script-src 'self'; object-src 'self'; img-src chrome://favicon;edge://favicon"
 }

@@ -9,26 +9,26 @@ type props = {
 export default function LineLink({ url, title }: props) {
   const faviconSrc = url && getFaviconUrl(url);
   return (
-    <div className='p-1 px-3 hover:bg-sky-500 overflow-hidden h-auto'>
-      <a
-        className="flex items-center  justify-start"
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-        draggable={false} // Disables the browser built-in drag handler
-      // isHoverDisabled={isHoverDisabled}
-      // isTransitionDisabled={isTransitionDisabled}
+    <a className='p-1 px-3 hover:brightness-105 filter:brightness-105 overflow-hidden h-12 flex items-center justify-start bg-dark800 rounded-md'
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      draggable={false} // Disables the browser built-in drag handler
+    // isHoverDisabled={isHoverDisabled}
+    // isTransitionDisabled={isTransitionDisabled}
+    >
+      {
+        url &&
+        <img
+          className='h-6 w-6 mr-3'
+          src={faviconSrc}
+          alt="[ favicon ]"
+        />
+      }
+      <span className='text-ellipsis	whitespace-nowrap overflow-hidden'
       >
-        {
-          url &&
-          <img
-            className='h-6 w-6 min-w-6 mr-3'
-            src={faviconSrc}
-            alt="description"
-          />
-        }
-        <span>{title}</span>
-      </a>
-    </div>
+        {title}
+      </span>
+    </a>
   )
 }
