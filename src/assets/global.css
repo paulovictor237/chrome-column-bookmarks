@@ -41,8 +41,8 @@ button {
 }
 
 .sc2::-webkit-scrollbar {
-  width: 9px;
-  height: 9px;
+  width: 12px;
+  height: 12px;
 }
 
 .sc2::-webkit-scrollbar-track {
@@ -51,7 +51,8 @@ button {
 }
 
 .sc2::-webkit-scrollbar-thumb {
-  background-color: #11171a;
+  /* background-color: #11171a; */
+  background-color: #198cf0;
   border-radius: 10px;
 }
 

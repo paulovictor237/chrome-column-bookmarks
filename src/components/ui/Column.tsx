@@ -20,7 +20,7 @@ export default function Column() {
   }, [booksmarkroot])
 
   return (
-    <div className='heightColumn w-1/3 p-4'>
+    <div className='w-1/3 p-4 pr-2'>
       <div className='bg-dark700 rounded-2xl p-3 h-full overflow-y-auto sc2'>
         <div className='flex flex-col gap-3'>
           {folder.map((item: any) => {
@@ -28,6 +28,11 @@ export default function Column() {
           })}
           <LineLink url={url} title={title} />
           <LineLink url={url} title="Creating a Chrome extension with React and TypeScript - LogRocket Blog" />
+          <LineLink url={url} title="fim" />
+          <LineLink url={url} title="fim" />
+          <LineLink url={url} title="fim" />
+          <LineLink url={url} title="fim" />
+          <LineLink url={url} title="fim" />
           <LineLink url={url} title="fim" />
           <LineLink url={url} title="fim" />
           <LineLink url={url} title="fim" />

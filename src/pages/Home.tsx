@@ -19,7 +19,13 @@ function App() {
   return (
     <div className='h-full w-full fixed'>
       <Header />
-      <Column />
+      <div className=' heightColumn overflow-x-auto w-screen bottom-0 fixed flex sc2'>
+        <Column />
+        <Column />
+        <Column />
+        <Column />
+        <Column />
+      </div>
     </div>
   );
 }

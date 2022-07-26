@@ -9,7 +9,7 @@ type props = {
 export default function LineLink({ url, title }: props) {
   const faviconSrc = url && getFaviconUrl(url);
   return (
-    <a className='p-1 px-3 hover:brightness-105 filter:brightness-105 overflow-hidden h-12 flex items-center justify-start bg-dark800 rounded-md'
+    <a className='p-1 px-3 hover:bg-blue-suave filter:brightness-105 overflow-hidden h-10 flex items-center justify-start bg-dark800 rounded-md'
       href={url}
       target="_blank"
       rel="noopener noreferrer"
