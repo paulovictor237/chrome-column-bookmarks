@@ -4,11 +4,12 @@ import FolderUi from './FolderUi';
 import LinkUi from './LinkUi';
 
 type Props = {
-  folder: Folder;
+  folder: Folder,
+  index: number
 };
 
 export default function Column(props: Props) {
-  const { folder } = props;
+  const { folder, index } = props;
 
   return (
     <div className='w-96 p-2 flex-shrink-0'>
@@ -18,7 +19,7 @@ export default function Column(props: Props) {
             if ((item as Folder).children === undefined) {
               return <LinkUi key={item.id} link={item as Site} />
             } else {
-              return <FolderUi key={item.id} folder={item as Folder} />
+              return <FolderUi key={item.id} folder={item as Folder} index={index} />
             }
           })}
         </div>

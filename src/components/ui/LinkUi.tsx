@@ -14,9 +14,7 @@ export default function LinkUi({ link }: Props) {
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      draggable={false} // Disables the browser built-in drag handler
-    // isHoverDisabled={isHoverDisabled}
-    // isTransitionDisabled={isTransitionDisabled}
+      draggable={false}
     >
       {
         url &&

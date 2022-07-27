@@ -38,15 +38,20 @@ const SiteSlice = createSlice({
   name: 'Sitemark',
   initialState: initialSiteState,
   reducers: {
-    increment(state, action) {
-      const newFolder = (state.Bookmark.children.find(item => item.id === action.payload)) as Folder;
-      state.columns.push(newFolder);
+    increment(state, action: { payload: { id: string, index: number } }) {
+      const newFolder = (state.columns[action.payload.index].children.find(item => item.id === action.payload.id)) as Folder;
+      if (action.payload.index < state.columns.length - 1) {
+        state.columns = state.columns.slice(0, action.payload.index + 1);
+        state.columns.push(newFolder);
+      } else {
+        state.columns.push(newFolder);
+      }
     },
     initBookmark(state, action) {
-      // console.log(action.payload[0].children);
       state.Bookmark = action.payload[0].children[0];
       state.otherBookmark = action.payload[0].children[1];
       state.columns.push(state.Bookmark)
+      state.columns[0].children.push(state.otherBookmark)
     }
   },
 });
