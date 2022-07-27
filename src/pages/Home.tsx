@@ -4,15 +4,15 @@ import Column from '../components/ui/Column';
 import TreeFolders from '../components/ui/TreeFolders';
 import Header from '../layouts/Header';
 
-import { booksActions, fetchBooksmark } from '../store/booksmarkReducer';
+import { fetchBookmark, SiteActions } from '../store/booksmarkReducer';
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     const getData = async () => {
-      const data = await fetchBooksmark()
-      dispatch(booksActions.replaceBooksmark(data));
+      const data = await fetchBookmark()
+      dispatch(SiteActions.initBookmark(data));
     }
     getData();
   }, [dispatch])

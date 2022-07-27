@@ -1,4 +1,6 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { SiteActions } from '../../store/booksmarkReducer';
 import { Folder } from '../../types/Folder';
 import { getFaviconUrl } from "../../utils/getFaviconUrl";
 
@@ -6,10 +8,12 @@ type Props = {
   folder: Folder
 }
 
-export default function FolderBooks({ folder }: Props) {
+export default function FolderUi({ folder }: Props) {
+  const dispatch = useDispatch();
 
   function folderHandler() {
     console.log(folder.id);
+    dispatch(SiteActions.increment(folder.id));
   }
 
   const { title } = folder;

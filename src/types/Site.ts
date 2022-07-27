@@ -1,4 +1,4 @@
-export interface Bookmark {
+export interface Site {
   dateAdded: number,
   id: string,
   index: number,

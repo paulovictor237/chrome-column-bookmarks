@@ -1,12 +1,12 @@
 import React from 'react';
-import { Bookmark } from '../../types/Bookmark';
+import { Site } from '../../types/Site';
 import { getFaviconUrl } from "../../utils/getFaviconUrl";
 
 type Props = {
-  link: Bookmark
+  link: Site
 }
 
-export default function LineLink({ link }: Props) {
+export default function LinkUi({ link }: Props) {
   const { url, title } = link;
   const faviconSrc = url && getFaviconUrl(url);
   return (

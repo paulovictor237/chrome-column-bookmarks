@@ -1,8 +1,8 @@
 import bookmarksFixture from "../fixtures/peve.json";
 import { NODE_ENV } from "../utils/constants";
 import { delay } from "../utils/delay";
-import { Bookmark } from "./../types/Bookmark";
 import { ChromeBookmark } from "./../types/ChromeBookmark";
+import { Site } from "./../types/Site";
 import { IS_LIVE_EXAMPLE } from "./../utils/constants";
 
 export const getBookmarks = async () => {

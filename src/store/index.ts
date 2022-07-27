@@ -1,8 +1,8 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
-import booksReducer from './booksmarkReducer';
+import SiteReducer from './booksmarkReducer';
 
 const store = configureStore({
-  reducer: { booksReducer },
+  reducer: { SiteReducer },
 });
 
 export default store;

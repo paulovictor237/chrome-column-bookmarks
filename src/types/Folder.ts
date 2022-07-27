@@ -1,8 +1,8 @@
-import { Bookmark } from "./Bookmark";
+import { Site } from "./Site";
 
 interface ReactNodeArray extends Folder { }
 export interface Folder {
-  children: (Bookmark | ReactNodeArray)[],
+  children: (Site | ReactNodeArray)[],
   dateAdded: number,
   dateGroupModified: number,
   id: string,
