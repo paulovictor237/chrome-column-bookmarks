@@ -1,0 +1,217 @@
+[
+  {
+    "children": [
+      {
+        "dateAdded": 1415023988987,
+        "id": "20",
+        "index": 0,
+        "parentId": "1",
+        "title": "Google",
+        "url": "https:/google.com/"
+      },
+      {
+        "dateAdded": 1457424049324,
+        "id": "26",
+        "index": 1,
+        "parentId": "1",
+        "title": "Twitter",
+        "url": "https://twitter.com/"
+      },
+      {
+        "dateAdded": 1452547369278,
+        "id": "28",
+        "index": 2,
+        "parentId": "1",
+        "title": "Ino reader",
+        "url": "https://www.inoreader.com/discovery"
+      },
+      {
+        "dateAdded": 1522930734988,
+        "id": "324",
+        "index": 3,
+        "parentId": "1",
+        "title": "Dev.to",
+        "url": "https://dev.to/"
+      },
+      {
+        "dateAdded": 1415021741069,
+        "id": "29",
+        "index": 4,
+        "parentId": "1",
+        "title": "Amazon",
+        "url": "http://www.amazon.com/"
+      },
+      {
+        "dateAdded": 1415021717391,
+        "id": "30",
+        "index": 5,
+        "parentId": "1",
+        "title": "Reddit",
+        "url": "http://www.reddit.com/"
+      },
+      {
+        "dateAdded": 1415021693972,
+        "id": "31",
+        "index": 6,
+        "parentId": "1",
+        "title": "Facebook",
+        "url": "https://www.facebook.com/"
+      },
+      {
+        "dateAdded": 1406291592095,
+        "id": "32",
+        "index": 7,
+        "parentId": "1",
+        "title": "Hacker News",
+        "url": "https://news.ycombinator.com/"
+      },
+      {
+        "dateAdded": 1415021705455,
+        "id": "33",
+        "index": 8,
+        "parentId": "1",
+        "title": "YouTube",
+        "url": "https://www.youtube.com/feed/subscriptions"
+      },
+      {
+        "dateAdded": 1524163526513,
+        "id": "344",
+        "index": 9,
+        "parentId": "1",
+        "title": "Wirecutter",
+        "url": "https://thewirecutter.com/electronics/"
+      }
+    ],
+    "dateAdded": 1519759407642,
+    "dateGroupModified": 1544281568407,
+    "id": "1",
+    "index": 0,
+    "parentId": "0",
+    "title": "Common"
+  },
+  {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "dateAdded": 1469746091197,
+                "id": "121",
+                "index": 0,
+                "parentId": "19",
+                "title": "Mobile Design Patterns - Pttrns",
+                "url": "http://pttrns.com/"
+              },
+              {
+                "dateAdded": 1483462692221,
+                "id": "122",
+                "index": 1,
+                "parentId": "19",
+                "title": "icons8",
+                "url": "https://icons8.com/"
+              },
+              {
+                "dateAdded": 1477414033765,
+                "id": "123",
+                "index": 2,
+                "parentId": "19",
+                "title": "Free vector icons",
+                "url": "http://www.flaticon.com/"
+              },
+              {
+                "dateAdded": 1364206411437,
+                "id": "133",
+                "index": 3,
+                "parentId": "19",
+                "title": "5000 Best Movies",
+                "url": "http://5000best.com/movies/"
+              },
+              {
+                "dateAdded": 1498548187677,
+                "id": "143",
+                "index": 4,
+                "parentId": "19",
+                "title": "Mobile UI designs - UI Movement",
+                "url": "https://uimovement.com/category/1/mobile/"
+              },
+              {
+                "dateAdded": 1485813957389,
+                "id": "144",
+                "index": 5,
+                "parentId": "19",
+                "title": "Noisli - Improve Focus and Boost Productivity with Background Noise",
+                "url": "https://www.noisli.com/"
+              },
+              {
+                "dateAdded": 1487253440683,
+                "id": "148",
+                "index": 6,
+                "parentId": "19",
+                "title": "Isotope",
+                "url": "http://isotope.metafizzy.co/"
+              },
+              {
+                "dateAdded": 1489700817156,
+                "id": "157",
+                "index": 7,
+                "parentId": "19",
+                "title": "Animista",
+                "url": "http://animista.net/"
+              },
+              {
+                "dateAdded": 1537809812089,
+                "id": "468",
+                "index": 8,
+                "parentId": "19",
+                "title": "365 Random Muppets",
+                "url": "https://365randommuppets.wordpress.com/"
+              }
+            ],
+            "dateAdded": 1483525248196,
+            "dateGroupModified": 1541255962348,
+            "id": "19",
+            "index": 7,
+            "parentId": "1-f",
+            "title": "Useful stuff"
+          },
+          {
+            "children": [
+              {
+                "dateAdded": 1446822250939,
+                "id": "38",
+                "index": 0,
+                "parentId": "475",
+                "title": "GitHub",
+                "url": "https://github.com/"
+              },
+              {
+                "dateAdded": 1539070361514,
+                "id": "476",
+                "index": 1,
+                "parentId": "475",
+                "title": "GitHub | mmazzarolo",
+                "url": "https://github.com/mmazzarolo"
+              }
+            ],
+            "dateAdded": 1539070313228,
+            "dateGroupModified": 1539447553217,
+            "id": "475",
+            "index": 1,
+            "parentId": "1-f",
+            "title": "GitHub"
+          }
+        ],
+        "dateAdded": 1519759407642,
+        "dateGroupModified": 1542983765382,
+        "id": "1-f",
+        "index": 0,
+        "parentId": "0",
+        "title": "Bookmarks Bar"
+      }
+    ],
+    "dateAdded": 1542705356217,
+    "id": "0",
+    "title": ""
+  }
+]
