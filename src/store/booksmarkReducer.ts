@@ -4,11 +4,6 @@ import { ChromeBookmark } from "./../types/ChromeBookmark";
 
 export const fetchBooksmark = async () => {
   const gettingTree = await getBookmarks()
-  // console.log("newstring");
-  // console.log(gettingTree);
-  const [{ children: bookmarks }, { children: otherBookmarks }] = gettingTree[0].children!;
-  // console.log(bookmarks);
-  // console.log(otherBookmarks);
   return gettingTree
 };
 

@@ -1,12 +1,9 @@
 import React from 'react';
+import { Bookmark } from '../../types/Bookmark';
 import { getFaviconUrl } from "../../utils/getFaviconUrl";
 
-type props = {
-  url: string,
-  title: string
-}
-
-export default function LineLink({ url, title }: props) {
+export default function LineLink(link: any) {
+  const { url, title } = link;
   const faviconSrc = url && getFaviconUrl(url);
   return (
     <a className='p-1 px-3 hover:bg-blue-suave filter:brightness-105 overflow-hidden h-10 flex items-center justify-start bg-dark800 rounded-md'
