@@ -24,7 +24,6 @@ export default function TreeFolders() {
     }
   }, [booksmarkroot])
 
-  console.log("asd", folder)
   return (
     <div className=' heightColumn overflow-x-auto w-screen bottom-0 fixed flex sc2 p-1'>
       <Column folder={folder} />

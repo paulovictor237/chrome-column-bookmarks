@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../store';
+import { Folder } from '../../types/Folder';
 import FolderBooks from './FolderBooks';
 import LineLink from './LineLink';
 
-export default function Column({ folder }: any) {
+type Props = {
+  folder: Folder;
+};
+
+export default function Column(props: Props) {
+  const { folder } = props;
 
   return (
     <div className='w-96 p-2'>
@@ -12,9 +15,9 @@ export default function Column({ folder }: any) {
         <div className='flex flex-col gap-3'>
           {folder.children?.map((item: any) => {
             if (item.children === undefined) {
-              return <LineLink key={item.id} url={item.url} title={item.title} />
+              return <LineLink key={item.id} link={item} />
             } else {
-              return <FolderBooks key={item.id} url={item.url} title={item.title} />
+              return <FolderBooks key={item.id} folder={item} />
             }
           })}
         </div>

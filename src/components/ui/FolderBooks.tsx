@@ -1,30 +1,29 @@
 import React from 'react';
+import { Folder } from '../../types/Folder';
 import { getFaviconUrl } from "../../utils/getFaviconUrl";
 
-type props = {
-  url: string,
-  title: string
+type Props = {
+  folder: Folder
 }
 
-export default function FolderBooks({ url, title }: props) {
+export default function FolderBooks({ folder }: Props) {
+
+  function folderHandler() {
+    console.log(folder.id);
+  }
+
+  const { title } = folder;
   return (
-    <a className='p-1 px-3 hover:bg-blue-suave filter:brightness-105 overflow-hidden h-10 flex items-center justify-start bg-dark800 rounded-md'
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-      draggable={false} // Disables the browser built-in drag handler
-    // isHoverDisabled={isHoverDisabled}
-    // isTransitionDisabled={isTransitionDisabled}
+    <div
+      className='p-1 px-3 hover:bg-blue-suave filter:brightness-105 overflow-hidden h-10 flex items-center justify-start bg-dark800 rounded-md cursor-pointer'
+      onClick={folderHandler}
     >
-      {
-        <span className='h-6 w-6 mr-3'>
-          📁
-        </span>
-      }
-      <span className='text-ellipsis	whitespace-nowrap overflow-hidden'
-      >
+      <span className='h-6 w-6 mr-3'>
+        📁
+      </span>
+      <span className='text-ellipsis	whitespace-nowrap overflow-hidden'>
         {title}
       </span>
-    </a>
+    </div>
   )
 }
