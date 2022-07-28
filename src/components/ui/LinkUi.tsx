@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { getFaviconUrl } from "../../services/getFaviconUrl";
 import { RootState } from '../../store';
 import { Site } from '../../types/Site';
-import { getFaviconUrl } from "../../utils/getFaviconUrl";
 
 type Props = {
   link: Site

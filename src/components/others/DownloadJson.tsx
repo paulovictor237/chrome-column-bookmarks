@@ -1,10 +1,9 @@
-import { ChromeBookmark } from "../../types/ChromeBookmark";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 
-type Props = {
-  data: ChromeBookmark[];
-}
+export default function DownloadJson() {
+  const data = useSelector((state: RootState) => state.siteReducer.Bookmark);
 
-export default function DownloadJson({ data }: Props) {
   const exportData = () => {
     const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
       JSON.stringify(data)
@@ -17,10 +16,10 @@ export default function DownloadJson({ data }: Props) {
 
   return (
     <>
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-      <button className='btn btn-primary border border-spacing-1 border-gray-200 bg-blue-600 rounded-2xl h-12 w-40 m-3'
-        type="button" onClick={exportData}>
+      <button
+        className='select-none text-blue-700 border border-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-1.5 text-center dark:border-blue-500 dark:text-blue-500 dark:focus:ring-blue-800'
+        type="button" onClick={exportData}
+      >
         Export Data
       </button>
     </>

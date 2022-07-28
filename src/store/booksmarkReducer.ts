@@ -22,15 +22,15 @@ const initialFolder: Folder = {
   dateGroupModified: 0,
   id: '',
   index: 0,
-  parentId: '',
+  parentId: '0',
   title: ''
 }
 
 const initialSite: BookmarkState = {
   counter: 0,
   showCounter: true,
-  Bookmark: initialFolder,
-  otherBookmark: initialFolder,
+  Bookmark: { ...initialFolder, "id": "1", "index": 0, "title": "Bookmark Bar" },
+  otherBookmark: { ...initialFolder, "id": "2", "index": 1, "title": "Others Bookmark" },
   columns: []
 };
 
@@ -48,10 +48,25 @@ const SiteSlice = createSlice({
       }
     },
     initBookmark(state, action) {
-      state.Bookmark = action.payload[0].children[0];
-      state.otherBookmark = action.payload[0].children[1];
-      state.columns.push(state.Bookmark)
-      state.columns[0].children.push(state.otherBookmark)
+      if (action.payload.length !== 'undefined') {
+        if (action.payload[0].children.length === 2) {
+          state.Bookmark = action.payload[0].children[0];
+          state.otherBookmark = action.payload[0].children[1];
+          state.columns.push(state.Bookmark)
+          state.columns[0].children.push(state.otherBookmark)
+        }
+        else if (action.payload.length === 2) {
+          state.Bookmark = action.payload[0];
+          state.columns.push(state.Bookmark)
+          state.columns[0].children.push(action.payload[1].children[0])
+          state.columns[0].children.push(state.otherBookmark)
+        }
+      }
+      else if (typeof action.payload === 'object') {
+        state.Bookmark = action.payload;
+        state.columns.push(state.Bookmark)
+        state.columns[0].children.push(state.otherBookmark)
+      }
     }
   },
 });

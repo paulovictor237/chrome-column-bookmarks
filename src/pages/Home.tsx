@@ -21,7 +21,7 @@ function App() {
   }, [dispatch])
 
   return (
-    <div className='h-full w-full fixed'>
+    <div className='block'>
       <Header />
       <TreeColumns />
     </div>
