@@ -24,7 +24,7 @@ export default function LinkUi({ link }: Props) {
         <img
           className='h-6 w-6 mr-3'
           src={faviconSrc}
-          alt="[ favicon ]"
+          alt=""
         />
       }
       <span className='text-ellipsis	whitespace-nowrap overflow-hidden'

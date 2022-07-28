@@ -16,8 +16,9 @@ export default function DownloadJson() {
 
   return (
     <>
+
       <button
-        className='select-none text-blue-700 border border-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-1.5 text-center dark:border-blue-500 dark:text-blue-500 dark:focus:ring-blue-800'
+        className='hover:bg-blue-800 hover:text-white dark:hover:text-white dark:hover:bg-blue-600 inline-flex items-center select-none text-blue-700 border border-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-1.5 text-center dark:border-blue-500 dark:text-blue-500 dark:focus:ring-blue-800'
         type="button" onClick={exportData}
       >
         Export Data
