@@ -1,27 +1,24 @@
 {
-  "name": "Chrome React SEO Extension",
-  "description": "The power of React and TypeScript for building interactive Chrome extensions",
-  "version": "1.0",
-  "manifest_version": 3,
-  "background": {
-    "scripts": [
-      "background.js"
-    ]
-  },
-  "action": {
-    "default_popup": "index.html",
-    "default_title": "Open the popup"
+  "name": "Column Bookmarks New Tab",
+  "description": "Column Bookmarks New Tab",
+  "version": "0.1.0",
+  "version_name": "Beta",
+  "manifest_version": 2,
+  "permissions": [
+    "bookmarks",
+    "chrome://favicon/"
+  ],
+  "browser_action": {
+    "default_title": "Column",
+    "default_icon": "/images/favicon96.png"
   },
   "icons": {
-    "16": "logo192.png",
-    "48": "logo192.png",
-    "128": "logo192.png"
+    "16": "/images/favicon16.png",
+    "32": "/images/favicon32.png",
+    "96": "/images/favicon96.png"
   },
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
-  "permissions": [
-    "bookmarks"
-  ],
-  "content_security_policy": "script-src 'self'; object-src 'self'; img-src chrome://favicon;edge://favicon"
+  "content_security_policy": "script-src 'self'; object-src 'self'; img-src chrome://favicon;"
 }

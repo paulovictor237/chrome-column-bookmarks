@@ -33,16 +33,16 @@ button {
 }
 
 .heightHeader {
-  @apply h-14
+  @apply h-12
 }
 
 .heightColumn {
-  height: calc(100vh - 3.5rem);
+  height: calc(100vh - 3rem);
 }
 
 .sc2::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
+  width: 8px;
+  height: 8px;
 }
 
 .sc2::-webkit-scrollbar-track {
@@ -53,21 +53,5 @@ button {
 .sc2::-webkit-scrollbar-thumb {
   /* background-color: #11171a; */
   background-color: #198cf0;
-  border-radius: 10px;
-}
-
-/* Scroll 1 */
-.sc1::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-.sc1::-webkit-scrollbar-track {
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 10px;
-}
-
-.sc1::-webkit-scrollbar-thumb {
-  background-color: #dfdfdf;
   border-radius: 10px;
 }
