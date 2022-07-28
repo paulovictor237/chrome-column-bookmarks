@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
-import { RootState } from '../../store';
-import Column from './Column';
+import Column from '../components/ui/Column';
+import { RootState } from '../store';
 
-export default function TreeFolders() {
-  const columns = useSelector((state: RootState) => state.SiteReducer.columns);
+export default function TreeColumns() {
+  const columns = useSelector((state: RootState) => state.siteReducer.columns);
 
   return (
     <div className=' heightColumn overflow-x-auto w-screen bottom-0 fixed flex sc2 p-1'>

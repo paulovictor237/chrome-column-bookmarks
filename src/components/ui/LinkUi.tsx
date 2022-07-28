@@ -1,4 +1,6 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 import { Site } from '../../types/Site';
 import { getFaviconUrl } from "../../utils/getFaviconUrl";
 
@@ -9,10 +11,11 @@ type Props = {
 export default function LinkUi({ link }: Props) {
   const { url, title } = link;
   const faviconSrc = url && getFaviconUrl(url);
+  const newTab = useSelector((state: RootState) => state.optionsReducer.newTab)
   return (
     <a className='p-1 px-3 hover:bg-blue-suave filter:brightness-105 overflow-hidden h-10 flex items-center justify-start bg-dark800 rounded-md'
       href={url}
-      target="_blank"
+      target={newTab ? "_blank" : "_self"}
       rel="noopener noreferrer"
       draggable={false}
     >

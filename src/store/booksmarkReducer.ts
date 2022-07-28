@@ -26,7 +26,7 @@ const initialFolder: Folder = {
   title: ''
 }
 
-const initialSiteState: BookmarkState = {
+const initialSite: BookmarkState = {
   counter: 0,
   showCounter: true,
   Bookmark: initialFolder,
@@ -36,7 +36,7 @@ const initialSiteState: BookmarkState = {
 
 const SiteSlice = createSlice({
   name: 'Sitemark',
-  initialState: initialSiteState,
+  initialState: initialSite,
   reducers: {
     increment(state, action: { payload: { id: string, index: number } }) {
       const newFolder = (state.columns[action.payload.index].children.find(item => item.id === action.payload.id)) as Folder;
