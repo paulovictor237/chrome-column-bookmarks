@@ -48,6 +48,7 @@ const SiteSlice = createSlice({
       }
     },
     initBookmark(state, action) {
+      state.columns = []
       if (action.payload.length !== 'undefined') {
         if (action.payload[0].children.length === 2) {
           state.Bookmark = action.payload[0].children[0];
