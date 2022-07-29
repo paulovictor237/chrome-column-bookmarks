@@ -1,0 +1,118 @@
+[
+  {
+    "children": [
+      {
+        "children": [
+          {
+            "dateAdded": 1658275204793,
+            "id": "6",
+            "index": 0,
+            "parentId": "1",
+            "title": "Creating a Chrome extension with React and TypeScript - LogRocket Blog",
+            "url": "https://blog.logrocket.com/creating-chrome-extension-react-typescript/"
+          },
+          {
+            "dateAdded": 1658334779917,
+            "id": "8",
+            "index": 1,
+            "parentId": "1",
+            "title": "GitHub",
+            "url": "https://github.com/paulovictor237?tab=repositories"
+          },
+          {
+            "dateAdded": 1658335192252,
+            "id": "9",
+            "index": 2,
+            "parentId": "1",
+            "title": "Gists",
+            "url": "https://gist.github.com/paulovictor237/0eac5ffd5090875086b0033ec37422b4"
+          },
+          {
+            "dateAdded": 1658335250631,
+            "id": "10",
+            "index": 3,
+            "parentId": "1",
+            "title": "Tailwind CSS",
+            "url": "https://tailwindcss.com/docs/installation/using-postcss"
+          },
+          {
+            "dateAdded": 1658943482143,
+            "id": "17",
+            "index": 4,
+            "parentId": "1",
+            "title": "Painel de controle do desenvolvedor",
+            "url": "https://chrome.google.com/u/1/webstore/devconsole/734a4172-8e89-4f15-96c2-a1e2b0115e53?pli=1"
+          },
+          {
+            "dateAdded": 1658966157707,
+            "id": "19",
+            "index": 5,
+            "parentId": "1",
+            "title": "Tailwind CSS Switch for React - Material Tailwind",
+            "url": "https://www.material-tailwind.com/docs/react/switch"
+          },
+          {
+            "dateAdded": 1659027753062,
+            "id": "23",
+            "index": 6,
+            "parentId": "1",
+            "title": "Inbox - paulovictorpeve@gmail.com - Gmail",
+            "url": "https://mail.google.com/mail/u/0/#inbox"
+          },
+          {
+            "children": [
+              {
+                "dateAdded": 1658337719669,
+                "id": "11",
+                "index": 0,
+                "parentId": "13",
+                "title": "YouTube",
+                "url": "https://www.youtube.com/"
+              }
+            ],
+            "dateAdded": 1658346539811,
+            "dateGroupModified": 1658943482143,
+            "id": "13",
+            "index": 7,
+            "parentId": "1",
+            "title": "Nova pasta"
+          },
+          {
+            "dateAdded": 1659015828286,
+            "id": "21",
+            "index": 8,
+            "parentId": "1",
+            "title": "Pull Requests",
+            "url": "https://github.com/pulls"
+          },
+          {
+            "dateAdded": 1659036338537,
+            "id": "24",
+            "index": 9,
+            "parentId": "1",
+            "title": "Introduction | Framer for Developers",
+            "url": "https://www.framer.com/docs/introduction/"
+          }
+        ],
+        "dateAdded": 1658192485714,
+        "dateGroupModified": 1659095015382,
+        "id": "1",
+        "index": 0,
+        "parentId": "0",
+        "title": "Barra de favoritos"
+      },
+      {
+        "children": [],
+        "dateAdded": 1658192485714,
+        "dateGroupModified": 1659027753062,
+        "id": "2",
+        "index": 1,
+        "parentId": "0",
+        "title": "Outros favoritos"
+      }
+    ],
+    "dateAdded": 1659091060248,
+    "id": "0",
+    "title": ""
+  }
+]
