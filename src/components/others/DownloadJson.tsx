@@ -1,9 +1,9 @@
-import { fetchBookmark } from "../../store/booksmarkReducer";
+import { getBookmarks } from "../../services/getBookmarks";
 
 export default function DownloadJson() {
 
   const exportData = async () => {
-    const data = await fetchBookmark()
+    const data = await getBookmarks()
     const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
       JSON.stringify(data)
     )}`;

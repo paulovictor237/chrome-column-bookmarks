@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Header from '../layouts/Header';
 import TreeColumns from '../layouts/TreeColumns';
-import { fetchBookmark, SiteActions } from '../store/booksmarkReducer';
+import { getBookmarks } from '../services/getBookmarks';
+import { SiteActions } from '../store/booksmarkReducer';
 import { optionsActions } from '../store/optionsReducer';
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
 
   useEffect(() => {
     const getData = async () => {
-      const data = await fetchBookmark()
+      const data = await getBookmarks()
       dispatch(SiteActions.initBookmark(data));
     }
     getData();
