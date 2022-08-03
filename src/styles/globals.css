@@ -32,6 +32,10 @@ button {
   } */
 }
 
+input {
+  @apply text-slate-900
+}
+
 .heightHeader {
   @apply h-12
 }

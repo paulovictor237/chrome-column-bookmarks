@@ -10,14 +10,11 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const getData = async () => {
+    async function getData() {
       const data = await getBookmarks()
       dispatch(SiteActions.initBookmark(data));
     }
     getData();
-  }, [dispatch])
-
-  useEffect(() => {
     dispatch(optionsActions.getLocalStorage());
   }, [dispatch])
 
