@@ -1,11 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-type BookmarkState = {
+type OptionsState = {
   newTab: boolean,
+  searchBar: boolean,
 }
 
-const initialOptions: BookmarkState = {
+const initialOptions: OptionsState = {
   newTab: false,
+  searchBar:false
 };
 
 const optionsSlice = createSlice({
@@ -15,6 +17,9 @@ const optionsSlice = createSlice({
     changeState(state) {
       state.newTab = !state.newTab
       localStorage.setItem('newTab', String(state.newTab));
+    },
+    changeSearchBar(state,action) {
+      state.searchBar = action.payload
     },
     getLocalStorage(state) {
       const storage = (localStorage.getItem('newTab')); // 'dark'
