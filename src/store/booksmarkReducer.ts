@@ -1,13 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { Folder } from '../types/Folder';
+import { Site } from '../types/Site';
 import { ChromeBookmark } from "./../types/ChromeBookmark";
 
 type BookmarkState = {
   counter: number,
   showCounter: boolean,
   Bookmark: Folder,
-  otherBookmark: Folder
-  columns: Folder[]
+  otherBookmark: Folder,
+  searchFolder: Folder
+  columns: Folder[],
 }
 
 const initialFolder: Folder = {
@@ -25,6 +27,7 @@ const initialSite: BookmarkState = {
   showCounter: true,
   Bookmark: { ...initialFolder, "id": "1", "index": 0, "title": "Bookmark Bar" },
   otherBookmark: { ...initialFolder, "id": "2", "index": 1, "title": "Others Bookmark" },
+  searchFolder: { ...initialFolder, "id": "-1", "index": -1, "title": "Search" },
   columns: []
 };
 
@@ -48,11 +51,16 @@ const SiteSlice = createSlice({
 
         state.columns = []
         state.columns.push(state.Bookmark)
-        state.columns[0].children.push(state.otherBookmark)
+        if (state.otherBookmark.children.length > 0) {
+          state.columns[0].children.push(state.otherBookmark)
+        }
       }
       else {
         // error
       }
+    },
+    search(state, action: { payload: Site[] }) {
+      state.searchFolder.children = action.payload;
     }
   },
 });

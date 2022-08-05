@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 // import { Input } from "reactstrap";
 
-export default function Dropdowns() {
+export default function Donate() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -46,15 +46,19 @@ export default function Dropdowns() {
           </a>
         </LiItem>
         <LiItem >
-          <button
+          {/* <button
             className='text-gray-900 block'
-            onClick={
-              () => {
-                navigator.clipboard.writeText('paulovictor237@gmail.com');
-              }
-            }>
-            PIX (click to copy) : paulovictor237@gmail.com
-          </button>
+            onClick={() => {navigator.clipboard.writeText('paulovictor237@gmail.com');}}>
+            PIX (click to copy) : xxxxxxxxxx
+          </button> */}
+          
+          <a className="w-30 block text-gray-900"
+            href="https://www.buymeacoffee.com/peve"
+            target="_blank" rel="noreferrer"
+            draggable={false}
+          >
+            Buy me a coffee
+          </a>
         </LiItem>
       </ul>
     </div>
