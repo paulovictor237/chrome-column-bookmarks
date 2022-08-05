@@ -4,7 +4,6 @@ import { RootState } from "../../store";
 import { SiteActions } from '../../store/booksmarkReducer';
 import { optionsActions } from "../../store/optionsReducer";
 import { Site } from "../../types/Site";
-import { IS_LIVE_EXAMPLE, NODE_ENV } from "../../utils/constants";
 import { MdOutlineClear } from 'react-icons/md';
 
 
@@ -44,12 +43,13 @@ export default function SearchBar() {
 
   async function search(searchText: string) {
     if (searchText === '') return dispatch(SiteActions.search([]))
-    if (NODE_ENV === "development" || IS_LIVE_EXAMPLE) {
+    if (process.env.NODE_ENV === "development") {
       const local = searchLocal(searchText)
       dispatch(SiteActions.search(local))
     } else {
       try {
-        const filter = await new Promise<any[]>(res => chrome.bookmarks.search(searchText, res));
+        const local = await new Promise<any[]>(res => chrome.bookmarks.search(searchText, res));
+        const filter = local.filter(item => item.dateGroupModified === undefined)
         dispatch(SiteActions.search(filter))
       } catch (e) {
         const local = searchLocal(searchText)
@@ -59,7 +59,7 @@ export default function SearchBar() {
   }
 
   return (
-    <form className="flex flex-row items-center gap-2 border bg-white rounded-md px-2"
+    <form className="hover:outline outline-4 focus:outline outline-blue-suave flex flex-row items-center gap-2 border bg-white rounded-md px-2"
       ref={formRef} onSubmit={onSubmit}>
       <input className="outline-none"
         type='text'

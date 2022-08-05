@@ -16,11 +16,17 @@ type Props = {
 export default function Column(props: Props) {
   const { folder, index, status } = props;
 
+  const exitVariants = {
+    visible: { x: [0, 20, -60], opacity: 0 },
+    hidden: {},
+  }
+
   return (
     <motion.div className='w-80 p-2 flex-shrink-0'
       initial={{ x: 0, opacity: 0 }}
       animate={{ x: [-60, 20, 0], opacity: 1 }}
-      // exit={{ x: [0, 20, -60], opacity: 0 }}
+      variants={exitVariants}
+      exit={(index === -1) ? "visible" : "hidden"}
       // layoutId={`Column${index}`}
       transition={{ duration: 0.3 }}
     >

@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { Folder } from '../types/Folder';
 import { Site } from '../types/Site';
-import { IS_LIVE_EXAMPLE, NODE_ENV } from '../utils/constants';
 import { ChromeBookmark } from "./../types/ChromeBookmark";
 
 type BookmarkState = {

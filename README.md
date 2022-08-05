@@ -1,6 +1,14 @@
-#  Bookmarks Column View<img src="./.github/chrome-web-store-icon.png" width="40" align="left">
+<a style="text-decorations:none; color:inherit;"
+href="https://chrome.google.com/webstore/detail/column-bookmarks-new-tab/ocjdiehlhhoiahkbbgmjnfeipjpbhhph?hl" target="_blank">
+  <h1>
+    Bookmarks Column View<img src="./.github/chrome-web-store-icon.png" width="40" align="left">
+  </h1>
+</a>
 
-This project was build for learning propose. See the demo by clicking on the image above.
+This project was build for learning propose. See the demo by clicking on the image above. The chrome extension is available at the following Link:
+<a href="https://chrome.google.com/webstore/detail/column-bookmarks-new-tab/ocjdiehlhhoiahkbbgmjnfeipjpbhhph?hl" target="_blank">
+Column Bookmarks New Tab
+</a>
 
 <p align="center" margin-bottom="0">
   <a href="https://chrome-column-tab.vercel.app" target="_blank">
@@ -16,7 +24,8 @@ This project was build for learning propose. See the demo by clicking on the ima
 - Tailwind
 - Framer Motion
 - Chrome Extension
-
+- Vite
+- Zustand
 
 ## Inspirations
 
@@ -29,8 +38,9 @@ Visual Inspire:
 
 ### Next features
 
+- [X] Search bookmark
+- [X] Power by VITE
 - [ ] Dark/light mode
-- [ ] Search bookmark
 - [ ] Edit order of bookmarks
 
 ### Developing locally
@@ -39,7 +49,13 @@ This is a standard Create React App, so you can easily start working on it by si
 
 To develop the app locally you can run `yarn start`, I already included some fake bookmarks to simulate the production behavior of the extension.
 
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Update: This project was rebuild with Vite using the following command line
+
+```shell
+yarn create vite vite-project --template react-ts
+```
+
+Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
 
 ### Build for Production
 

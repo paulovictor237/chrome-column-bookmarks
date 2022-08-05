@@ -1,13 +1,11 @@
 import bookmarks from "../fixtures/bookmarks.json";
 import dev from "../fixtures/dev.json";
 import peve from "../fixtures/peve.json";
-import { NODE_ENV, VERCEL_ENV } from "../utils/constants";
 import { delay } from "../utils/delay";
 import { ChromeBookmark } from "./../types/ChromeBookmark";
-import { IS_LIVE_EXAMPLE } from "./../utils/constants";
 
 export const getBookmarks = async () => {
-  if (NODE_ENV === "development" || VERCEL_ENV === "VERCEL" || IS_LIVE_EXAMPLE) {
+  if (process.env.NODE_ENV === "development") {
     await delay(100);
     return bookmarks;
   } else {

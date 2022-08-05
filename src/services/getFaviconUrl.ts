@@ -1,5 +1,3 @@
-import { IS_LIVE_EXAMPLE, NODE_ENV } from "../utils/constants";
-
 export const getFaviconUrlV3 = (url: string) => {
   const prefixLessUrl = new URL(url || "").hostname;
   const devFavicon = `https://api.faviconkit.com/${prefixLessUrl}/32`;
@@ -18,7 +16,7 @@ export const getFaviconUrlV2 = (url: string) => {
   const chromeFavicon = `chrome://favicon/size/16@2x/${url}`
 
   try {
-    if (NODE_ENV === "development" || IS_LIVE_EXAMPLE) {
+    if (process.env.NODE_ENV === "development") {
       return devFavicon;
     } else {
       var http = new XMLHttpRequest();
