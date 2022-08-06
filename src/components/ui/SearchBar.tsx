@@ -42,6 +42,7 @@ export default function SearchBar() {
   }
 
   async function search(searchText: string) {
+    console.log("asdasdasd")
     if (searchText === '') return dispatch(SiteActions.search([]))
     if (process.env.NODE_ENV === "development") {
       const local = searchLocal(searchText)
@@ -49,7 +50,8 @@ export default function SearchBar() {
     } else {
       try {
         const local = await new Promise<any[]>(res => chrome.bookmarks.search(searchText, res));
-        const filter = local.filter(item => item.dateGroupModified === undefined)
+        const filter = local.filter(item => item.dateGroupModified === undefined && item.url !== undefined);
+        console.log(filter)
         dispatch(SiteActions.search(filter))
       } catch (e) {
         const local = searchLocal(searchText)
@@ -59,7 +61,7 @@ export default function SearchBar() {
   }
 
   return (
-    <form className="hover:outline outline-4 focus:outline outline-blue-suave flex flex-row items-center gap-2 border bg-white rounded-md px-2"
+    <form className="hover:outline outline-4 focus:outline outline-blue-suave flex flex-row items-center gap-2 border bg-white rounded-md px-2 h-8"
       ref={formRef} onSubmit={onSubmit}>
       <input className="outline-none"
         type='text'

@@ -19,7 +19,7 @@ function App() {
   }, [dispatch])
 
   return (
-    <div className='block'>
+    <div className='h-screen w-screen flex flex-col'>
       <Header />
       <TreeColumns />
     </div>

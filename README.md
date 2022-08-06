@@ -1,9 +1,4 @@
-<a style="text-decorations:none; color:inherit;"
-href="https://chrome.google.com/webstore/detail/column-bookmarks-new-tab/ocjdiehlhhoiahkbbgmjnfeipjpbhhph?hl" target="_blank">
-  <h1>
-    Bookmarks Column View<img src="./.github/chrome-web-store-icon.png" width="40" align="left">
-  </h1>
-</a>
+# Bookmarks Column View<img src="./.github/chrome-web-store-icon.png" width="40" align="left">
 
 This project was build for learning propose. See the demo by clicking on the image above. The chrome extension is available at the following Link:
 <a href="https://chrome.google.com/webstore/detail/column-bookmarks-new-tab/ocjdiehlhhoiahkbbgmjnfeipjpbhhph?hl" target="_blank">
@@ -40,7 +35,7 @@ Visual Inspire:
 
 - [X] Search bookmark
 - [X] Power by VITE
-- [ ] Dark/light mode
+- [ ] Dark/Light mode
 - [ ] Edit order of bookmarks
 
 ### Developing locally
