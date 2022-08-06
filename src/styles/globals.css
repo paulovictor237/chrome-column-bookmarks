@@ -36,14 +36,6 @@ input {
   @apply text-slate-900
 }
 
-.heightHeader {
-  @apply h-12
-}
-
-.heightColumn {
-  height: calc(100vh - 3rem);
-}
-
 .sc2::-webkit-scrollbar {
   width: 8px;
   height: 8px;

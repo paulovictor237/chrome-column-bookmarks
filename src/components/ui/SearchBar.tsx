@@ -59,7 +59,7 @@ export default function SearchBar() {
   }
 
   return (
-    <form className="hover:outline outline-4 focus:outline outline-blue-suave flex flex-row items-center gap-2 border bg-white rounded-md px-2"
+    <form className="hover:outline outline-4 focus:outline outline-blue-suave flex flex-row items-center gap-2 border bg-white rounded-md px-2 h-8"
       ref={formRef} onSubmit={onSubmit}>
       <input className="outline-none"
         type='text'

@@ -5,9 +5,9 @@ import SearchBar from '../components/ui/SearchBar';
 
 export default function Header() {
   const searchBarRef = useRef<HTMLInputElement>(null);
-  return (
-    <div className='bg-dark700 p-5 flex items-center justify-between w-full heightHeader shadow-lg'>
-      <div className='flex gap-2'>
+  return (//p-5 p-2 gap-0
+    <div className='bg-dark700 flex items-center justify-between w-full shadow-lg gap-2 p-2'>
+      <div className='flex gap-2 justify-between items-center h-full'>
         {/* <DownloadJson /> */}
         <NewTab />
         {/* <LockEdit /> */}
