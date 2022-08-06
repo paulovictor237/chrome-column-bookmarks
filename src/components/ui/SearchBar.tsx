@@ -42,6 +42,7 @@ export default function SearchBar() {
   }
 
   async function search(searchText: string) {
+    console.log("asdasdasd")
     if (searchText === '') return dispatch(SiteActions.search([]))
     if (process.env.NODE_ENV === "development") {
       const local = searchLocal(searchText)
@@ -49,7 +50,8 @@ export default function SearchBar() {
     } else {
       try {
         const local = await new Promise<any[]>(res => chrome.bookmarks.search(searchText, res));
-        const filter = local.filter(item => item.dateGroupModified === undefined)
+        const filter = local.filter(item => item.dateGroupModified === undefined && item.url !== undefined);
+        console.log(filter)
         dispatch(SiteActions.search(filter))
       } catch (e) {
         const local = searchLocal(searchText)
