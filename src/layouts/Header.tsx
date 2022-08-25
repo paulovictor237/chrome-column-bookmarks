@@ -1,13 +1,14 @@
-import { useRef } from 'react';
-import Donate from '../components/ui/Donate';
-import NewTab from '../components/ui/NewTab';
-import SearchBar from '../components/ui/SearchBar';
+import { useRef } from "react";
+import Donate from "../components/ui/Donate";
+import NewTab from "../components/ui/NewTab";
+import SearchBar from "../components/ui/SearchBar";
 
 export default function Header() {
   const searchBarRef = useRef<HTMLInputElement>(null);
-  return (//p-5 p-2 gap-0
-    <div className='bg-dark700 flex items-center justify-between w-full shadow-lg gap-2 p-2'>
-      <div className='flex gap-2 justify-between items-center h-full'>
+  return (
+    //p-5 p-2 gap-0
+    <div className="bg-dark700 flex items-center justify-between shadow-lg gap-2 p-2">
+      <div className="flex gap-2 justify-between items-center h-full">
         {/* <DownloadJson /> */}
         <NewTab />
         {/* <LockEdit /> */}
@@ -18,5 +19,5 @@ export default function Header() {
         Version: Beta
       </span> */}
     </div>
-  )
+  );
 }
