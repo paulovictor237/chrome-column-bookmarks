@@ -74,15 +74,16 @@ export default function Donate() {
 
       <AnimatePresence presenceAffectsLayout>
         {isOpen && (
-          <div className="fixed right-1/2 translate-x-1/2 z-10 top-11 md:right-2 md:translate-x-0 w-8/12">
+          <div className="fixed right-1/2 translate-x-1/2 z-10 top-11 md:right-2 md:translate-x-0 w-8/12 md:w-auto">
             <motion.ul
               initial={{ y: 0, opacity: 0 }}
               animate={{ y: [-20, 20, 0], opacity: 1 }}
               variants={exitVariants}
               exit={{ y: [0, 20, -20], opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className={`flex flex-col gap-1.5 text-gray-700 p-1.5 bg-gray-200 rounded-lg
-                md:w-40  md:h-24 h-28`}
+              className={
+                "flex flex-col gap-1.5 text-gray-700 p-1.5 bg-gray-200 rounded-lg h-28 md:w-40  md:h-24"
+              }
             >
               <LiItem href="https://www.paypal.com/donate/?business=FHWJYG8TT46JW&no_recurring=1&item_name=Help+me+to+develop+my+first+chrome+app.&currency_code=USD">
                 PayPal
