@@ -4,7 +4,7 @@ import { RootState } from "../../store";
 import { SiteActions } from "../../store/booksmarkReducer";
 import { optionsActions } from "../../store/optionsReducer";
 import { Site } from "../../types/Site";
-import { MdOutlineClear } from "react-icons/md";
+import { FiXCircle } from "react-icons/fi";
 import { twMerge } from "tailwind-merge";
 
 export default function SearchBar() {
@@ -95,9 +95,11 @@ export default function SearchBar() {
         // value={name}
         onChange={handleChange}
       />
-      <span className="text-black">|</span>
-      <button style={{ color: "black" }} type="submit">
-        <MdOutlineClear size={25} />
+      <button type="submit">
+        <FiXCircle
+          className="cursor-pointer text-gray-600 hover:text-blue-suave"
+          size={20}
+        />
       </button>
     </form>
   );
