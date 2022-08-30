@@ -1,5 +1,5 @@
-import { AnimatePresence, motion } from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion } from 'framer-motion';
+import React, { useEffect, useRef, useState } from 'react';
 // import { Input } from "reactstrap";
 
 export default function Donate() {
@@ -15,13 +15,13 @@ export default function Donate() {
         setIsOpen(false);
       }
     }
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
   }, [dropdownRef]);
 
   function LiItem(props: { children: React.ReactNode; href: string }) {
     return (
       <a
-        className="hover:bg-blue-suave p-2 whitespace-no-wrap rounded-lg text-center bg-gray-400 h-full flex flex-col justify-center w-30 text-gray-900"
+        className="h-14 md:h-12 hover:bg-blue-suave p-2 whitespace-no-wrap rounded-lg text-center bg-gray-400 flex flex-col justify-center w-30 text-gray-900"
         href={props.href}
         target="_blank"
         rel="noreferrer"
@@ -82,12 +82,12 @@ export default function Donate() {
               exit={{ y: [0, 20, -20], opacity: 0 }}
               transition={{ duration: 0.3 }}
               className={
-                "flex flex-col gap-1.5 text-gray-700 p-1.5 bg-gray-200 rounded-lg h-28 md:w-40  md:h-24"
+                'flex flex-col gap-1.5 text-gray-700 p-1.5 bg-gray-200 rounded-lg md:w-40'
               }
             >
-              <LiItem href="https://www.paypal.com/donate/?business=FHWJYG8TT46JW&no_recurring=1&item_name=Help+me+to+develop+my+first+chrome+app.&currency_code=USD">
+              {/* <LiItem href="https://www.paypal.com/donate/?business=FHWJYG8TT46JW&no_recurring=1&item_name=Help+me+to+develop+my+first+chrome+app.&currency_code=USD">
                 PayPal
-              </LiItem>
+              </LiItem> */}
               <LiItem href="https://www.buymeacoffee.com/peve">
                 Buy me a coffee
               </LiItem>

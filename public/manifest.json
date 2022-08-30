@@ -1,13 +1,13 @@
 {
   "name": "Column Bookmarks New Tab",
   "description": "Column Bookmarks New Tab",
-  "version": "0.1.0",
+  "version": "1.2.0",
   "version_name": "Beta",
   "manifest_version": 3,
   "permissions": ["bookmarks", "chrome://favicon/"],
   "browser_action": {
     "default_title": "Column",
-    "default_icon": "/images/favicon.png"
+    "default_icon": "/images/favicon96.png"
   },
   "icons": {
     "16": "/images/favicon.png",
