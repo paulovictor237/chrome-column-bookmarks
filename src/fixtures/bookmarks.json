@@ -8,8 +8,16 @@
             "id": "20",
             "index": 0,
             "parentId": "1",
-            "title": "Google",
-            "url": "https:/google.com/"
+            "title": "Chrome Extension",
+            "url": "https://chrome.google.com/webstore/detail/column-bookmarks-new-tab/ocjdiehlhhoiahkbbgmjnfeipjpbhhph?hl"
+          },
+          {
+            "dateAdded": 1415023988987,
+            "id": "20",
+            "index": 0,
+            "parentId": "1",
+            "title": "Buy me a coffee",
+            "url": "https://www.buymeacoffee.com/peve"
           },
           {
             "dateAdded": 1457424049324,
