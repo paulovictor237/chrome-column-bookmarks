@@ -26,10 +26,6 @@ export default function Header() {
       <div className="flex gap-2 justify-between items-center h-full">
         {/* <DownloadJson /> */}
         <Settings />
-        <FiTrash2
-          className="text-neutral-200 hover:text-peve-selected cursor-pointer"
-          size={28}
-        />
 
         {/* <LockEdit /> */}
       </div>

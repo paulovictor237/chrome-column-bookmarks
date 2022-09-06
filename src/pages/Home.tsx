@@ -11,15 +11,15 @@ function App() {
 
   useEffect(() => {
     async function getData() {
-      const data = await getBookmarks()
+      const data = await getBookmarks();
       dispatch(SiteActions.initBookmark(data));
     }
     getData();
     dispatch(optionsActions.getLocalStorage());
-  }, [dispatch])
+  }, [dispatch]);
 
   return (
-    <div className='h-screen w-screen flex flex-col'>
+    <div className="h-screen w-screen flex flex-col relative">
       <Header />
       <TreeColumns />
     </div>

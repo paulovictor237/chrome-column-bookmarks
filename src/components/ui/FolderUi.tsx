@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { SiteActions } from '../../store/booksmarkReducer';
 import { Folder } from '../../types/Folder';
-import { Line } from './Line';
+import { Line } from '@/components/submodules/Line';
 
 type Props = {
   folder: Folder;

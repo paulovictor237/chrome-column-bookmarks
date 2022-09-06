@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { getFaviconUrlV3 } from '../../services/getFaviconUrl';
 import { RootState } from '../../store';
 import { Site } from '../../types/Site';
-import { Line } from './Line';
+import { Line } from '@/components/submodules/Line';
 
 type Props = {
   link: Site;
