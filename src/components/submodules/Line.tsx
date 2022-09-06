@@ -7,6 +7,7 @@ import { Site } from '../../types/Site';
 import { Delete } from '../ui/Delete';
 
 type Props = {
+  id: string;
   title: string;
   children: ReactNode;
   className?: string;
@@ -22,11 +23,33 @@ export const Line = ({
   children,
   selected,
   className,
+  id,
 }: Props) => {
   const newTab = useSelector((state: RootState) => state.optionsReducer.newTab);
   const enableEditor = useSelector(
     (state: RootState) => state.optionsReducer.enableEditor
   );
+
+  const Container = ({ children }: { children: ReactNode }) => {
+    const className =
+      'cursor-pointer flex items-center h-full w-full overflow-hidden';
+    if (link)
+      return (
+        <a
+          className={className}
+          href={!enableEditor ? link : undefined}
+          target={newTab ? '_blank' : '_self'}
+          rel="noopener noreferrer"
+          draggable={false}
+          role="button"
+          aria-disabled={!!onClick}
+        >
+          {children}
+        </a>
+      );
+    return <div className={className}>{children}</div>;
+  };
+
   return (
     <div
       className={twMerge(
@@ -34,23 +57,15 @@ export const Line = ({
         selected && 'bg-zinc-600',
         className
       )}
+      onClick={onClick}
     >
-      <a
-        className="flex items-center h-full w-full"
-        href={!enableEditor ? link : undefined}
-        target={newTab ? '_blank' : '_self'}
-        rel="noopener noreferrer"
-        draggable={false}
-        role="button"
-        aria-disabled={!!onClick}
-        onClick={onClick}
-      >
+      <Container>
         {children}
         <span className="text-ellipsis	whitespace-nowrap overflow-hidden">
           {title}
         </span>
-      </a>
-      {enableEditor && <Delete />}
+      </Container>
+      {enableEditor && <Delete id={id} title={title} />}
     </div>
   );
 };

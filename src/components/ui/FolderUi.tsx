@@ -30,7 +30,7 @@ export default function FolderUi({ folder, index }: Props) {
 
   const { title, id } = folder;
   return (
-    <Line title={title} onClick={folderHandler} selected={selected}>
+    <Line id={id} title={title} onClick={folderHandler} selected={selected}>
       <span className="h-6 w-6 mr-3">{id !== '2' ? '📁' : '💼'}</span>
     </Line>
   );

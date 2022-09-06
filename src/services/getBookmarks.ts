@@ -1,4 +1,4 @@
-import { Folder } from 'types/Folder';
+import { Folder } from '@/types/Folder';
 import bookmarks from '../fixtures/bookmarks.json';
 // import bookmarks from "../fixtures/dev.json";
 // import bookmarks from "../fixtures/peve.json";
