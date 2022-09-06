@@ -3,17 +3,19 @@ import { RootState } from '../../store';
 import { optionsActions } from '../../store/optionsReducer';
 import Switch from './Switch';
 
-export default function NewTab() {
+export default function Editable() {
   const dispach = useDispatch();
   function optionsHandler() {
-    dispach(optionsActions.changeNewTab());
+    dispach(optionsActions.changeEnableEditor());
   }
-  const newTab = useSelector((state: RootState) => state.optionsReducer.newTab);
+  const enableEditor = useSelector(
+    (state: RootState) => state.optionsReducer.enableEditor
+  );
 
   return (
     <>
-      <span>New tab</span>
-      <Switch variable={newTab} OnClick={optionsHandler} />
+      <span>Enable edit</span>
+      <Switch variable={enableEditor} OnClick={optionsHandler} />
     </>
   );
 }

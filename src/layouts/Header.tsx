@@ -1,41 +1,58 @@
-import { useRef } from 'react';
+import { Settings } from '@/components/ui/Settings';
+import { ReactNode, useRef } from 'react';
 import { FaGithub } from 'react-icons/fa';
+import { FiSettings, FiTrash2 } from 'react-icons/fi';
 import { SiBuymeacoffee } from 'react-icons/si';
 import NewTab from '../components/ui/NewTab';
 import SearchBar from '../components/ui/SearchBar';
 
 export default function Header() {
-  const searchBarRef = useRef<HTMLInputElement>(null);
+  type TobBarIconProps = { children: ReactNode; title: string; href: string };
+  const TobBarIcon = ({ children, title, href }: TobBarIconProps) => (
+    <a
+      href={href}
+      className={`group transition-all duration-300 ease-linear`}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {children}
+      <div className="absolute z-10 right-0 translate-y-3 bg-peve-selected w-auto p-2 m-2 min-w-max rounded-md shadow-md  text-xs font-bold transition-all duration-100 origin-left scale-0 group-hover:scale-100">
+        <span>{title}</span>
+      </div>
+    </a>
+  );
   return (
-    <div className="bg-dark700 flex items-center justify-between shadow-lg gap-2 p-2">
+    <div className="bg-peve-light flex items-center justify-between shadow-lg gap-2 p-2">
       <div className="flex gap-2 justify-between items-center h-full">
         {/* <DownloadJson /> */}
-        <NewTab />
+        <Settings />
+        <FiTrash2
+          className="text-neutral-200 hover:text-peve-selected cursor-pointer"
+          size={28}
+        />
+
         {/* <LockEdit /> */}
       </div>
       <SearchBar />
       <div className="flex gap-2 justify-between items-center h-full">
-        {' '}
-        <a
-          href="https://github.com/paulovictor237/chrome-column-tab"
-          target="_blank"
-          rel="noopener noreferrer"
+        <TobBarIcon
+          href="https://github.com/paulovictor237/chrome-column-bookmarks"
+          title="Github"
         >
           <FaGithub
-            className="text-neutral-200 hover:text-neutral-500 cursor-pointer"
+            className="text-neutral-200 hover:text-peve-selected cursor-pointer"
             size={28}
           />
-        </a>
-        <a
+        </TobBarIcon>
+        <TobBarIcon
           href="https://www.buymeacoffee.com/peve"
-          target="_blank"
-          rel="noopener noreferrer"
+          title="Buy me a coffee!"
         >
           <SiBuymeacoffee
             size={28}
-            className="text-yellow-300 hover:text-yellow-500 cursor-pointer"
+            className="text-yellow-300 hover:text-peve-selected cursor-pointer"
           />
-        </a>
+        </TobBarIcon>
       </div>
 
       {/* <span className=' inline-flex items-center select-none text-blue-700 border border-blue-700 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-1.5 text-center dark:border-blue-500 dark:text-blue-500 dark:focus:ring-blue-800'>

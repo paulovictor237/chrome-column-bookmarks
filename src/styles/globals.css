@@ -16,7 +16,7 @@ a {
 
 html,
 body {
-  @apply bg-dark800 m-0 p-0
+  @apply bg-peve-dark m-0 p-0;
 }
 
 body,
@@ -24,7 +24,7 @@ input,
 textarea,
 select,
 button {
-  font: 400 1rem "Roboto", sans-serif;
+  font: 400 1rem 'Roboto', sans-serif;
   color: #fff;
   -webkit-appearance: none;
   /* &:focus {
@@ -33,7 +33,7 @@ button {
 }
 
 input {
-  @apply text-slate-900
+  @apply text-slate-900;
 }
 
 .sc2::-webkit-scrollbar {

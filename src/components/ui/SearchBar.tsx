@@ -1,11 +1,11 @@
-import { useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../store";
-import { SiteActions } from "../../store/booksmarkReducer";
-import { optionsActions } from "../../store/optionsReducer";
-import { Site } from "../../types/Site";
-import { FiXCircle } from "react-icons/fi";
-import { twMerge } from "tailwind-merge";
+import { useRef } from 'react';
+import { FiXCircle } from 'react-icons/fi';
+import { useDispatch, useSelector } from 'react-redux';
+import { twMerge } from 'tailwind-merge';
+import { RootState } from '../../store';
+import { SiteActions } from '../../store/booksmarkReducer';
+import { optionsActions } from '../../store/optionsReducer';
+import { Site } from '../../types/Site';
 
 export default function SearchBar() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -31,7 +31,7 @@ export default function SearchBar() {
   const handleChange = (event: any) => {
     const value = event.target.value;
     search(value);
-    dispatch(optionsActions.changeSearchBar(value === "" ? false : true));
+    dispatch(optionsActions.changeSearchBar(value === '' ? false : true));
   };
 
   function searchLocal(searchText: string) {
@@ -53,8 +53,8 @@ export default function SearchBar() {
   }
 
   async function search(searchText: string) {
-    if (searchText === "") return dispatch(SiteActions.search([]));
-    if (process.env.NODE_ENV === "development") {
+    if (searchText === '') return dispatch(SiteActions.search([]));
+    if (process.env.NODE_ENV === 'development') {
       const local = searchLocal(searchText);
       dispatch(SiteActions.search(local));
     } else {
@@ -78,11 +78,11 @@ export default function SearchBar() {
   return (
     <form
       className={twMerge(
-        "outline outline-3 hover:outline-blue-suave focus-within:outline-blue-suave outline-gray-600 flex flex-row items-center gap-2 border bg-gray-200 rounded-md px-2 h-8",
+        'outline outline-3 hover:outline-peve-selected focus-within:outline-peve-selected outline-gray-600 flex flex-row items-center gap-2 border bg-gray-200 rounded-md px-2 h-8',
         searchBar &&
           (searchFolderLength > 0
-            ? "outline-green-600 hover:outline-green-600 focus-within:outline-green-600"
-            : "outline-red-600 hover:outline-red-600 focus-within:outline-red-600")
+            ? 'outline-green-600 hover:outline-green-600 focus-within:outline-green-600'
+            : 'outline-red-600 hover:outline-red-600 focus-within:outline-red-600')
       )}
       ref={formRef}
       onSubmit={onSubmit}
@@ -97,7 +97,7 @@ export default function SearchBar() {
       />
       <button type="submit">
         <FiXCircle
-          className="cursor-pointer text-gray-600 hover:text-blue-suave"
+          className="cursor-pointer text-gray-600 hover:text-peve-selected"
           size={20}
         />
       </button>

@@ -1,11 +1,8 @@
-import { motion, useMotionValue, useTransform } from "framer-motion";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "../../store";
-import { Folder } from "../../types/Folder";
-import { Site } from "../../types/Site";
-import FolderUi from "./FolderUi";
-import LinkUi from "./LinkUi";
+import { motion } from 'framer-motion';
+import { Folder } from '../../types/Folder';
+import { Site } from '../../types/Site';
+import FolderUi from './FolderUi';
+import LinkUi from './LinkUi';
 
 type Props = {
   folder: Folder;
@@ -27,15 +24,15 @@ export default function Column(props: Props) {
       initial={{ x: 0, opacity: 0 }}
       animate={{ x: [-60, 20, 0], opacity: 1 }}
       variants={exitVariants}
-      exit={index === -1 ? "visible" : "hidden"}
+      exit={index === -1 ? 'visible' : 'hidden'}
       // layoutId={`Column${index}`}
       transition={{ duration: 0.3 }}
     >
-      <div className="bg-dark700 rounded-2xl p-3 h-full overflow-y-auto sc2 shadow-lg">
+      <div className="bg-peve-light rounded-2xl p-3 h-full overflow-y-auto sc2 shadow-lg">
         {status && (
           <div
             className={`underline bg-opacity-50 select-none flex items-center justify-center p-1 mb-3 overflow-hidden h-10 rounded-md ${
-              folder.children.length > 0 ? "bg-green-600" : "bg-red-600"
+              folder.children.length > 0 ? 'bg-green-600' : 'bg-red-600'
             }`}
           >
             {status}
