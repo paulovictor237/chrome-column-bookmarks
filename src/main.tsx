@@ -1,18 +1,11 @@
-import React from 'react';
+import '@/infra/styles/globals.css';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
-import './styles/globals.css';
-import Home from './pages/Home';
-import store from './store/index';
-import { App } from './layouts/app';
-import { Dragdrop } from './layouts/Dragdrop';
+import { Home } from './app/modules/home';
+import { store } from './app/reducer';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  // <React.StrictMode>
-  // </React.StrictMode>
   <Provider store={store}>
     <Home />
-    {/* <App /> */}
-    {/* <Dragdrop /> */}
   </Provider>
 );
