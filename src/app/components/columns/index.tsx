@@ -1,16 +1,13 @@
-import { RootState } from '@/app/reducer';
+import { useBookmarks } from '@/app/zustand/bookmarks';
+import { useMenuOptions } from '@/app/zustand/options';
 import { AnimatePresence } from 'framer-motion';
-import { useSelector } from 'react-redux';
 import { Column } from './column';
 
 export const TreeColumns = () => {
-  const columns = useSelector((state: RootState) => state.SiteReducer.columns);
-  const searchFolder = useSelector(
-    (state: RootState) => state.SiteReducer.searchFolder
-  );
-  const searchBar = useSelector(
-    (state: RootState) => state.optionsReducer.searchBar
-  );
+  const columns = useBookmarks((state) => state.columns);
+  const searchFolder = useBookmarks((state) => state.searchFolder);
+  const searchBar = useMenuOptions((state) => state.searchBar);
+
   return (
     <div className=" overflow-x-auto w-full flex sc2 p-1 h-full">
       <AnimatePresence presenceAffectsLayout>
@@ -22,9 +19,9 @@ export const TreeColumns = () => {
             status={searchFolder.children.length > 0 ? 'search' : 'no results'}
           />
         )}
-        {columns.map((column, index) => {
-          return <Column key={column.id} folder={column} index={index} />;
-        })}
+        {columns.map((column, index) => (
+          <Column key={column.id} folder={column} index={index} />
+        ))}
       </AnimatePresence>
     </div>
   );

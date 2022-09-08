@@ -1,5 +1,5 @@
-import { Folder } from '@/domain/entities/Folder';
-import { Site } from '@/domain/entities/Site';
+import { Folder } from '@/domain/entities/folder';
+import { Site } from '@/domain/entities/site';
 import { motion } from 'framer-motion';
 import { FolderUi } from '../folder-ui';
 import { LinkUi } from '../link-ui';

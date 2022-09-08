@@ -1,4 +1,4 @@
-import { Folder } from '@/domain/entities/Folder';
+import { Folder } from '@/domain/entities/folder';
 
 export type Props = {
   folder: Folder;

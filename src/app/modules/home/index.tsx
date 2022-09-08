@@ -1,22 +1,14 @@
 import { TreeColumns } from '@/app/components/columns';
 import { Header } from '@/app/components/header';
-import { SiteActions } from '@/app/reducer/bookmarks';
-import { optionsActions } from '@/app/reducer/options';
-import { getBookmarks } from '@/infra/services/getBookmarks';
+import { useBookmarks } from '@/app/zustand/bookmarks';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 
 export const Home = () => {
-  const dispatch = useDispatch();
+  const initBookmark = useBookmarks((state) => state.initBookmark);
 
   useEffect(() => {
-    async function getData() {
-      const data = await getBookmarks();
-      dispatch(SiteActions.initBookmark(data));
-    }
-    getData();
-    dispatch(optionsActions.getLocalStorage());
-  }, [dispatch]);
+    initBookmark();
+  }, []);
 
   return (
     <div className="h-screen w-screen flex flex-col relative">

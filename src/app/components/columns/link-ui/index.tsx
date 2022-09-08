@@ -1,17 +1,13 @@
 import { Line } from '@/app/components/common/line';
-import { RootState } from '@/app/reducer';
+import { useMenuOptions } from '@/app/zustand/options';
 import { getFaviconUrlV3 } from '@/infra/services/getFaviconUrl';
-import { useSelector } from 'react-redux';
 import { Props } from './types';
 
 export const LinkUi = ({ link }: Props) => {
   const { url, title, id } = link;
   const faviconSrc = url && getFaviconUrlV3(url);
-  const newTab = useSelector((state: RootState) => state.optionsReducer.newTab);
-  const enableEditor = useSelector(
-    (state: RootState) => state.optionsReducer.enableEditor
-  );
-
+  const newTab = useMenuOptions((state) => state.newTab);
+  const enableEditor = useMenuOptions((state) => state.enableEditor);
   return (
     <a
       href={enableEditor ? undefined : link.url}

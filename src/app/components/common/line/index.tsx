@@ -1,5 +1,4 @@
-import { RootState } from '@/app/reducer';
-import { useSelector } from 'react-redux';
+import { useMenuOptions } from '@/app/zustand/options';
 import { twMerge } from 'tailwind-merge';
 import { Delete } from '../../header/components/delete';
 import { Props } from './types';
@@ -12,9 +11,7 @@ export const Line = ({
   className,
   id,
 }: Props) => {
-  const enableEditor = useSelector(
-    (state: RootState) => state.optionsReducer.enableEditor
-  );
+  const enableEditor = useMenuOptions((state) => state.enableEditor);
 
   return (
     <div

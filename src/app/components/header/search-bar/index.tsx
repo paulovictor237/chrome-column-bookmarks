@@ -1,37 +1,32 @@
-import { RootState } from '@/app/reducer';
-import { SiteActions } from '@/app/reducer/bookmarks';
-import { optionsActions } from '@/app/reducer/options';
-import { Site } from '@/domain/entities/Site';
+import { useBookmarks } from '@/app/zustand/bookmarks';
+import { useMenuOptions } from '@/app/zustand/options';
+import { Site } from '@/domain/entities/site';
 import { useRef } from 'react';
 import { FiXCircle } from 'react-icons/fi';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { twMerge } from 'tailwind-merge';
 
 export const SearchBar = () => {
   const formRef = useRef<HTMLFormElement>(null);
-  const dispatch = useDispatch();
-  const Bookmark = useSelector(
-    (state: RootState) => state.SiteReducer.Bookmark
-  );
-  const searchFolderLength = useSelector(
-    (state: RootState) => state.SiteReducer.searchFolderLength
-  );
 
-  const searchBar = useSelector(
-    (state: RootState) => state.optionsReducer.searchBar
-  );
+  const Bookmark = useBookmarks((state) => state.bookmark);
+  const searchResults = useBookmarks((state) => state.searchResults);
+  const bookmarksSearch = useBookmarks((state) => state.search);
+
+  const changeSearchBar = useMenuOptions((state) => state.changeSearchBar);
+  const searchBar = useMenuOptions((state) => state.searchBar);
 
   const onSubmit = (event: any) => {
     event.preventDefault();
     formRef.current!.reset();
-    dispatch(SiteActions.search([]));
-    dispatch(optionsActions.changeSearchBar(false));
+    bookmarksSearch([]);
+    changeSearchBar(false);
   };
 
   const handleChange = (event: any) => {
     const value = event.target.value;
     search(value);
-    dispatch(optionsActions.changeSearchBar(value === '' ? false : true));
+    changeSearchBar(value === '' ? false : true);
   };
 
   function searchLocal(searchText: string) {
@@ -53,10 +48,10 @@ export const SearchBar = () => {
   }
 
   async function search(searchText: string) {
-    if (searchText === '') return dispatch(SiteActions.search([]));
+    if (searchText === '') return bookmarksSearch([]);
     if (process.env.NODE_ENV === 'development') {
       const local = searchLocal(searchText);
-      dispatch(SiteActions.search(local));
+      bookmarksSearch(local);
     } else {
       try {
         const local = await new Promise<any[]>((res) =>
@@ -67,10 +62,10 @@ export const SearchBar = () => {
             item.dateGroupModified === undefined && item.url !== undefined
         );
         console.log(filter);
-        dispatch(SiteActions.search(filter));
+        bookmarksSearch(filter);
       } catch (e) {
         const local = searchLocal(searchText);
-        dispatch(SiteActions.search(local));
+        bookmarksSearch(local);
       }
     }
   }
@@ -80,7 +75,7 @@ export const SearchBar = () => {
       className={twMerge(
         'outline outline-3 hover:outline-peve-selected focus-within:outline-peve-selected outline-gray-600 flex flex-row items-center gap-2 border bg-gray-200 rounded-md px-2 h-8',
         searchBar &&
-          (searchFolderLength > 0
+          (searchResults
             ? 'outline-green-600 hover:outline-green-600 focus-within:outline-green-600'
             : 'outline-red-600 hover:outline-red-600 focus-within:outline-red-600')
       )}

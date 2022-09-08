@@ -1,4 +1,4 @@
-import { Site } from '@/domain/entities/Site';
+import { Site } from '@/domain/entities/site';
 
 export type Props = {
   link: Site;
