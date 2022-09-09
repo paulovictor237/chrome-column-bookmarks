@@ -24,5 +24,8 @@ dist-ssr
 *.sw?
 
 #  testing
-dnd.tsx
+teste.tsx
+
+# build files
+release.zip
 

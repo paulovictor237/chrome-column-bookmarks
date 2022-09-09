@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "zip": "zip -r release dist",
+    "build": "tsc && vite build && zip -r release dist",
+    "build-no-zip": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
