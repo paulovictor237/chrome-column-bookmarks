@@ -5,7 +5,7 @@ import { Props } from './types';
 export const DragDropContextProvider = ({ OnDragEnd, state }: Props) => {
   return (
     <DragDropContext onDragEnd={OnDragEnd}>
-      <section className="flex">
+      <section className="flex bg-green-500">
         {state.map((el, ind) => (
           <Droppable key={ind} droppableId={`${ind}`} isDropDisabled={false}>
             {(provided, snapshot) => (

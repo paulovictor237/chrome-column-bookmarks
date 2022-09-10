@@ -1,5 +1,4 @@
 import { Draggable } from 'react-beautiful-dnd';
-import { getItemStyle } from '../../assets/tools';
 import { Props } from './types';
 
 export const DragDropItem = ({ item, index, ind }: Props) => {
@@ -8,19 +7,13 @@ export const DragDropItem = ({ item, index, ind }: Props) => {
       {(provided, snapshot) => (
         <section
           ref={provided.innerRef}
+          className={`select-none	p-2 m-2 border rounded 
+          ${snapshot.isDragging ? 'bg-green-500' : 'bg-gray-500'}`}
+          style={provided.draggableProps.style}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
-          style={getItemStyle(
-            snapshot.isDragging,
-            provided.draggableProps.style
-          )}
         >
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-around',
-            }}
-          >
+          <div className="flex justify-around">
             {item.content}
             {/* <Delete ind={ind} index={index} /> */}
           </div>
