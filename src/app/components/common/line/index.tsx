@@ -17,7 +17,7 @@ export const Line = ({
     <div
       className={twMerge(
         'p-1 px-3 hover:bg-peve-selected filter:brightness-105 h-10 flex items-center justify-between bg-peve-dark rounded-md',
-        selected && 'bg-zinc-600',
+        selected && 'bg-peve-zinc',
         className
       )}
       onClick={onClick}

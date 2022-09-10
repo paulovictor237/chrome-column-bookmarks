@@ -12,7 +12,7 @@ export const LeftIcons = () => {
       >
         <TitleTag title="Github" position="right">
           <FaGithub
-            className="text-neutral-200 hover:text-peve-selected cursor-pointer"
+            className="text-peve-zinc hover:text-peve-selected cursor-pointer"
             size={28}
           />
         </TitleTag>
@@ -25,7 +25,7 @@ export const LeftIcons = () => {
         <TitleTag title="Buy me a coffee!" position="right">
           <SiBuymeacoffee
             size={28}
-            className="text-[#FFDD00] hover:text-peve-selected cursor-pointer"
+            className="text-peve-zinc hover:text-peve-selected cursor-pointer"
           />
         </TitleTag>
       </a>

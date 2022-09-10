@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useEffect, useRef, useState } from 'react';
-import { FiSettings } from 'react-icons/fi';
+import { AiFillSetting } from 'react-icons/ai';
 import { twMerge } from 'tailwind-merge';
 import { DownloadJson } from '../download';
 import { NewTab } from '../switch-new-tab';
@@ -36,9 +36,9 @@ export function Settings() {
 
   return (
     <div className="relative" ref={dropdownRef}>
-      <FiSettings
+      <AiFillSetting
         className={twMerge(
-          'text-neutral-200 hover:text-peve-selected cursor-pointer ',
+          'text-peve-zinc hover:text-peve-selected cursor-pointer ',
           isOpen && 'text-peve-selected'
         )}
         size={28}

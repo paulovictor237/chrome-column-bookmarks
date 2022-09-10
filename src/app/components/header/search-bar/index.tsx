@@ -28,7 +28,7 @@ export const SearchBar = () => {
   return (
     <form
       className={twMerge(
-        'outline outline-3 hover:outline-peve-selected focus-within:outline-peve-selected outline-gray-600 flex flex-row items-center gap-2 border bg-gray-200 rounded-md px-2 h-8',
+        'outline outline-3 hover:outline-peve-selected focus-within:outline-peve-selected outline-peve-zinc flex flex-row items-center gap-2 border bg-gray-200 rounded-md px-2 h-8',
         searchBar &&
           (searchResults
             ? 'outline-green-600 hover:outline-green-600 focus-within:outline-green-600'
@@ -45,9 +45,11 @@ export const SearchBar = () => {
         // value={name}
         onChange={handleChange}
       />
-      <button type="submit">
+      <button type="submit" className="w-5">
         <FiXCircle
-          className="cursor-pointer text-gray-600 hover:text-peve-selected"
+          className={`cursor-pointer text-peve-zinc hover:text-peve-selected ${
+            !searchBar && 'hidden'
+          }`}
           size={20}
         />
       </button>
