@@ -1,18 +1,59 @@
+import { motion } from 'framer-motion';
+import { twMerge } from 'tailwind-merge';
 import { DragDropItem } from '../item';
 import { Props } from './types';
 
-export const DragDropColumn = ({ provided, snapshot, el, ind }: Props) => {
+export const DragDropColumn = ({
+  mapId: columId,
+  folder,
+  status,
+  provided,
+  snapshot,
+}: Props) => {
+  const exitVariants = {
+    visible: { x: [0, 20, -60], opacity: 0 },
+    hidden: {},
+  };
   return (
-    <section
-      ref={provided.innerRef}
-      className={`bg-red-600 w-64 h-[40rem] p-2 border 
-      ${snapshot.isDraggingOver ? 'bg-blue-400' : 'bg-blue-500'}`}
-      {...provided.droppableProps}
+    <motion.div
+      className="md:w-80 w-full p-2 flex-shrink-0"
+      initial={{ x: 0, opacity: 0 }}
+      animate={{ x: [-60, 20, 0], opacity: 1 }}
+      variants={exitVariants}
+      exit={columId === -1 ? 'visible' : 'hidden'}
+      transition={{ duration: 0.3 }}
+      // layoutId={`Column${index}`}
     >
-      {el.map((item, index) => (
-        <DragDropItem key={ind} ind={ind} item={item} index={index} />
-      ))}
-      {provided.placeholder}
-    </section>
+      <section
+        className={twMerge(
+          'rounded-2xl p-3 h-full overflow-y-auto sc2 shadow-lg',
+          snapshot.isDraggingOver ? 'bg-gray-700' : 'bg-peve-light'
+        )}
+        ref={provided.innerRef}
+        {...provided.droppableProps}
+      >
+        {status && (
+          <title
+            className={twMerge(
+              'underline bg-opacity-50 select-none flex items-center justify-center p-1 mb-3 overflow-hidden h-10 rounded-md',
+              folder.children.length > 0 ? 'bg-green-600' : 'bg-red-600'
+            )}
+          >
+            {status}
+          </title>
+        )}
+        <main className="flex flex-col gap-3">
+          {folder.children?.map((item, mapId) => (
+            <DragDropItem
+              key={item.id}
+              item={item}
+              columId={columId}
+              mapId={mapId}
+            />
+          ))}
+        </main>
+        {provided.placeholder}
+      </section>
+    </motion.div>
   );
 };

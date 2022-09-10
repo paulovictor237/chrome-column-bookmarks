@@ -1,7 +1,8 @@
-import { Item } from '../../assets/tools/types';
+import { Folder } from '@/domain/entities/folder';
+import { Site } from '@/domain/entities/site';
 
 export interface Props {
-  item: Item;
-  ind: number;
-  index: number;
+  item: Folder | Site;
+  columId: number;
+  mapId: number;
 }

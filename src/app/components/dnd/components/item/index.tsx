@@ -1,23 +1,28 @@
+import { FolderUi } from '@/app/components/columns/folder-ui';
+import { LinkUi } from '@/app/components/columns/link-ui';
+import { Folder } from '@/domain/entities/folder';
+import { Site } from '@/domain/entities/site';
 import { Draggable } from 'react-beautiful-dnd';
 import { Props } from './types';
 
-export const DragDropItem = ({ item, index, ind }: Props) => {
+export const DragDropItem = ({ item, columId, mapId }: Props) => {
+  const isFolder = !!(item as Folder).children;
+  const isDraggingStyle = 'outline outline-2 outline-peve-selected rounded-md';
   return (
-    <Draggable key={item.id} draggableId={item.id} index={index}>
+    <Draggable draggableId={item.id} index={mapId}>
       {(provided, snapshot) => (
+        // <motion.div key={item.id} whileHover={{ scale: 1.03 }}>
         <section
           ref={provided.innerRef}
-          className={`select-none	p-2 m-2 border rounded 
-          ${snapshot.isDragging ? 'bg-green-500' : 'bg-gray-500'}`}
+          className={snapshot.isDragging ? isDraggingStyle : ''}
           style={provided.draggableProps.style}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
         >
-          <div className="flex justify-around">
-            {item.content}
-            {/* <Delete ind={ind} index={index} /> */}
-          </div>
+          {!isFolder && <LinkUi link={item as Site} />}
+          {isFolder && <FolderUi folder={item as Folder} index={columId} />}
         </section>
+        // </motion.div>
       )}
     </Draggable>
   );

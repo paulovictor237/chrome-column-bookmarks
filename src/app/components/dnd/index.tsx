@@ -1,31 +1,42 @@
 import { useBookmarks } from '@/app/zustand/bookmarks';
-import { useMenuOptions } from '@/app/zustand/options';
-import { useState } from 'react';
-import { DropResult } from 'react-beautiful-dnd';
-import { onDragEnd } from './assets/tools';
-import { Item } from './assets/tools/types';
-import { DragDropContextProvider } from './components/context';
+import { Folder } from '@/domain/entities/folder';
+import { AnimatePresence } from 'framer-motion';
+import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd';
+import { SearchColumn } from '../columns/search';
+import { dndOnDragEnd } from './assets/tools';
+import { DragDropColumn } from './components/column';
 
-export function Dragdrop() {
+export const Dragdrop = () => {
   const columns = useBookmarks((state) => state.columns);
-  const searchFolder = useBookmarks((state) => state.searchFolder);
-  const searchBar = useMenuOptions((state) => state.searchBar);
-
-  const getItems = (count: number, offset = 0) =>
-    Array.from({ length: count }, (v, k) => k).map((k) => ({
-      id: `item-${k + offset}-${new Date().getTime()}`,
-      content: `item ${k + offset}`,
-    }));
-
-  const [state, setState] = useState<Item[][]>([
-    getItems(10),
-    getItems(5, 10),
-    getItems(5, 20),
-  ]);
+  const setColumns = useBookmarks((state) => state.setColumns);
 
   const handlerOnDragEnd = (result: DropResult) => {
-    onDragEnd(result, state, (a: Item[][]) => setState(a));
+    dndOnDragEnd(result, columns, (a: Folder[]) => setColumns(a));
   };
 
-  return <DragDropContextProvider OnDragEnd={handlerOnDragEnd} state={state} />;
-}
+  return (
+    <DragDropContext onDragEnd={handlerOnDragEnd}>
+      <div className=" overflow-x-auto w-full flex sc2 p-1 h-full">
+        <AnimatePresence presenceAffectsLayout>
+          <SearchColumn />
+          {columns.map((folder, mapId) => (
+            <Droppable
+              key={folder.id + 'dnd'}
+              droppableId={mapId.toString()}
+              isDropDisabled={false}
+            >
+              {(provided, snapshot) => (
+                <DragDropColumn
+                  mapId={mapId}
+                  folder={folder}
+                  snapshot={snapshot}
+                  provided={provided}
+                />
+              )}
+            </Droppable>
+          ))}
+        </AnimatePresence>
+      </div>
+    </DragDropContext>
+  );
+};
