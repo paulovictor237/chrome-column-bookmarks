@@ -1,5 +1,7 @@
 import { Folder } from '@/domain/entities/folder';
-import { getBookmarks } from '@/infra/services/chrome-services';
+import { Site } from '@/domain/entities/site';
+import { chromeSearch, getBookmarks } from '@/infra/services/chrome';
+import { searchChildrens, searchSites } from '@/infra/services/search';
 import create from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
@@ -11,11 +13,11 @@ export const useBookmarks = create<BookmarkState>()(
   devtools(
     immer(
       persist((set, get) => ({
-        showCounter: true,
-        bookmark: bookmark,
-        searchFolder: searchFolder,
         columns: [],
+        bookmark: bookmark,
+        showCounter: true,
         searchResults: false,
+        searchFolder: searchFolder,
         initBookmark: async () => {
           const data = await getBookmarks();
           if (!data[0]?.children) return;
@@ -40,9 +42,36 @@ export const useBookmarks = create<BookmarkState>()(
             set((state) => void state.columns.push(newFolder as Folder));
           }
         },
-        search: (keyword) => {
-          set((state) => void (state.searchFolder.children = keyword));
-          set((state) => void (state.searchResults = keyword.length > 0));
+        setColumns: (data) => {
+          set((state) => {
+            state.columns = data;
+            // data.map((column) => {
+            //   searchChildrens({
+            //     id: column.id,
+            //     data: state.bookmark,
+            //     replace: column.children,
+            //   });
+            // });
+          });
+        },
+        search: async (keyword) => {
+          if (keyword === '') {
+            return set((s) => void (s.searchFolder.children = []));
+          }
+          var result: Site[] = [];
+          if (process.env.NODE_ENV === 'development') {
+            result = searchSites(keyword, get().bookmark);
+          } else {
+            try {
+              result = await chromeSearch(keyword);
+            } catch (error) {
+              console.error(error);
+            }
+          }
+          set((state) => {
+            state.searchFolder.children = result;
+            state.searchResults = keyword.length > 0;
+          });
         },
       }))
     )

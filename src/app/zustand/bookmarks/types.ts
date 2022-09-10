@@ -9,5 +9,6 @@ export type BookmarkState = {
   columns: Folder[];
   initBookmark: () => void;
   increment: (id: string, index: number) => void;
-  search: (keyword: Site[]) => void;
+  search: (keyword: string) => void;
+  setColumns: (data: Folder[]) => void;
 };

@@ -5,7 +5,7 @@
         "children": [
           {
             "dateAdded": 1415023988987,
-            "id": "20",
+            "id": "10",
             "index": 0,
             "parentId": "1",
             "title": "Chrome Extension",
@@ -13,7 +13,7 @@
           },
           {
             "dateAdded": 1415023988987,
-            "id": "20",
+            "id": "11",
             "index": 0,
             "parentId": "1",
             "title": "Buy me a coffee",
@@ -21,7 +21,7 @@
           },
           {
             "dateAdded": 1457424049324,
-            "id": "26",
+            "id": "12",
             "index": 1,
             "parentId": "1",
             "title": "Twitter",
@@ -29,7 +29,7 @@
           },
           {
             "dateAdded": 1452547369278,
-            "id": "28",
+            "id": "13",
             "index": 2,
             "parentId": "1",
             "title": "Ino reader",
@@ -37,7 +37,7 @@
           },
           {
             "dateAdded": 1522930734988,
-            "id": "324",
+            "id": "14",
             "index": 3,
             "parentId": "1",
             "title": "Dev.to",
@@ -45,7 +45,7 @@
           },
           {
             "dateAdded": 1415021741069,
-            "id": "29",
+            "id": "15",
             "index": 4,
             "parentId": "1",
             "title": "Amazon",
@@ -53,7 +53,7 @@
           },
           {
             "dateAdded": 1415021717391,
-            "id": "30",
+            "id": "16",
             "index": 5,
             "parentId": "1",
             "title": "Reddit",
@@ -61,7 +61,7 @@
           },
           {
             "dateAdded": 1415021693972,
-            "id": "31",
+            "id": "17",
             "index": 6,
             "parentId": "1",
             "title": "Facebook",
@@ -69,7 +69,7 @@
           },
           {
             "dateAdded": 1406291592095,
-            "id": "32",
+            "id": "18",
             "index": 7,
             "parentId": "1",
             "title": "Hacker News",
@@ -77,7 +77,7 @@
           },
           {
             "dateAdded": 1415021705455,
-            "id": "33",
+            "id": "19",
             "index": 8,
             "parentId": "1",
             "title": "YouTube",
@@ -85,11 +85,37 @@
           },
           {
             "dateAdded": 1524163526513,
-            "id": "344",
+            "id": "20",
             "index": 9,
             "parentId": "1",
             "title": "Wirecutter",
             "url": "https://thewirecutter.com/electronics/"
+          },
+          {
+            "children": [
+              {
+                "dateAdded": 1446822250939,
+                "id": "31",
+                "index": 0,
+                "parentId": "475",
+                "title": "Github | column bookmarks",
+                "url": "https://github.com/paulovictor237/chrome-column-bookmarks"
+              },
+              {
+                "dateAdded": 1539070361514,
+                "id": "32",
+                "index": 1,
+                "parentId": "475",
+                "title": "Github | paulovictor237",
+                "url": "https://github.com/paulovictor237"
+              }
+            ],
+            "dateAdded": 1539070313228,
+            "dateGroupModified": 1539447553217,
+            "id": "33",
+            "index": 1,
+            "parentId": "1-f",
+            "title": "Github"
           }
         ],
         "dateAdded": 1519759407642,
@@ -105,7 +131,7 @@
             "children": [
               {
                 "dateAdded": 1469746091197,
-                "id": "121",
+                "id": "20",
                 "index": 0,
                 "parentId": "19",
                 "title": "Mobile Design Patterns - Pttrns",
@@ -113,7 +139,7 @@
               },
               {
                 "dateAdded": 1483462692221,
-                "id": "122",
+                "id": "21",
                 "index": 1,
                 "parentId": "19",
                 "title": "icons8",
@@ -121,7 +147,7 @@
               },
               {
                 "dateAdded": 1477414033765,
-                "id": "123",
+                "id": "22",
                 "index": 2,
                 "parentId": "19",
                 "title": "Free vector icons",
@@ -129,7 +155,7 @@
               },
               {
                 "dateAdded": 1364206411437,
-                "id": "133",
+                "id": "23",
                 "index": 3,
                 "parentId": "19",
                 "title": "5000 Best Movies",
@@ -137,7 +163,7 @@
               },
               {
                 "dateAdded": 1498548187677,
-                "id": "143",
+                "id": "24",
                 "index": 4,
                 "parentId": "19",
                 "title": "Mobile UI designs - UI Movement",
@@ -145,7 +171,7 @@
               },
               {
                 "dateAdded": 1485813957389,
-                "id": "144",
+                "id": "25",
                 "index": 5,
                 "parentId": "19",
                 "title": "Noisli - Improve Focus and Boost Productivity with Background Noise",
@@ -153,7 +179,7 @@
               },
               {
                 "dateAdded": 1487253440683,
-                "id": "148",
+                "id": "26",
                 "index": 6,
                 "parentId": "19",
                 "title": "Isotope",
@@ -161,7 +187,7 @@
               },
               {
                 "dateAdded": 1489700817156,
-                "id": "157",
+                "id": "27",
                 "index": 7,
                 "parentId": "19",
                 "title": "Animista",
@@ -169,7 +195,7 @@
               },
               {
                 "dateAdded": 1537809812089,
-                "id": "468",
+                "id": "28",
                 "index": 8,
                 "parentId": "19",
                 "title": "365 Random Muppets",
@@ -178,44 +204,18 @@
             ],
             "dateAdded": 1483525248196,
             "dateGroupModified": 1541255962348,
-            "id": "19",
+            "id": "3",
             "index": 7,
             "parentId": "1-f",
             "title": "Useful stuff"
-          },
-          {
-            "children": [
-              {
-                "dateAdded": 1446822250939,
-                "id": "38",
-                "index": 0,
-                "parentId": "475",
-                "title": "GitHub",
-                "url": "https://github.com/"
-              },
-              {
-                "dateAdded": 1539070361514,
-                "id": "476",
-                "index": 1,
-                "parentId": "475",
-                "title": "GitHub | paulovictor237",
-                "url": "https://github.com/paulovictor237"
-              }
-            ],
-            "dateAdded": 1539070313228,
-            "dateGroupModified": 1539447553217,
-            "id": "475",
-            "index": 1,
-            "parentId": "1-f",
-            "title": "GitHub"
           }
         ],
         "dateAdded": 1519759407642,
         "dateGroupModified": 1542983765382,
-        "id": "1-f",
+        "id": "2",
         "index": 0,
         "parentId": "0",
-        "title": "Bookmarks Bar"
+        "title": "Other bookmarks"
       }
     ],
     "dateAdded": 1542705356217,

@@ -58,8 +58,8 @@ export function Settings() {
                 'flex flex-col gap-1.5 text-gray-700 p-1.5 bg-peve-light rounded-lg border-2 border-peve-selected w-44'
               }
             >
-              {settings.map((item) => (
-                <LiItem key={new Date().toISOString()}>{item}</LiItem>
+              {settings.map((item, index) => (
+                <LiItem key={index + '@'}>{item}</LiItem>
               ))}
             </motion.ul>
           </div>

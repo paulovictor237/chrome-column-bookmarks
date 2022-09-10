@@ -1,15 +1,11 @@
 import { useBookmarks } from '@/app/zustand/bookmarks';
 import { useMenuOptions } from '@/app/zustand/options';
-import { Site } from '@/domain/entities/site';
-import { useRef } from 'react';
+import { ChangeEvent, useRef } from 'react';
 import { FiXCircle } from 'react-icons/fi';
-import { useSelector } from 'react-redux';
 import { twMerge } from 'tailwind-merge';
 
 export const SearchBar = () => {
   const formRef = useRef<HTMLFormElement>(null);
-
-  const Bookmark = useBookmarks((state) => state.bookmark);
   const searchResults = useBookmarks((state) => state.searchResults);
   const bookmarksSearch = useBookmarks((state) => state.search);
 
@@ -19,56 +15,15 @@ export const SearchBar = () => {
   const onSubmit = (event: any) => {
     event.preventDefault();
     formRef.current!.reset();
-    bookmarksSearch([]);
+    bookmarksSearch('');
     changeSearchBar(false);
   };
 
-  const handleChange = (event: any) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
-    search(value);
+    bookmarksSearch(value);
     changeSearchBar(value === '' ? false : true);
   };
-
-  function searchLocal(searchText: string) {
-    function recursive(object: any, search: Site[]) {
-      if (object.children !== undefined && object.children.length > 0) {
-        object.children.forEach((element: any) => {
-          recursive(element, search);
-        });
-      } else {
-        search.push(object);
-      }
-    }
-    let local: Site[] = [];
-    recursive(Bookmark, local);
-    const filter = local.filter((item) =>
-      item.title.toLowerCase().includes(searchText.toLowerCase())
-    );
-    return filter;
-  }
-
-  async function search(searchText: string) {
-    if (searchText === '') return bookmarksSearch([]);
-    if (process.env.NODE_ENV === 'development') {
-      const local = searchLocal(searchText);
-      bookmarksSearch(local);
-    } else {
-      try {
-        const local = await new Promise<any[]>((res) =>
-          chrome.bookmarks.search(searchText, res)
-        );
-        const filter = local.filter(
-          (item) =>
-            item.dateGroupModified === undefined && item.url !== undefined
-        );
-        console.log(filter);
-        bookmarksSearch(filter);
-      } catch (e) {
-        const local = searchLocal(searchText);
-        bookmarksSearch(local);
-      }
-    }
-  }
 
   return (
     <form

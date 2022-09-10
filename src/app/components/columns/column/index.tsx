@@ -25,30 +25,25 @@ export const Column = (props: Props) => {
     >
       <div className="bg-peve-light rounded-2xl p-3 h-full overflow-y-auto sc2 shadow-lg">
         {status && (
-          <div
+          <title
             className={`underline bg-opacity-50 select-none flex items-center justify-center p-1 mb-3 overflow-hidden h-10 rounded-md ${
               folder.children.length > 0 ? 'bg-green-600' : 'bg-red-600'
             }`}
           >
             {status}
-          </div>
+          </title>
         )}
-        <div className="flex flex-col gap-3">
-          {folder.children?.map((item: Site | Folder) => {
-            if ((item as Folder).children === undefined) {
-              return (
-                <motion.div key={item.id} whileHover={{ scale: 1.03 }}>
-                  <LinkUi link={item as Site} />
-                </motion.div>
-              );
-            }
+        <main className="flex flex-col gap-3">
+          {folder.children?.map((item) => {
+            const isFolder = !!(item as Folder).children;
             return (
               <motion.div key={item.id} whileHover={{ scale: 1.03 }}>
-                <FolderUi folder={item as Folder} index={index} />
+                {!isFolder && <LinkUi link={item as Site} />}
+                {isFolder && <FolderUi folder={item as Folder} index={index} />}
               </motion.div>
             );
           })}
-        </div>
+        </main>
       </div>
     </motion.div>
   );
