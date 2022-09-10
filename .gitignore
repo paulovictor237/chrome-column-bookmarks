@@ -25,6 +25,7 @@ dist-ssr
 
 #  testing
 teste.tsx
+/bkp*
 
 # build files
 release.zip
