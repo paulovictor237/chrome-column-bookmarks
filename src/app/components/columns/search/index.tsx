@@ -3,17 +3,18 @@ import { useMenuOptions } from '@/app/zustand/options';
 import { Column } from '../column';
 
 export const SearchColumn = () => {
+  const searchResults = useBookmarks((state) => state.searchResults);
   const searchFolder = useBookmarks((state) => state.searchFolder);
-  const searchBar = useMenuOptions((state) => state.searchBar);
+  const searchKeywords = useBookmarks((state) => state.searchKeywords);
 
   return (
     <>
-      {searchBar && (
+      {searchKeywords && (
         <Column
           key={-500}
           folder={searchFolder}
           index={-1}
-          status={searchFolder.children.length > 0 ? 'search' : 'no results'}
+          status={searchResults ? 'search' : 'no results'}
         />
       )}
     </>

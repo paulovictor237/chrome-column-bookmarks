@@ -6,27 +6,78 @@ import bookmarks from '@/infra/assets/bookmarks.json';
 // import bookmarks from '@/infra/assets/peve.json';
 import { delay } from './delay';
 
+type getBookmarks = (keyword: string) => Promise<BookmarkTreeNode[]>;
 export const getBookmarks = async () => {
-  if (process.env.NODE_ENV === 'development') {
-    await delay(100);
-    return bookmarks;
-  }
-  try {
-    const BookmarkTreeNode = await new Promise<BookmarkTreeNode[]>((res) =>
-      chrome.bookmarks.getTree(res)
-    );
-    return BookmarkTreeNode;
-  } catch (err) {
-    console.log(err);
-    return bookmarks;
-  }
+  const BookmarkTreeNode = await new Promise<BookmarkTreeNode[]>((res) =>
+    chrome.bookmarks.getTree(res)
+  );
+  return BookmarkTreeNode;
 };
 
-type chromeSearchType = (keyword: string) => Promise<Site[]>;
-export const chromeSearch: chromeSearchType = async (keyword) => {
+type chromeSearch = (keyword: string) => Promise<Site[]>;
+export const chromeSearch: chromeSearch = async (keyword) => {
   const local = await chrome.bookmarks.search(keyword);
   const filter = local.filter((item) => {
     return item.dateGroupModified === undefined && item.url !== undefined;
   });
   return filter as Site[];
 };
+
+type chromeRemove = (id: string) => void;
+export const chromeRemove: chromeRemove = (id) => {
+  chrome.bookmarks.remove(id);
+};
+
+// https://developer.chrome.com/docs/extensions/reference/bookmarks/#method-getRecent
+
+// chrome.bookmarks.onChanged.addListener(
+//   callback: (id: string, changeInfo: object) => void
+// )
+
+// chrome.bookmarks.getRecent(
+//   numberOfItems: number,
+//   callback?: function,
+// )
+
+// chrome.bookmarks.create(
+//   bookmark: CreateDetails,
+//   callback?: function,
+// )
+
+// chrome.bookmarks.get(
+//   idOrIdList: string | [string, ...string[]],
+//   callback?: function,
+// )
+// chrome.bookmarks.getSubTree(
+//   id: string,
+//   callback?: function,
+// )
+
+// chrome.bookmarks.getTree(
+//   callback?: function,
+// )
+
+// chrome.bookmarks.getChildren(
+//   id: string,
+//   callback?: function,
+// )
+
+// chrome.bookmarks.move(
+//   id: string,
+//   destination: object,
+//   callback?: function,
+// )
+
+// chrome.bookmarks.removeTree(
+//   id: string,
+//   callback?: function,
+// )
+
+// chrome.bookmarks.update(
+//   id: string,
+//   changes: {
+//     title string optional
+//     url string optional
+//   },
+//   callback?: function,
+// )

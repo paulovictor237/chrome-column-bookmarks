@@ -9,7 +9,6 @@ export const useMenuOptions = create<OptionsState>()(
     immer(
       persist((set, get) => ({
         newTab: false,
-        searchBar: false,
         enableEditor: false,
         changeNewTab: () => {
           const newTab = get().newTab;
@@ -19,9 +18,6 @@ export const useMenuOptions = create<OptionsState>()(
         changeEnableEditor: () => {
           const enableEditor = get().enableEditor;
           set((state) => void (state.enableEditor = !enableEditor));
-        },
-        changeSearchBar: (action: boolean) => {
-          set((state) => void (state.searchBar = action));
         },
         getLocalStorage: () => {
           const storage = localStorage.getItem('newTab');

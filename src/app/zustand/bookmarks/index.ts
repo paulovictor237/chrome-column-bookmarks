@@ -1,3 +1,4 @@
+import { BookmarkTreeNode } from '@/domain/entities/chrome';
 import { Folder } from '@/domain/entities/folder';
 import { Site } from '@/domain/entities/site';
 import { chromeSearch, getBookmarks } from '@/infra/services/chrome';
@@ -7,6 +8,8 @@ import { devtools, persist } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
 import { bookmark, searchFolder } from './init';
 import { BookmarkState } from './types';
+import bookmarks from '@/infra/assets/bookmarks.json';
+// import { process.env.NODE_ENV === 'development' } from '@/infra/services/constants';
 
 // export const useBookmarks = create<BookmarkState>()(devtools(immer(persist(
 export const useBookmarks = create<BookmarkState>()(
@@ -17,9 +20,11 @@ export const useBookmarks = create<BookmarkState>()(
         bookmark: bookmark,
         showCounter: true,
         searchResults: false,
+        searchKeywords: false,
         searchFolder: searchFolder,
         initBookmark: async () => {
-          const data = await getBookmarks();
+          const isDevMode = process.env.NODE_ENV === 'development';
+          const data = isDevMode ? bookmarks : await getBookmarks();
           if (!data[0]?.children) return;
           const bookmark = data[0].children[0] as Folder;
           const otherBookmark = data[0].children[1] as Folder;
@@ -55,22 +60,21 @@ export const useBookmarks = create<BookmarkState>()(
           });
         },
         search: async (keyword) => {
-          if (keyword === '') {
-            return set((s) => void (s.searchFolder.children = []));
+          if (!keyword || keyword.trim() === '') {
+            return set((state) => {
+              state.searchFolder.children = [];
+              state.searchKeywords = false;
+              state.searchResults = false;
+            });
           }
-          var result: Site[] = [];
-          if (process.env.NODE_ENV === 'development') {
-            result = searchSites(keyword, get().bookmark);
-          } else {
-            try {
-              result = await chromeSearch(keyword);
-            } catch (error) {
-              console.error(error);
-            }
-          }
+          const isDevMode = process.env.NODE_ENV === 'development';
+          const result = isDevMode
+            ? searchSites(keyword, get().bookmark)
+            : await chromeSearch(keyword);
           set((state) => {
             state.searchFolder.children = result;
-            state.searchResults = keyword.length > 0;
+            state.searchKeywords = true;
+            state.searchResults = result.length > 0;
           });
         },
       }))

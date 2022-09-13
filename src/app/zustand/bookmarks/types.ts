@@ -6,6 +6,7 @@ export type BookmarkState = {
   bookmark: Folder;
   searchFolder: Folder;
   searchResults: boolean;
+  searchKeywords: boolean;
   columns: Folder[];
   initBookmark: () => void;
   increment: (id: string, index: number) => void;
