@@ -1,4 +1,4 @@
-import { getBookmarks } from '@/infra/services/chrome-services';
+import { getBookmarks } from '@/infra/services/chrome';
 
 export const DownloadJson = () => {
   const exportData = async () => {

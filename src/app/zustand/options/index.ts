@@ -6,29 +6,29 @@ import { immer } from 'zustand/middleware/immer';
 // export const useBookmarks = create<BookmarkState>()(devtools(immer(persist(
 export const useMenuOptions = create<OptionsState>()(
   devtools(
-    immer(
-      persist((set, get) => ({
-        newTab: false,
-        searchBar: false,
-        enableEditor: false,
-        changeNewTab: () => {
-          const newTab = get().newTab;
-          set((state) => void (state.newTab = !newTab));
-          localStorage.setItem('newTab', String(newTab));
-        },
-        changeEnableEditor: () => {
-          const enableEditor = get().enableEditor;
-          set((state) => void (state.enableEditor = !enableEditor));
-        },
-        changeSearchBar: (action: boolean) => {
-          set((state) => void (state.searchBar = action));
-        },
-        getLocalStorage: () => {
-          const storage = localStorage.getItem('newTab');
-          if (!storage) localStorage.setItem('newTab', String(get().newTab));
-          if (storage) set((state) => void (state.newTab = storage === 'true'));
-        },
-      }))
-    )
+    immer((set, get) => ({
+      newTab: false,
+      showRecent: false,
+      enableEditor: false,
+      initOptions: () => {
+        const storage = localStorage.getItem('newTab');
+        set((state) => {
+          if (storage) state.newTab = storage === 'true';
+        });
+      },
+      changeNewTab: () => {
+        const newTab = get().newTab;
+        localStorage.setItem('newTab', String(!newTab));
+        set((state) => void (state.newTab = !newTab));
+      },
+      changeRecent: () => {
+        const showRecent = get().showRecent;
+        set((state) => void (state.showRecent = !showRecent));
+      },
+      changeEnableEditor: () => {
+        const enableEditor = get().enableEditor;
+        set((state) => void (state.enableEditor = !enableEditor));
+      },
+    }))
   )
 );

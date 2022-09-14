@@ -4,114 +4,1463 @@
       {
         "children": [
           {
-            "dateAdded": 1658275204793,
-            "id": "6",
+            "dateAdded": 1661549435166,
+            "id": "231",
             "index": 0,
             "parentId": "1",
-            "title": "Creating a Chrome extension with React and TypeScript - LogRocket Blog",
-            "url": "https://blog.logrocket.com/creating-chrome-extension-react-typescript/"
+            "title": "",
+            "url": "https://www.sinonimos.com.br/"
           },
           {
-            "dateAdded": 1658334779917,
-            "id": "8",
+            "dateAdded": 1661531705539,
+            "id": "230",
             "index": 1,
             "parentId": "1",
-            "title": "GitHub",
-            "url": "https://github.com/paulovictor237?tab=repositories"
-          },
-          {
-            "dateAdded": 1658335192252,
-            "id": "9",
-            "index": 2,
-            "parentId": "1",
-            "title": "Gists",
-            "url": "https://gist.github.com/paulovictor237/0eac5ffd5090875086b0033ec37422b4"
-          },
-          {
-            "dateAdded": 1658335250631,
-            "id": "10",
-            "index": 3,
-            "parentId": "1",
-            "title": "Tailwind CSS",
-            "url": "https://tailwindcss.com/docs/installation/using-postcss"
-          },
-          {
-            "dateAdded": 1658943482143,
-            "id": "17",
-            "index": 4,
-            "parentId": "1",
-            "title": "Painel de controle do desenvolvedor",
-            "url": "https://chrome.google.com/u/1/webstore/devconsole/734a4172-8e89-4f15-96c2-a1e2b0115e53?pli=1"
-          },
-          {
-            "dateAdded": 1658966157707,
-            "id": "19",
-            "index": 5,
-            "parentId": "1",
-            "title": "Tailwind CSS Switch for React - Material Tailwind",
-            "url": "https://www.material-tailwind.com/docs/react/switch"
-          },
-          {
-            "dateAdded": 1659027753062,
-            "id": "23",
-            "index": 6,
-            "parentId": "1",
-            "title": "Inbox - paulovictorpeve@gmail.com - Gmail",
-            "url": "https://mail.google.com/mail/u/0/#inbox"
+            "title": "",
+            "url": "https://translate.google.com.br/?hl=pt-BR"
           },
           {
             "children": [
               {
-                "dateAdded": 1658337719669,
-                "id": "11",
+                "dateAdded": 1660153706687,
+                "id": "202",
                 "index": 0,
-                "parentId": "13",
-                "title": "YouTube",
-                "url": "https://www.youtube.com/"
+                "parentId": "180",
+                "title": "Projeto V2",
+                "url": "https://www.figma.com/file/BhTBSDU9cNbCX5nZbyxbyO/Projeto-V2?node-id=0%3A1"
+              },
+              {
+                "dateAdded": 1659555959000,
+                "id": "182",
+                "index": 1,
+                "parentId": "180",
+                "title": "Componentes – Figma",
+                "url": "https://www.figma.com/file/UhT5y7jVEwEBse4UEgUDrT/Componentes?node-id=2%3A4"
+              },
+              {
+                "dateAdded": 1661520660767,
+                "id": "227",
+                "index": 2,
+                "parentId": "180",
+                "title": "Painel PX",
+                "url": "https://staging.motoristapx.com.br/dashboard"
+              },
+              {
+                "dateAdded": 1659555979000,
+                "id": "183",
+                "index": 3,
+                "parentId": "180",
+                "title": "Painel PX - official",
+                "url": "https://app.motoristapx.com.br/cadastro"
               }
             ],
-            "dateAdded": 1658346539811,
-            "dateGroupModified": 1658943482143,
-            "id": "13",
+            "dateAdded": 1659819804307,
+            "dateGroupModified": 1661525350191,
+            "id": "180",
+            "index": 2,
+            "parentId": "1",
+            "title": "Figma"
+          },
+          {
+            "children": [
+              {
+                "dateAdded": 1659364309000,
+                "id": "17",
+                "index": 0,
+                "parentId": "16",
+                "title": "Gmail",
+                "url": "https://mail.google.com/mail/u/1/#inbox"
+              },
+              {
+                "dateAdded": 1659380587000,
+                "id": "18",
+                "index": 1,
+                "parentId": "16",
+                "title": "YouTube",
+                "url": "https://www.youtube.com/"
+              },
+              {
+                "dateAdded": 1659537256000,
+                "id": "19",
+                "index": 2,
+                "parentId": "16",
+                "title": "Agenda",
+                "url": "https://calendar.google.com/calendar/u/0/r?pli=1"
+              },
+              {
+                "dateAdded": 1661104556530,
+                "id": "220",
+                "index": 3,
+                "parentId": "16",
+                "title": "Google Drive",
+                "url": "https://drive.google.com/drive/my-drive"
+              }
+            ],
+            "dateAdded": 1659819804304,
+            "dateGroupModified": 1661191420912,
+            "id": "16",
+            "index": 3,
+            "parentId": "1",
+            "title": "Google"
+          },
+          {
+            "children": [
+              {
+                "dateAdded": 1660302601118,
+                "id": "208",
+                "index": 0,
+                "parentId": "184",
+                "title": "Css To Tailwind",
+                "url": "https://tailwind-converter.netlify.app/"
+              },
+              {
+                "dateAdded": 1659547669000,
+                "id": "186",
+                "index": 1,
+                "parentId": "184",
+                "title": "buymeacoffee",
+                "url": "https://www.buymeacoffee.com/doodad"
+              },
+              {
+                "dateAdded": 1659549026000,
+                "id": "187",
+                "index": 2,
+                "parentId": "184",
+                "title": "regex generator",
+                "url": "https://regexr.com/"
+              },
+              {
+                "dateAdded": 1659549223000,
+                "id": "188",
+                "index": 3,
+                "parentId": "184",
+                "title": "regex",
+                "url": "https://regex101.com/"
+              }
+            ],
+            "dateAdded": 1659819804307,
+            "dateGroupModified": 1660307325309,
+            "id": "184",
+            "index": 4,
+            "parentId": "1",
+            "title": "Tools"
+          },
+          {
+            "children": [
+              {
+                "dateAdded": 1660159869454,
+                "id": "205",
+                "index": 0,
+                "parentId": "33",
+                "title": "git-flow",
+                "url": "https://danielkummer.github.io/git-flow-cheatsheet/"
+              },
+              {
+                "dateAdded": 1657799872000,
+                "id": "35",
+                "index": 1,
+                "parentId": "33",
+                "title": "Jest - Testing",
+                "url": "https://jestjs.io/"
+              },
+              {
+                "dateAdded": 1658175675000,
+                "id": "36",
+                "index": 2,
+                "parentId": "33",
+                "title": "Tailwind CSS",
+                "url": "https://tailwindcss.com/docs/responsive-design"
+              },
+              {
+                "dateAdded": 1660579827918,
+                "id": "213",
+                "index": 3,
+                "parentId": "33",
+                "title": "WebStorm",
+                "url": "https://www.jetbrains.com/pt-br/webstorm/buy/#personal?billing=monthly"
+              },
+              {
+                "children": [
+                  {
+                    "dateAdded": 1648900486000,
+                    "id": "38",
+                    "index": 0,
+                    "parentId": "37",
+                    "title": "CSS",
+                    "url": "https://www.instagram.com/p/CH8AD71AH6-/?igshid=klpwcpq96hqg"
+                  },
+                  {
+                    "dateAdded": 1648900516000,
+                    "id": "39",
+                    "index": 1,
+                    "parentId": "37",
+                    "title": "CSS2",
+                    "url": "https://www.instagram.com/p/CIQnsYugB3W/?igshid=1cabwlubxa2qa"
+                  },
+                  {
+                    "dateAdded": 1648900524000,
+                    "id": "40",
+                    "index": 2,
+                    "parentId": "37",
+                    "title": "HTML",
+                    "url": "https://www.instagram.com/p/CHiQXYPgXTU/?igshid=ohu3btcytyen"
+                  },
+                  {
+                    "dateAdded": 1648597547000,
+                    "id": "41",
+                    "index": 3,
+                    "parentId": "37",
+                    "title": "Google Fonts",
+                    "url": "https://fonts.google.com/"
+                  },
+                  {
+                    "dateAdded": 1648598523000,
+                    "id": "42",
+                    "index": 4,
+                    "parentId": "37",
+                    "title": "Flexbox | CSS-Tricks",
+                    "url": "https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
+                  },
+                  {
+                    "dateAdded": 1655307192000,
+                    "id": "43",
+                    "index": 5,
+                    "parentId": "37",
+                    "title": "JavaScript Array Methods",
+                    "url": "https://www.javascripttutorial.net/javascript-array-methods/"
+                  },
+                  {
+                    "dateAdded": 1656690527000,
+                    "id": "44",
+                    "index": 6,
+                    "parentId": "37",
+                    "title": "Pseudo-classes - CSS | MDN",
+                    "url": "https://developer.mozilla.org/pt-BR/docs/Web/CSS/Pseudo-classes"
+                  },
+                  {
+                    "dateAdded": 1657748742000,
+                    "id": "45",
+                    "index": 7,
+                    "parentId": "37",
+                    "title": "Window.localStorage - APIs da Web | MDN",
+                    "url": "https://developer.mozilla.org/pt-BR/docs/Web/API/Window/localStorage"
+                  },
+                  {
+                    "dateAdded": 1657761009000,
+                    "id": "34",
+                    "index": 8,
+                    "parentId": "37",
+                    "title": "TypeScript - Cheat Sheet",
+                    "url": "https://www.sitepen.com/blog/typescript-cheat-sheet"
+                  },
+                  {
+                    "dateAdded": 1656887046000,
+                    "id": "52",
+                    "index": 9,
+                    "parentId": "37",
+                    "title": "API de Referência dos Hooks – React",
+                    "url": "https://reactjs.org/docs/hooks-reference.html"
+                  }
+                ],
+                "dateAdded": 1659819804305,
+                "dateGroupModified": 1660822341628,
+                "id": "37",
+                "index": 4,
+                "parentId": "33",
+                "title": "Sheet"
+              },
+              {
+                "children": [
+                  {
+                    "dateAdded": 1657556495000,
+                    "id": "77",
+                    "index": 0,
+                    "parentId": "76",
+                    "title": "Fake images please?",
+                    "url": "https://fakeimg.pl/"
+                  },
+                  {
+                    "dateAdded": 1658232769000,
+                    "id": "78",
+                    "index": 1,
+                    "parentId": "76",
+                    "title": "Open Peeps | DiceBear Avatars",
+                    "url": "https://avatars.dicebear.com/styles/open-peeps"
+                  },
+                  {
+                    "dateAdded": 1658178535000,
+                    "id": "79",
+                    "index": 2,
+                    "parentId": "76",
+                    "title": "Random Face Generator",
+                    "url": "https://this-person-does-not-exist.com/en"
+                  },
+                  {
+                    "dateAdded": 1659102671000,
+                    "id": "80",
+                    "index": 3,
+                    "parentId": "76",
+                    "title": "365 Random Muppets – Marvel as I draw a different Muppet every day for a year…I'd better get started!",
+                    "url": "https://365randommuppets.wordpress.com/"
+                  },
+                  {
+                    "dateAdded": 1658264091000,
+                    "id": "81",
+                    "index": 4,
+                    "parentId": "76",
+                    "title": "Colormind - the AI powered color palette generator",
+                    "url": "http://colormind.io/"
+                  }
+                ],
+                "dateAdded": 1659819804305,
+                "id": "76",
+                "index": 5,
+                "parentId": "33",
+                "title": "Profiles"
+              },
+              {
+                "children": [
+                  {
+                    "dateAdded": 1661366278800,
+                    "id": "225",
+                    "index": 0,
+                    "parentId": "82",
+                    "title": "React Transition Group",
+                    "url": "http://reactcommunity.org/react-transition-group/css-transition"
+                  },
+                  {
+                    "dateAdded": 1659102708000,
+                    "id": "83",
+                    "index": 1,
+                    "parentId": "82",
+                    "title": "Animista - CSS Animations on Demand",
+                    "url": "https://animista.net/play/basic/rotate-scale"
+                  },
+                  {
+                    "dateAdded": 1657758046000,
+                    "id": "84",
+                    "index": 2,
+                    "parentId": "82",
+                    "title": "Free Lottie",
+                    "url": "https://lottiefiles.com/29040-twitter-heart-animation"
+                  },
+                  {
+                    "dateAdded": 1657758072000,
+                    "id": "85",
+                    "index": 3,
+                    "parentId": "82",
+                    "title": "react-lottie - npm",
+                    "url": "https://www.npmjs.com/package/react-lottie"
+                  },
+                  {
+                    "dateAdded": 1659052238000,
+                    "id": "86",
+                    "index": 4,
+                    "parentId": "82",
+                    "title": "Introduction | Framer for Developers",
+                    "url": "https://www.framer.com/docs/introduction/"
+                  }
+                ],
+                "dateAdded": 1659819804305,
+                "dateGroupModified": 1661520660767,
+                "id": "82",
+                "index": 6,
+                "parentId": "33",
+                "title": "Animacao"
+              },
+              {
+                "children": [
+                  {
+                    "dateAdded": 1656446968000,
+                    "id": "62",
+                    "index": 0,
+                    "parentId": "201",
+                    "title": "https://brasilapi.com.br/docs",
+                    "url": "https://brasilapi.com.br/docs"
+                  },
+                  {
+                    "dateAdded": 1659461356000,
+                    "id": "96",
+                    "index": 1,
+                    "parentId": "201",
+                    "title": "Navigation Menu – Radix UI",
+                    "url": "https://www.radix-ui.com/docs/primitives/components/dropdown-menu"
+                  },
+                  {
+                    "dateAdded": 1659461361000,
+                    "id": "99",
+                    "index": 2,
+                    "parentId": "201",
+                    "title": "zustand - npm",
+                    "url": "https://www.npmjs.com/package/zustand"
+                  },
+                  {
+                    "dateAdded": 1659102758000,
+                    "id": "90",
+                    "index": 3,
+                    "parentId": "201",
+                    "title": "Isotope · Filter & sort magical layouts",
+                    "url": "https://isotope.metafizzy.co/"
+                  }
+                ],
+                "dateAdded": 1660147268532,
+                "dateGroupModified": 1660153706687,
+                "id": "201",
+                "index": 7,
+                "parentId": "33",
+                "title": "API"
+              }
+            ],
+            "dateAdded": 1659819804305,
+            "dateGroupModified": 1660683000225,
+            "id": "33",
+            "index": 5,
+            "parentId": "1",
+            "title": "Developer"
+          },
+          {
+            "children": [
+              {
+                "dateAdded": 1645729748000,
+                "id": "105",
+                "index": 0,
+                "parentId": "104",
+                "title": "Repositories",
+                "url": "https://github.com/paulovictor237?tab=repositories"
+              },
+              {
+                "dateAdded": 1661525372550,
+                "id": "229",
+                "index": 1,
+                "parentId": "104",
+                "title": "Pseudo Códigos",
+                "url": "https://gist.github.com/paulovictor237/feb1e621237368ec62344a225d555b10"
+              },
+              {
+                "dateAdded": 1645741583000,
+                "id": "106",
+                "index": 2,
+                "parentId": "104",
+                "title": "Gists",
+                "url": "https://gist.github.com/paulovictor237"
+              },
+              {
+                "dateAdded": 1660683000225,
+                "id": "214",
+                "index": 3,
+                "parentId": "104",
+                "title": "StackOverflow",
+                "url": "https://stackoverflow.com/users/9674688/paulo-victor-duarte?tab=answers"
+              },
+              {
+                "dateAdded": 1656443511000,
+                "id": "107",
+                "index": 4,
+                "parentId": "104",
+                "title": "Vercel",
+                "url": "https://vercel.com/dashboard"
+              },
+              {
+                "dateAdded": 1659622749000,
+                "id": "108",
+                "index": 5,
+                "parentId": "104",
+                "title": "Material Shell ",
+                "url": "https://extensions.gnome.org/extension/3357/material-shell/"
+              },
+              {
+                "dateAdded": 1563302638000,
+                "id": "109",
+                "index": 6,
+                "parentId": "104",
+                "title": "Internet Archive",
+                "url": "https://archive.org/web/"
+              },
+              {
+                "dateAdded": 1660308457546,
+                "id": "211",
+                "index": 7,
+                "parentId": "104",
+                "title": "Ubuntu Livepatch",
+                "url": "https://ubuntu.com/advantage"
+              },
+              {
+                "children": [
+                  {
+                    "dateAdded": 1642632531000,
+                    "id": "111",
+                    "index": 0,
+                    "parentId": "110",
+                    "title": "Oh My Zsh",
+                    "url": "https://ohmyz.sh/#install"
+                  },
+                  {
+                    "dateAdded": 1650579350000,
+                    "id": "112",
+                    "index": 1,
+                    "parentId": "110",
+                    "title": "Dark theme for Gnome Terminal and 260+ apps — Dracula",
+                    "url": "https://draculatheme.com/gnome-terminal"
+                  },
+                  {
+                    "dateAdded": 1642638979000,
+                    "id": "113",
+                    "index": 2,
+                    "parentId": "110",
+                    "title": "Terminal com Oh My Zsh, Spaceship, Dracula e mais",
+                    "url": "https://blog.rocketseat.com.br/terminal-com-oh-my-zsh-spaceship-dracula-e-mais/"
+                  },
+                  {
+                    "dateAdded": 1642633289000,
+                    "id": "114",
+                    "index": 3,
+                    "parentId": "110",
+                    "title": "How to make ZSH the default shell",
+                    "url": "https://askubuntu.com/questions/131823/how-to-make-zsh-the-default-shell"
+                  },
+                  {
+                    "dateAdded": 1630717738000,
+                    "id": "115",
+                    "index": 4,
+                    "parentId": "110",
+                    "title": "shorten my command line",
+                    "url": "https://askubuntu.com/questions/145618/how-can-i-shorten-my-command-line-bash-prompt"
+                  }
+                ],
+                "dateAdded": 1659819804306,
+                "id": "110",
+                "index": 8,
+                "parentId": "104",
+                "title": "ZSH"
+              },
+              {
+                "children": [
+                  {
+                    "dateAdded": 1643147027000,
+                    "id": "117",
+                    "index": 0,
+                    "parentId": "116",
+                    "title": "Media Control Taskbar Flyout",
+                    "url": "https://github.com/krlvm/MediaFlyout"
+                  },
+                  {
+                    "dateAdded": 1644403621000,
+                    "id": "118",
+                    "index": 1,
+                    "parentId": "116",
+                    "title": "Genymobile",
+                    "url": "https://github.com/Genymobile/scrcpy/"
+                  },
+                  {
+                    "dateAdded": 1644404897000,
+                    "id": "119",
+                    "index": 2,
+                    "parentId": "116",
+                    "title": "Universal ADB Drivers",
+                    "url": "https://adb.clockworkmod.com/"
+                  },
+                  {
+                    "dateAdded": 1643996958000,
+                    "id": "120",
+                    "index": 3,
+                    "parentId": "116",
+                    "title": "Files V2",
+                    "url": "https://files.community/"
+                  },
+                  {
+                    "dateAdded": 1545307161000,
+                    "id": "121",
+                    "index": 4,
+                    "parentId": "116",
+                    "title": "Insync Licenses",
+                    "url": "https://www.insynchq.com/pricing"
+                  },
+                  {
+                    "dateAdded": 1594210652000,
+                    "id": "122",
+                    "index": 5,
+                    "parentId": "116",
+                    "title": "Termite 3.4",
+                    "url": "https://termite.software.informer.com/3.4/"
+                  }
+                ],
+                "dateAdded": 1659819804306,
+                "id": "116",
+                "index": 9,
+                "parentId": "104",
+                "title": "Apps"
+              },
+              {
+                "children": [
+                  {
+                    "dateAdded": 1646665251000,
+                    "id": "124",
+                    "index": 0,
+                    "parentId": "123",
+                    "title": "Ventoy",
+                    "url": "https://www.ventoy.net/en/download.html"
+                  },
+                  {
+                    "dateAdded": 1644931377000,
+                    "id": "125",
+                    "index": 1,
+                    "parentId": "123",
+                    "title": "balenaEtcher",
+                    "url": "https://www.balena.io/etcher"
+                  },
+                  {
+                    "dateAdded": 1522386141000,
+                    "id": "126",
+                    "index": 2,
+                    "parentId": "123",
+                    "title": "Rufus - Crie drives USB bootaveis facilmente",
+                    "url": "https://rufus.akeo.ie/"
+                  },
+                  {
+                    "dateAdded": 1549973679000,
+                    "id": "127",
+                    "index": 3,
+                    "parentId": "123",
+                    "title": "Ordem de boot [GRUB]",
+                    "url": "https://www.vivaolinux.com.br/dica/GRUB-2-Alterando-ordem-de-boot"
+                  },
+                  {
+                    "dateAdded": 1493863004000,
+                    "id": "128",
+                    "index": 4,
+                    "parentId": "123",
+                    "title": "Hora errada no Windows em dual boot com Ubuntu 16.04 LTS - Mundo Ubuntu",
+                    "url": "http://www.mundoubuntu.com.br/dicas/289-hora-errada-no-windows-em-dual-boot-com-ubuntu-16-04-lts"
+                  }
+                ],
+                "dateAdded": 1659819804306,
+                "id": "123",
+                "index": 10,
+                "parentId": "104",
+                "title": "Instalar Ubuntu"
+              },
+              {
+                "children": [
+                  {
+                    "dateAdded": 1645406628000,
+                    "id": "130",
+                    "index": 0,
+                    "parentId": "129",
+                    "title": "boot - \"dev/sda1: clean, ...\" This message appears after I startup my laptop, then it won't continue booting - Ask Ubuntu",
+                    "url": "https://askubuntu.com/questions/882385/dev-sda1-clean-this-message-appears-after-i-startup-my-laptop-then-it-w"
+                  },
+                  {
+                    "dateAdded": 1645407224000,
+                    "id": "131",
+                    "index": 1,
+                    "parentId": "129",
+                    "title": "grub2 - How to get to the GRUB menu at boot-time? - Ask Ubuntu",
+                    "url": "https://askubuntu.com/questions/16042/how-to-get-to-the-grub-menu-at-boot-time"
+                  },
+                  {
+                    "dateAdded": 1645409124000,
+                    "id": "132",
+                    "index": 2,
+                    "parentId": "129",
+                    "title": "Check if Your Computer Uses UEFI or BIOS [in Linux & Windows]",
+                    "url": "https://itsfoss.com/check-uefi-or-bios/#:~:text=The%20easiest%20way%20to%20find,your%20system%20is%20using%20BIOS.&text=Alternative%3A%20The%20other%20method%20is%20to%20install%20a%20package%20called%20efibootmgr.&text=If%20your%20system%20supports%20UEFI%2C%20it%20will%20output%20different%20variables."
+                  },
+                  {
+                    "dateAdded": 1645572159000,
+                    "id": "133",
+                    "index": 3,
+                    "parentId": "129",
+                    "title": "How to remove icons/shortcuts from Unity menu? - Ask Ubuntu",
+                    "url": "https://askubuntu.com/questions/71240/how-to-remove-icons-shortcuts-from-unity-menu"
+                  },
+                  {
+                    "dateAdded": 1645881524000,
+                    "id": "134",
+                    "index": 4,
+                    "parentId": "129",
+                    "title": "Opening a video file with VLC opens two seprate windwos(screenshot included) | Linux.org",
+                    "url": "https://www.linux.org/threads/opening-a-video-file-with-vlc-opens-two-seprate-windwos-screenshot-included.34753/"
+                  }
+                ],
+                "dateAdded": 1659819804306,
+                "id": "129",
+                "index": 11,
+                "parentId": "104",
+                "title": "Errors"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "dateAdded": 1574685874000,
+                        "id": "137",
+                        "index": 0,
+                        "parentId": "136",
+                        "title": "Typora",
+                        "url": "https://typora.en.uptodown.com/windows/download/4121405"
+                      },
+                      {
+                        "dateAdded": 1589928225000,
+                        "id": "141",
+                        "index": 1,
+                        "parentId": "136",
+                        "title": "Diagrams",
+                        "url": "https://plantuml.com/activity-diagram-beta"
+                      },
+                      {
+                        "dateAdded": 1574861749000,
+                        "id": "138",
+                        "index": 2,
+                        "parentId": "136",
+                        "title": "Tables generator",
+                        "url": "https://www.tablesgenerator.com/text_tables#"
+                      },
+                      {
+                        "dateAdded": 1606312239000,
+                        "id": "139",
+                        "index": 3,
+                        "parentId": "136",
+                        "title": "LaTex Equation Editor",
+                        "url": "https://www.tutorialspoint.com/latex_equation_editor.htm"
+                      },
+                      {
+                        "dateAdded": 1606312253000,
+                        "id": "140",
+                        "index": 4,
+                        "parentId": "136",
+                        "title": "Gerador Grafico",
+                        "url": "https://www.mathcha.io/"
+                      },
+                      {
+                        "dateAdded": 1574691016000,
+                        "id": "142",
+                        "index": 5,
+                        "parentId": "136",
+                        "title": "StackEdit",
+                        "url": "https://stackedit.io/app#"
+                      },
+                      {
+                        "dateAdded": 1574685849000,
+                        "id": "143",
+                        "index": 6,
+                        "parentId": "136",
+                        "title": "GitBook",
+                        "url": "https://app.gitbook.com/@paulovictor237/spaces"
+                      },
+                      {
+                        "dateAdded": 1589380006000,
+                        "id": "144",
+                        "index": 7,
+                        "parentId": "136",
+                        "title": "file-imports.md",
+                        "url": "https://github.com/shd101wyy/markdown-preview-enhanced/blob/master/docs/file-imports.md"
+                      },
+                      {
+                        "dateAdded": 1598566830000,
+                        "id": "145",
+                        "index": 8,
+                        "parentId": "136",
+                        "title": "Pandoc - Universal Document",
+                        "url": "https://pandoc.org/getting-started.html"
+                      }
+                    ],
+                    "dateAdded": 1659819804306,
+                    "dateGroupModified": 1662064415683,
+                    "id": "136",
+                    "index": 0,
+                    "parentId": "135",
+                    "title": "Markdown"
+                  },
+                  {
+                    "children": [
+                      {
+                        "dateAdded": 1545313471000,
+                        "id": "147",
+                        "index": 0,
+                        "parentId": "146",
+                        "title": "Branch-e-Merge (GIT)",
+                        "url": "https://git-scm.com/book/pt-br/v1/Ramifica%C3%A7%C3%A3o-Branching-no-Git-B%C3%A1sico-de-Branch-e-Merge"
+                      },
+                      {
+                        "dateAdded": 1545330731000,
+                        "id": "148",
+                        "index": 1,
+                        "parentId": "146",
+                        "title": "My Gravatar",
+                        "url": "https://br.gravatar.com/paulovictor237"
+                      },
+                      {
+                        "dateAdded": 1617821138000,
+                        "id": "149",
+                        "index": 2,
+                        "parentId": "146",
+                        "title": "shields",
+                        "url": "https://shields.io/"
+                      },
+                      {
+                        "dateAdded": 1621019920000,
+                        "id": "150",
+                        "index": 3,
+                        "parentId": "146",
+                        "title": "git-flow",
+                        "url": "https://danielkummer.github.io/git-flow-cheatsheet/index.pt_BR.html"
+                      }
+                    ],
+                    "dateAdded": 1659819804306,
+                    "id": "146",
+                    "index": 1,
+                    "parentId": "135",
+                    "title": "Github"
+                  },
+                  {
+                    "children": [
+                      {
+                        "dateAdded": 1643472009000,
+                        "id": "152",
+                        "index": 0,
+                        "parentId": "151",
+                        "title": "Lorem Ipsum",
+                        "url": "https://br.lipsum.com/"
+                      },
+                      {
+                        "dateAdded": 1616196759000,
+                        "id": "153",
+                        "index": 1,
+                        "parentId": "151",
+                        "title": "codepen",
+                        "url": "https://codepen.io/pen/"
+                      }
+                    ],
+                    "dateAdded": 1659819804307,
+                    "id": "151",
+                    "index": 2,
+                    "parentId": "135",
+                    "title": "HTML"
+                  },
+                  {
+                    "children": [
+                      {
+                        "dateAdded": 1644332522000,
+                        "id": "155",
+                        "index": 0,
+                        "parentId": "154",
+                        "title": "Live Share - Visual Studio Marketplace",
+                        "url": "https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare"
+                      },
+                      {
+                        "dateAdded": 1644332620000,
+                        "id": "156",
+                        "index": 1,
+                        "parentId": "154",
+                        "title": "Microsoft Edge Tools for VS Code - Visual Studio Marketplace",
+                        "url": "https://marketplace.visualstudio.com/items?itemName=ms-edgedevtools.vscode-edge-devtools"
+                      },
+                      {
+                        "dateAdded": 1644421384000,
+                        "id": "157",
+                        "index": 2,
+                        "parentId": "154",
+                        "title": "SuperHero Extension Pack",
+                        "url": "https://marketplace.visualstudio.com/items?itemName=codeSTACKr.superhero-extensions"
+                      },
+                      {
+                        "dateAdded": 1644858921000,
+                        "id": "158",
+                        "index": 3,
+                        "parentId": "154",
+                        "title": "GitHub Markdown Preview",
+                        "url": "https://marketplace.visualstudio.com/items?itemName=bierner.github-markdown-preview"
+                      },
+                      {
+                        "dateAdded": 1645447532000,
+                        "id": "159",
+                        "index": 4,
+                        "parentId": "154",
+                        "title": "Thunder Client",
+                        "url": "https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client"
+                      },
+                      {
+                        "dateAdded": 1645709503000,
+                        "id": "160",
+                        "index": 5,
+                        "parentId": "154",
+                        "title": "Project Manager - Visual Studio Marketplace",
+                        "url": "https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager"
+                      },
+                      {
+                        "dateAdded": 1645712007000,
+                        "id": "161",
+                        "index": 6,
+                        "parentId": "154",
+                        "title": "Rocketseat ReactJS - Visual Studio Marketplace",
+                        "url": "https://marketplace.visualstudio.com/items?itemName=rocketseat.RocketseatReactJS"
+                      },
+                      {
+                        "dateAdded": 1645739525000,
+                        "id": "162",
+                        "index": 7,
+                        "parentId": "154",
+                        "title": "Live Server - reload HTTP pages",
+                        "url": "https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer"
+                      },
+                      {
+                        "dateAdded": 1647341208000,
+                        "id": "163",
+                        "index": 8,
+                        "parentId": "154",
+                        "title": "Git Graph - Visual Studio Marketplace",
+                        "url": "https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph"
+                      }
+                    ],
+                    "dateAdded": 1659819804307,
+                    "id": "154",
+                    "index": 3,
+                    "parentId": "135",
+                    "title": "VScode"
+                  },
+                  {
+                    "children": [
+                      {
+                        "dateAdded": 1585850863000,
+                        "id": "165",
+                        "index": 0,
+                        "parentId": "164",
+                        "title": "Bash Scripting Cheatsheet",
+                        "url": "https://devhints.io/bash"
+                      },
+                      {
+                        "dateAdded": 1585850870000,
+                        "id": "166",
+                        "index": 1,
+                        "parentId": "164",
+                        "title": "Bash Scripts – Tania Rascia",
+                        "url": "https://www.taniarascia.com/how-to-create-and-use-bash-scripts/"
+                      }
+                    ],
+                    "dateAdded": 1659819804307,
+                    "id": "164",
+                    "index": 4,
+                    "parentId": "135",
+                    "title": "Bash Script"
+                  },
+                  {
+                    "children": [
+                      {
+                        "dateAdded": 1642632275000,
+                        "id": "168",
+                        "index": 0,
+                        "parentId": "167",
+                        "title": "Instalar o WSL",
+                        "url": "https://docs.microsoft.com/pt-br/windows/wsl/install"
+                      },
+                      {
+                        "dateAdded": 1643996489000,
+                        "id": "169",
+                        "index": 1,
+                        "parentId": "167",
+                        "title": "nautilus | nemo | dolphin",
+                        "url": "https://docs.microsoft.com/pt-br/windows/wsl/tutorials/gui-apps"
+                      },
+                      {
+                        "dateAdded": 1644883050000,
+                        "id": "170",
+                        "index": 2,
+                        "parentId": "167",
+                        "title": "Xserver on WSL2",
+                        "url": "https://skeptric.com/wsl2-xserver/"
+                      }
+                    ],
+                    "dateAdded": 1659819804307,
+                    "id": "167",
+                    "index": 5,
+                    "parentId": "135",
+                    "title": "WSL"
+                  }
+                ],
+                "dateAdded": 1659819804306,
+                "dateGroupModified": 1659819804306,
+                "id": "135",
+                "index": 12,
+                "parentId": "104",
+                "title": "Desenvolvimento"
+              },
+              {
+                "children": [
+                  {
+                    "dateAdded": 1630607860000,
+                    "id": "172",
+                    "index": 0,
+                    "parentId": "171",
+                    "title": "AnyDesk",
+                    "url": "https://anydesk.com/en"
+                  },
+                  {
+                    "dateAdded": 1644346425000,
+                    "id": "173",
+                    "index": 1,
+                    "parentId": "171",
+                    "title": "Remota Google Chrome",
+                    "url": "https://remotedesktop.google.com/?pli=1"
+                  },
+                  {
+                    "dateAdded": 1596578413000,
+                    "id": "174",
+                    "index": 2,
+                    "parentId": "171",
+                    "title": "File Roller",
+                    "url": "https://www.rollapp.com/app/fileroller"
+                  },
+                  {
+                    "dateAdded": 1558442973000,
+                    "id": "175",
+                    "index": 3,
+                    "parentId": "171",
+                    "title": "VNC Viewer Raspberry Pi ",
+                    "url": "https://www.realvnc.com/pt/connect/download/viewer/raspberrypi/"
+                  },
+                  {
+                    "dateAdded": 1570035946000,
+                    "id": "176",
+                    "index": 4,
+                    "parentId": "171",
+                    "title": "Managed DNS Services - 100% DNS Uptime - No-IP",
+                    "url": "https://www.noip.com/managed-dns?gclid=CjwKCAjwldHsBRAoEiwAd0Jybe2mvvYzH3Gu5hKoPR31wkmMEI7i5OFsAVPYOiHURuFCL4Xl_ZUjUhoCa6MQAvD_BwE&utm_campaign=Brand%20International%20google&utm_content=Brand%20International%20Google%20Dollar%20Ad&utm_medium=cpc&utm_source=google&utm_term=%257Bkeyword%257D"
+                  },
+                  {
+                    "dateAdded": 1570035946000,
+                    "id": "177",
+                    "index": 5,
+                    "parentId": "171",
+                    "title": "A feature rich Remote Desktop Application - Remmina",
+                    "url": "https://remmina.org/"
+                  },
+                  {
+                    "dateAdded": 1570035946000,
+                    "id": "178",
+                    "index": 6,
+                    "parentId": "171",
+                    "title": "Baixar o VNC Viewer | VNC Connect",
+                    "url": "https://www.realvnc.com/pt/connect/download/viewer/"
+                  },
+                  {
+                    "dateAdded": 1651539475000,
+                    "id": "179",
+                    "index": 7,
+                    "parentId": "171",
+                    "title": "Service - OpenSSH | Ubuntu",
+                    "url": "https://ubuntu.com/server/docs/service-openssh"
+                  }
+                ],
+                "dateAdded": 1659819804307,
+                "id": "171",
+                "index": 13,
+                "parentId": "104",
+                "title": "Remoto"
+              }
+            ],
+            "dateAdded": 1659819804306,
+            "dateGroupModified": 1661531705539,
+            "id": "104",
+            "index": 6,
+            "parentId": "1",
+            "title": "Ubuntu"
+          },
+          {
+            "children": [
+              {
+                "dateAdded": 1660005933643,
+                "id": "194",
+                "index": 0,
+                "parentId": "192",
+                "title": "Rocketseat",
+                "url": "https://app.rocketseat.com.br/node/prisma-io-2022"
+              },
+              {
+                "dateAdded": 1660005968192,
+                "id": "195",
+                "index": 1,
+                "parentId": "192",
+                "title": "Udemy",
+                "url": "https://www.udemy.com/join/login-popup/?locale=pt_BR&response_type=html&next=https%3A%2F%2Fwww.udemy.com%2Fjoin%2Flogin-popup%2F%3Ferror_type%3Dsocial_auth%26locale%3Dpt_BR%26next%3Dhttps%253A%252F%252Fwww.udemy.com%252F%253Futm_source%253Dadwords-brand%2526utm_medium%253Dudemyads%2526utm_campaign%253DBrand-Udemy_la.PT_cc.BR%2526tabei%253D7%2526utm_term%253D_._ag_115247525277_._ad_604192299583_._de_c_._dm__._pl__._ti_kwd-310556426868_._li_9102344_._pd__._%2526gclid%253DCjwKCAjw6MKXBhA5EiwANWLODMFMlsyPQkRJJIRtNCgNDJkrUc6aWjHRmLc81ZMvOiI-_tp169EDtBoCpyAQAvD_BwE"
+              }
+            ],
+            "dateAdded": 1660005869903,
+            "dateGroupModified": 1660051470871,
+            "id": "192",
             "index": 7,
             "parentId": "1",
-            "title": "Nova pasta"
+            "title": "Aulas"
           },
           {
-            "dateAdded": 1659015828286,
-            "id": "21",
+            "children": [
+              {
+                "dateAdded": 1659443263000,
+                "id": "25",
+                "index": 0,
+                "parentId": "204",
+                "title": "Painel - Jira",
+                "url": "https://motoristapx.atlassian.net/jira/software/c/projects/DEV/boards/1?assignee=61bd1ae79e8a370068c21158"
+              },
+              {
+                "dateAdded": 1660001142057,
+                "id": "191",
+                "index": 1,
+                "parentId": "204",
+                "title": "Painelpx V2 ",
+                "url": "https://bitbucket.org/pxdeveloper/painelpx_v2/src/master/"
+              }
+            ],
+            "dateAdded": 1660154141302,
+            "dateGroupModified": 1660154153523,
+            "id": "204",
             "index": 8,
             "parentId": "1",
-            "title": "Pull Requests",
-            "url": "https://github.com/pulls"
+            "title": "Jira"
           },
           {
-            "dateAdded": 1659036338537,
-            "id": "24",
+            "children": [
+              {
+                "dateAdded": 1661990724802,
+                "id": "233",
+                "index": 0,
+                "parentId": "234",
+                "title": "Client",
+                "url": "https://www.prisma.io/client"
+              },
+              {
+                "dateAdded": 1661990778901,
+                "id": "235",
+                "index": 1,
+                "parentId": "234",
+                "title": "Migrate",
+                "url": "https://www.prisma.io/migrate"
+              },
+              {
+                "dateAdded": 1661990903257,
+                "id": "236",
+                "index": 2,
+                "parentId": "234",
+                "title": "Studio",
+                "url": "https://www.prisma.io/studio"
+              }
+            ],
+            "dateAdded": 1661990732617,
+            "dateGroupModified": 1662049756294,
+            "id": "234",
             "index": 9,
             "parentId": "1",
-            "title": "Introduction | Framer for Developers",
-            "url": "https://www.framer.com/docs/introduction/"
+            "title": "prisma"
           }
         ],
-        "dateAdded": 1658192485714,
-        "dateGroupModified": 1659095015382,
+        "dateAdded": 1659799212140,
+        "dateGroupModified": 1662660573533,
         "id": "1",
         "index": 0,
         "parentId": "0",
-        "title": "Barra de favoritos"
+        "title": "Bookmarks bar"
       },
       {
-        "children": [],
-        "dateAdded": 1658192485714,
-        "dateGroupModified": 1659027753062,
+        "children": [
+          {
+            "dateAdded": 1660307325309,
+            "id": "210",
+            "index": 0,
+            "parentId": "2",
+            "title": "Pomofocus",
+            "url": "https://pomofocus.io/"
+          },
+          {
+            "children": [
+              {
+                "dateAdded": 1660051470871,
+                "id": "198",
+                "index": 0,
+                "parentId": "20",
+                "title": "Confluence",
+                "url": "https://motoristapx.atlassian.net/wiki/spaces/IN/pages/21200897/Painel+das+transportadoras+V2"
+              },
+              {
+                "dateAdded": 1659364294000,
+                "id": "21",
+                "index": 1,
+                "parentId": "20",
+                "title": "Slack",
+                "url": "https://app.slack.com/client/T01GQ9TD8BZ/C01H20K2M29"
+              },
+              {
+                "dateAdded": 1661191420912,
+                "id": "222",
+                "index": 2,
+                "parentId": "20",
+                "title": "LOJINHAPX",
+                "url": "https://docs.google.com/forms/d/e/1FAIpQLSdqeDaNVTDx-c3Z0wb9L35nY0cT0qreiFVoXvnF1IHKC82SqQ/viewform"
+              }
+            ],
+            "dateAdded": 1659819804304,
+            "dateGroupModified": 1661366264883,
+            "id": "20",
+            "index": 1,
+            "parentId": "2",
+            "title": "PX"
+          },
+          {
+            "children": [
+              {
+                "dateAdded": 1645744513000,
+                "id": "74",
+                "index": 0,
+                "parentId": "73",
+                "title": "codepen",
+                "url": "https://codepen.io/gaearon/pen/ZXeOBm?editors=0010"
+              },
+              {
+                "dateAdded": 1657197227000,
+                "id": "75",
+                "index": 1,
+                "parentId": "73",
+                "title": "codesandbox",
+                "url": "https://codesandbox.io/dashboard/home"
+              }
+            ],
+            "dateAdded": 1659819804305,
+            "id": "73",
+            "index": 2,
+            "parentId": "2",
+            "title": "Code"
+          },
+          {
+            "children": [
+              {
+                "dateAdded": 1655307407000,
+                "id": "47",
+                "index": 0,
+                "parentId": "46",
+                "title": "A List of JavaScript Array Methods",
+                "url": "https://medium.com/@mandeepkaur1/a-list-of-javascript-array-methods-145d09dd19a0"
+              },
+              {
+                "dateAdded": 1655773072000,
+                "id": "48",
+                "index": 1,
+                "parentId": "46",
+                "title": "How to Use fetch() with JSON",
+                "url": "https://dmitripavlutin.com/fetch-with-json/"
+              },
+              {
+                "dateAdded": 1656848720000,
+                "id": "49",
+                "index": 2,
+                "parentId": "46",
+                "title": "Como usar o Sass com módulos do CSS no Next.js",
+                "url": "https://www.freecodecamp.org/portuguese/news/como-usar-o-sass-com-modulos-do-css-no-next-js/"
+              },
+              {
+                "dateAdded": 1656449048000,
+                "id": "50",
+                "index": 3,
+                "parentId": "46",
+                "title": "controle de cache vercel",
+                "url": "https://vercel.com/support/articles/how-to-configure-the-cache-control-response-header-in-vercel-projects"
+              },
+              {
+                "dateAdded": 1656873273000,
+                "id": "51",
+                "index": 4,
+                "parentId": "46",
+                "title": "Elevando o State – React",
+                "url": "https://pt-br.reactjs.org/docs/lifting-state-up.html"
+              },
+              {
+                "dateAdded": 1656887525000,
+                "id": "53",
+                "index": 5,
+                "parentId": "46",
+                "title": "Context API with TypeScript and Next.JS - DEV Community",
+                "url": "https://dev.to/shareef/context-api-with-typescript-and-next-js-2m25"
+              },
+              {
+                "dateAdded": 1656887528000,
+                "id": "54",
+                "index": 6,
+                "parentId": "46",
+                "title": "Using React Context for state management in Next.js",
+                "url": "https://www.netlify.com/blog/2020/12/01/using-react-context-for-state-management-in-next.js/"
+              },
+              {
+                "dateAdded": 1657020485000,
+                "id": "55",
+                "index": 7,
+                "parentId": "46",
+                "title": "Creating responsive and adaptive layouts with React and Styled-Components - DEV Community",
+                "url": "https://dev.to/carloscne/creating-responsive-and-adaptive-layouts-with-react-and-styled-components-1ghi"
+              },
+              {
+                "dateAdded": 1657247850000,
+                "id": "56",
+                "index": 8,
+                "parentId": "46",
+                "title": "React's useReducer with Redux Toolkit. Why not?",
+                "url": "https://www.valentinog.com/blog/use-reducer/"
+              },
+              {
+                "dateAdded": 1657112819000,
+                "id": "57",
+                "index": 9,
+                "parentId": "46",
+                "title": "Componentes de Ordem Superior – React",
+                "url": "https://pt-br.reactjs.org/docs/higher-order-components.html"
+              },
+              {
+                "dateAdded": 1658269159000,
+                "id": "58",
+                "index": 10,
+                "parentId": "46",
+                "title": "My Top Apps for 2017 // Zeno Rocha",
+                "url": "https://zenorocha.com/my-top-apps-for-2017"
+              },
+              {
+                "dateAdded": 1660822341628,
+                "id": "217",
+                "index": 11,
+                "parentId": "46",
+                "title": "Regex | by Caio Gomes",
+                "url": "https://medium.com/@caiogomes_dev/aprenda-agora-a-usar-regex-f02900e032bb"
+              },
+              {
+                "dateAdded": 1660822390348,
+                "id": "218",
+                "index": 12,
+                "parentId": "46",
+                "title": "Next router.push",
+                "url": "https://nextjs.org/docs/advanced-features/i18n-routing#transition-between-locales"
+              }
+            ],
+            "dateAdded": 1659819804305,
+            "dateGroupModified": 1660822390348,
+            "id": "46",
+            "index": 3,
+            "parentId": "2",
+            "title": "Leitura"
+          },
+          {
+            "children": [
+              {
+                "dateAdded": 1658943521000,
+                "id": "88",
+                "index": 0,
+                "parentId": "87",
+                "title": "Painel de controle do desenvolvedor",
+                "url": "https://chrome.google.com/webstore/devconsole/734a4172-8e89-4f15-96c2-a1e2b0115e53"
+              },
+              {
+                "dateAdded": 1658275204000,
+                "id": "27",
+                "index": 1,
+                "parentId": "87",
+                "title": "Creating a Chrome extension with React and TypeScript",
+                "url": "https://blog.logrocket.com/creating-chrome-extension-react-typescript/"
+              },
+              {
+                "dateAdded": 1662049756294,
+                "id": "238",
+                "index": 2,
+                "parentId": "87",
+                "title": "Column Bookmarks New Tab",
+                "url": "https://chrome-stats.com/d/ocjdiehlhhoiahkbbgmjnfeipjpbhhph"
+              }
+            ],
+            "dateAdded": 1659819804306,
+            "dateGroupModified": 1662049767152,
+            "id": "87",
+            "index": 4,
+            "parentId": "2",
+            "title": "Chrome"
+          },
+          {
+            "children": [
+              {
+                "dateAdded": 1659102889000,
+                "id": "93",
+                "index": 0,
+                "parentId": "92",
+                "title": "Screenlane - Web & mobile UI design inspiration",
+                "url": "https://screenlane.com/?ref=uimovement"
+              },
+              {
+                "dateAdded": 1659102953000,
+                "id": "94",
+                "index": 1,
+                "parentId": "92",
+                "title": "Pttrns – The finest collection of mobile design patterns",
+                "url": "https://www.pttrns.com/"
+              },
+              {
+                "dateAdded": 1656677395000,
+                "id": "60",
+                "index": 2,
+                "parentId": "92",
+                "title": "antd - bootstrap",
+                "url": "https://www.npmjs.com/package/antd"
+              },
+              {
+                "dateAdded": 1657210640000,
+                "id": "69",
+                "index": 3,
+                "parentId": "92",
+                "title": "Material UI - Overview - Material UI",
+                "url": "https://mui.com/pt/material-ui/getting-started/overview/"
+              },
+              {
+                "dateAdded": 1657210737000,
+                "id": "70",
+                "index": 4,
+                "parentId": "92",
+                "title": "Chakra UI - A simple, modular and accessible component library that gives you the building blocks you need to build your React applications. - Chakra UI",
+                "url": "https://chakra-ui.com/"
+              },
+              {
+                "dateAdded": 1657549938000,
+                "id": "71",
+                "index": 5,
+                "parentId": "92",
+                "title": "Mirage JS • An API mocking library for frontend developers",
+                "url": "https://miragejs.com/"
+              },
+              {
+                "dateAdded": 1660164926365,
+                "id": "206",
+                "index": 6,
+                "parentId": "92",
+                "title": "Tailwind CSS Progress Bar",
+                "url": "https://tailwinduikit.com/components/webapp/UI_element/progress_bar"
+              },
+              {
+                "dateAdded": 1660245366936,
+                "id": "207",
+                "index": 7,
+                "parentId": "92",
+                "title": "AOS - Animate on scroll library",
+                "url": "https://michalsnik.github.io/aos/"
+              }
+            ],
+            "dateAdded": 1659819804306,
+            "dateGroupModified": 1660302601118,
+            "id": "92",
+            "index": 5,
+            "parentId": "2",
+            "title": "Visual"
+          }
+        ],
+        "dateAdded": 1659799212140,
+        "dateGroupModified": 1660308457546,
         "id": "2",
         "index": 1,
         "parentId": "0",
-        "title": "Outros favoritos"
+        "title": "Other bookmarks"
       }
     ],
-    "dateAdded": 1659091060248,
+    "dateAdded": 1662802096417,
     "id": "0",
     "title": ""
   }

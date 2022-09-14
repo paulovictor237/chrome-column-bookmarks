@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useEffect, useRef, useState } from 'react';
-import { FiSettings } from 'react-icons/fi';
+import { AiFillSetting } from 'react-icons/ai';
 import { twMerge } from 'tailwind-merge';
 import { DownloadJson } from '../download';
 import { NewTab } from '../switch-new-tab';
@@ -36,12 +36,9 @@ export function Settings() {
 
   return (
     <div className="relative" ref={dropdownRef}>
-      <FiSettings
-        className={twMerge(
-          'text-neutral-200 hover:text-peve-selected cursor-pointer ',
-          isOpen && 'text-peve-selected'
-        )}
+      <AiFillSetting
         size={28}
+        className={isOpen ? 'text-peve-selected' : ''}
         onClick={() => setIsOpen((prev) => !prev)}
       />
 
@@ -58,8 +55,8 @@ export function Settings() {
                 'flex flex-col gap-1.5 text-gray-700 p-1.5 bg-peve-light rounded-lg border-2 border-peve-selected w-44'
               }
             >
-              {settings.map((item) => (
-                <LiItem key={new Date().toISOString()}>{item}</LiItem>
+              {settings.map((item, index) => (
+                <LiItem key={index + '@'}>{item}</LiItem>
               ))}
             </motion.ul>
           </div>

@@ -1,3 +1,4 @@
+import { chromeRemove } from '@/infra/services/chrome';
 import React from 'react';
 import { FiTrash2 } from 'react-icons/fi';
 import Modal from 'react-modal';
@@ -12,7 +13,7 @@ export const Delete = ({ id, title }: Props) => {
 
   const handleDelete = () => {
     try {
-      chrome.bookmarks.remove(id, () => {});
+      chromeRemove(id);
     } catch (error) {
     } finally {
       closeModal();

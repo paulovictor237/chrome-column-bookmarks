@@ -1,80 +1,31 @@
 import { useBookmarks } from '@/app/zustand/bookmarks';
 import { useMenuOptions } from '@/app/zustand/options';
-import { Site } from '@/domain/entities/site';
-import { useRef } from 'react';
+import { ChangeEvent, useRef } from 'react';
 import { FiXCircle } from 'react-icons/fi';
-import { useSelector } from 'react-redux';
 import { twMerge } from 'tailwind-merge';
 
 export const SearchBar = () => {
   const formRef = useRef<HTMLFormElement>(null);
-
-  const Bookmark = useBookmarks((state) => state.bookmark);
   const searchResults = useBookmarks((state) => state.searchResults);
+  const searchKeywords = useBookmarks((state) => state.searchKeywords);
   const bookmarksSearch = useBookmarks((state) => state.search);
-
-  const changeSearchBar = useMenuOptions((state) => state.changeSearchBar);
-  const searchBar = useMenuOptions((state) => state.searchBar);
 
   const onSubmit = (event: any) => {
     event.preventDefault();
     formRef.current!.reset();
-    bookmarksSearch([]);
-    changeSearchBar(false);
+    bookmarksSearch('');
   };
 
-  const handleChange = (event: any) => {
-    const value = event.target.value;
-    search(value);
-    changeSearchBar(value === '' ? false : true);
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value.trim();
+    bookmarksSearch(value);
   };
-
-  function searchLocal(searchText: string) {
-    function recursive(object: any, search: Site[]) {
-      if (object.children !== undefined && object.children.length > 0) {
-        object.children.forEach((element: any) => {
-          recursive(element, search);
-        });
-      } else {
-        search.push(object);
-      }
-    }
-    let local: Site[] = [];
-    recursive(Bookmark, local);
-    const filter = local.filter((item) =>
-      item.title.toLowerCase().includes(searchText.toLowerCase())
-    );
-    return filter;
-  }
-
-  async function search(searchText: string) {
-    if (searchText === '') return bookmarksSearch([]);
-    if (process.env.NODE_ENV === 'development') {
-      const local = searchLocal(searchText);
-      bookmarksSearch(local);
-    } else {
-      try {
-        const local = await new Promise<any[]>((res) =>
-          chrome.bookmarks.search(searchText, res)
-        );
-        const filter = local.filter(
-          (item) =>
-            item.dateGroupModified === undefined && item.url !== undefined
-        );
-        console.log(filter);
-        bookmarksSearch(filter);
-      } catch (e) {
-        const local = searchLocal(searchText);
-        bookmarksSearch(local);
-      }
-    }
-  }
 
   return (
     <form
       className={twMerge(
-        'outline outline-3 hover:outline-peve-selected focus-within:outline-peve-selected outline-gray-600 flex flex-row items-center gap-2 border bg-gray-200 rounded-md px-2 h-8',
-        searchBar &&
+        'outline outline-3 hover:outline-peve-selected focus-within:outline-peve-selected outline-peve-zinc flex flex-row items-center gap-2 border bg-gray-200 rounded-md px-2 h-8',
+        searchKeywords &&
           (searchResults
             ? 'outline-green-600 hover:outline-green-600 focus-within:outline-green-600'
             : 'outline-red-600 hover:outline-red-600 focus-within:outline-red-600')
@@ -90,9 +41,11 @@ export const SearchBar = () => {
         // value={name}
         onChange={handleChange}
       />
-      <button type="submit">
+      <button type="submit" className="w-5">
         <FiXCircle
-          className="cursor-pointer text-gray-600 hover:text-peve-selected"
+          className={`cursor-pointer text-peve-zinc hover:text-peve-selected ${
+            !searchKeywords && 'hidden'
+          }`}
           size={20}
         />
       </button>
