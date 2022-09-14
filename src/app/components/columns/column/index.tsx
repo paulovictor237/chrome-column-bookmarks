@@ -43,7 +43,7 @@ export const Column = ({
         )}
         <main className="flex flex-col gap-3">
           {folder.children.length < 1 && (
-            <Line className="justify-center font-bold text-2xl">
+            <Line className="justify-center font-bold text-2xl" disabled>
               <TbDots />
             </Line>
           )}
