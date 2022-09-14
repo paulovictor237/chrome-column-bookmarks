@@ -1,14 +1,16 @@
-import { BookmarkTreeNode } from '@/domain/entities/chrome';
 import { Folder } from '@/domain/entities/folder';
-import { Site } from '@/domain/entities/site';
-import { chromeSearch, getBookmarks } from '@/infra/services/chrome';
-import { searchChildrens, searchSites } from '@/infra/services/search';
+import bookmarks from '@/infra/assets/bookmarks.json';
+import {
+  chromeAddListener,
+  chromeSearch,
+  getBookmarks,
+} from '@/infra/services/chrome';
+import { searchSites } from '@/infra/services/search';
 import create from 'zustand';
-import { devtools, persist } from 'zustand/middleware';
+import { devtools } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
 import { bookmark, searchFolder } from './init';
 import { BookmarkState } from './types';
-import bookmarks from '@/infra/assets/bookmarks.json';
 // import { process.env.NODE_ENV === 'development' } from '@/infra/services/constants';
 
 // export const useBookmarks = create<BookmarkState>()(devtools(immer(persist(
@@ -21,17 +23,23 @@ export const useBookmarks = create<BookmarkState>()(
       searchResults: false,
       searchKeywords: false,
       searchFolder: searchFolder,
-      initBookmark: async () => {
+      onChangedCallback: async (id, changeInfo) => {
         const isDevMode = process.env.NODE_ENV === 'development';
         const data = isDevMode ? bookmarks : await getBookmarks();
         if (!data[0]?.children) return;
-        const bookmark = data[0].children[0] as Folder;
-        const otherBookmark = data[0].children[1] as Folder;
-        if (otherBookmark.children.length > 0) {
-          bookmark.children.push(otherBookmark);
+        const [bookmark, otherBookmark] = data[0].children;
+        if ((otherBookmark as Folder).children?.length > 0) {
+          (bookmark as Folder).children.push(otherBookmark as Folder);
         }
-        set((state) => void (state.bookmark = bookmark));
-        set((state) => void (state.columns = [bookmark]));
+        set((state) => {
+          state.bookmark = bookmark as Folder;
+          state.columns = [bookmark as Folder];
+        });
+      },
+      initBookmark: async () => {
+        const onChangedCallback = get().onChangedCallback;
+        onChangedCallback();
+        chromeAddListener(onChangedCallback);
       },
       increment: (id, index) => {
         const newFolder = get().columns[index].children.find(

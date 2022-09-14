@@ -1,6 +1,6 @@
 import { TitleTag } from '../../common/title-tag';
 import { Settings } from '../components/settings';
-import { ShowRecent } from '../components/switch-recent';
+import { ShowRecent } from '../components/recent';
 
 export const RightIcons = () => {
   return (

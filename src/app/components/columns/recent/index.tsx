@@ -19,7 +19,7 @@ export const RecentColumn = () => {
   const [recentFolder, setRecentFolder] = useState<Folder>(initRecent);
 
   const getRecent = async () => {
-    const children = await chromeRecent(15);
+    const children = await chromeRecent(50);
     setRecentFolder({ ...initRecent, children });
   };
 

@@ -37,11 +37,8 @@ export function Settings() {
   return (
     <div className="relative" ref={dropdownRef}>
       <AiFillSetting
-        className={twMerge(
-          'text-peve-zinc hover:text-peve-selected cursor-pointer ',
-          isOpen && 'text-peve-selected'
-        )}
         size={28}
+        className={isOpen ? 'text-peve-selected' : ''}
         onClick={() => setIsOpen((prev) => !prev)}
       />
 

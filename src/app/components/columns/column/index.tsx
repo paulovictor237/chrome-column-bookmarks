@@ -28,17 +28,6 @@ export const Column = ({
       // layoutId={`Column${index}`}
       transition={{ duration: 0.3 }}
     >
-      {showTitle && (
-        <title
-          className={twMerge(
-            'select-none flex items-center justify-center p-1 mb-3 overflow-hidden h-10 rounded-md bg-peve-zinc',
-            className,
-            'hidden'
-          )}
-        >
-          {folder.title}
-        </title>
-      )}
       <div className="bg-peve-light rounded-2xl p-3 h-full overflow-y-auto sc2 shadow-lg">
         {showTitle && (
           <title

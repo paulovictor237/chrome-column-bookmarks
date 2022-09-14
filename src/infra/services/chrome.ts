@@ -41,38 +41,28 @@ export const chromeRecent: chromeRecent = async (number) => {
   }
 };
 
-// https://developer.chrome.com/docs/extensions/reference/bookmarks/#method-getRecent
+type chromeAddListener = (
+  callback: (id?: string, changeInfo?: object) => void
+) => Promise<void>;
+export const chromeAddListener: chromeAddListener = async (callback) => {
+  try {
+    chrome.bookmarks.onChanged.addListener(callback);
+    chrome.bookmarks.onChanged.addListener(callback);
+    chrome.bookmarks.onChildrenReordered.addListener(callback);
+    chrome.bookmarks.onCreated.addListener(callback);
+    chrome.bookmarks.onImportBegan.addListener(callback);
+    chrome.bookmarks.onImportEnded.addListener(callback);
+    chrome.bookmarks.onMoved.addListener(callback);
+    chrome.bookmarks.onRemoved.addListener(callback);
+  } catch (error) {
+    return;
+  }
+};
 
-// chrome.bookmarks.onChanged.addListener(
-//   callback: (id: string, changeInfo: object) => void
-// )
+// https://developer.chrome.com/docs/extensions/reference/bookmarks/#method-getRecent
 
 // chrome.bookmarks.create(
 //   bookmark: CreateDetails,
-//   callback?: function,
-// )
-
-// chrome.bookmarks.get(
-//   idOrIdList: string | [string, ...string[]],
-//   callback?: function,
-// )
-// chrome.bookmarks.getSubTree(
-//   id: string,
-//   callback?: function,
-// )
-
-// chrome.bookmarks.getTree(
-//   callback?: function,
-// )
-
-// chrome.bookmarks.getChildren(
-//   id: string,
-//   callback?: function,
-// )
-
-// chrome.bookmarks.move(
-//   id: string,
-//   destination: object,
 //   callback?: function,
 // )
 
@@ -87,5 +77,30 @@ export const chromeRecent: chromeRecent = async (number) => {
 //     title string optional
 //     url string optional
 //   },
+//   callback?: function,
+// )
+
+// chrome.bookmarks.move(
+//   id: string,
+//   destination: object,
+//   callback?: function,
+// )
+
+// chrome.bookmarks.get(
+//   idOrIdList: string | [string, ...string[]],
+//   callback?: function,
+// )
+
+// chrome.bookmarks.getTree(
+//   callback?: function,
+// )
+
+// chrome.bookmarks.getSubTree(
+//   id: string,
+//   callback?: function,
+// )
+
+// chrome.bookmarks.getChildren(
+//   id: string,
 //   callback?: function,
 // )

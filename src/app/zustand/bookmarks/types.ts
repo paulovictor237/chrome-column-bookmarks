@@ -12,4 +12,5 @@ export type BookmarkState = {
   increment: (id: string, index: number) => void;
   search: (keyword: string) => void;
   setColumns: (data: Folder[]) => void;
+  onChangedCallback: (id?: string, changeInfo?: object) => void;
 };
