@@ -15,9 +15,6 @@ export const SearchColumn = () => {
           folder={searchFolder}
           index={-1}
           title={searchResults ? 'search' : 'no results'}
-          className={
-            (searchResults ? 'bg-green-600' : 'bg-red-600') + ' bg-opacity-50'
-          }
         />
       )}
     </>

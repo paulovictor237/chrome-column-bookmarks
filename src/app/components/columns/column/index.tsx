@@ -1,7 +1,9 @@
 import { Folder } from '@/domain/entities/folder';
 import { Site } from '@/domain/entities/site';
 import { motion } from 'framer-motion';
+import { TbDots } from 'react-icons/tb';
 import { twMerge } from 'tailwind-merge';
+import { Line } from '../../common/line';
 import { FolderUi } from '../folder-ui';
 import { LinkUi } from '../link-ui';
 import { Props } from './types';
@@ -40,6 +42,11 @@ export const Column = ({
           </title>
         )}
         <main className="flex flex-col gap-3">
+          {folder.children.length < 1 && (
+            <Line className="justify-center font-bold text-2xl">
+              <TbDots />
+            </Line>
+          )}
           {folder.children?.map((item, idx) => {
             const isFolder = !!(item as Folder).children;
             return (
