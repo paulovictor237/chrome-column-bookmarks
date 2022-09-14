@@ -15,7 +15,7 @@ export const searchFolder: Folder = {
   dateAdded: 0,
   dateGroupModified: 0,
   parentId: '0',
-  id: '-1',
+  id: 'search',
   index: -1,
   title: 'Search',
 };

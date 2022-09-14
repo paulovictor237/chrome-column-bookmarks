@@ -1,7 +1,9 @@
 export type OptionsState = {
+  showRecent: boolean;
   newTab: boolean;
   enableEditor: boolean;
+  changeRecent: () => void;
   changeNewTab: () => void;
   changeEnableEditor: () => void;
-  getLocalStorage: () => void;
+  initOptions: () => void;
 };

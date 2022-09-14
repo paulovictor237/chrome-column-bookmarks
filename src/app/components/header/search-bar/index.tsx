@@ -44,7 +44,7 @@ export const SearchBar = () => {
       <button type="submit" className="w-5">
         <FiXCircle
           className={`cursor-pointer text-peve-zinc hover:text-peve-selected ${
-            !searchResults && 'hidden'
+            !searchKeywords && 'hidden'
           }`}
           size={20}
         />

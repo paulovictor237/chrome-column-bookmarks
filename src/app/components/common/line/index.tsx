@@ -16,7 +16,7 @@ export const Line = ({
   return (
     <div
       className={twMerge(
-        'p-1 px-3 hover:bg-peve-selected filter:brightness-105 h-10 flex items-center justify-between bg-peve-dark rounded-md',
+        'hover:bg-peve-selected bg-peve-dark p-1 px-3 h-10 flex items-center justify-between rounded-md',
         selected && 'bg-peve-zinc',
         className
       )}
@@ -28,7 +28,7 @@ export const Line = ({
           {title}
         </span>
       </div>
-      {enableEditor && <Delete id={id} title={title} />}
+      {/* {enableEditor && <Delete id={id} title={title} />} */}
     </div>
   );
 };

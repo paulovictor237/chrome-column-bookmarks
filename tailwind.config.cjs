@@ -10,6 +10,11 @@ module.exports = {
         'peve-zinc': '#71717a',
       },
       keyframes: {
+        columns: {
+          '0%': { transform: 'translateX(-60px)', opacity: 0 },
+          '50%': { transform: 'translateX(20px)', opacity: 1 },
+          '100%': { transform: 'translateX(0)', opacity: 1 },
+        },
         wiggle: {
           // '0%, 100%': { transform: 'rotate(-1deg)' },
           // '50%': { transform: 'rotate(1deg)' },
@@ -36,7 +41,9 @@ module.exports = {
         },
       },
       animation: {
-        wiggle: 'wiggle 0.5s ease-in-out infinite',
+        line: 'hover:scale-[103%] duration-100 transition-all',
+        columns: 'columns 0.3s ease',
+        wiggle: 'wiggle 0.5s ease-out infinite',
         wiggle2: 'spin 3s linear infinite',
         wiggle3: 'wiggle 1s ease-in-out infinite',
       },

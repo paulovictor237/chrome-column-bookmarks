@@ -11,10 +11,13 @@ export const SearchColumn = () => {
     <>
       {searchKeywords && (
         <Column
-          key={-500}
+          showTitle
           folder={searchFolder}
           index={-1}
-          status={searchResults ? 'search' : 'no results'}
+          title={searchResults ? 'search' : 'no results'}
+          className={
+            (searchResults ? 'bg-green-600' : 'bg-red-600') + ' bg-opacity-50'
+          }
         />
       )}
     </>

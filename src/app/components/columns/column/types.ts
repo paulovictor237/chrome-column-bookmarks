@@ -1,7 +1,9 @@
 import { Folder } from '@/domain/entities/folder';
 
-export type Props = {
+export type Props = JSX.IntrinsicElements['div'] & {
   folder: Folder;
   index: number;
-  status?: string;
+  title?: string;
+  className?: string;
+  showTitle?: boolean;
 };

@@ -28,15 +28,23 @@ export const chromeRemove: chromeRemove = (id) => {
   chrome.bookmarks.remove(id);
 };
 
+type chromeRecent = (number: number) => Promise<Site[]>;
+export const chromeRecent: chromeRecent = async (number) => {
+  try {
+    const local = await chrome.bookmarks.getRecent(number);
+    const filter = local.filter((item) => {
+      return item.dateGroupModified === undefined && item.url !== undefined;
+    });
+    return filter as Site[];
+  } catch (error) {
+    return [];
+  }
+};
+
 // https://developer.chrome.com/docs/extensions/reference/bookmarks/#method-getRecent
 
 // chrome.bookmarks.onChanged.addListener(
 //   callback: (id: string, changeInfo: object) => void
-// )
-
-// chrome.bookmarks.getRecent(
-//   numberOfItems: number,
-//   callback?: function,
 // )
 
 // chrome.bookmarks.create(
