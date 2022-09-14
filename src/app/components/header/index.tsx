@@ -5,9 +5,9 @@ import { SearchBar } from './search-bar';
 export const Header = () => {
   return (
     <div className="bg-peve-light flex items-center justify-between shadow-lg gap-2 p-2">
-      <RightIcons />
-      <SearchBar />
       <LeftIcons />
+      <SearchBar />
+      <RightIcons />
     </div>
   );
 };

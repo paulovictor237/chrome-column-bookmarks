@@ -4,4 +4,5 @@ export type Props = JSX.IntrinsicElements['div'] & {
   link?: string;
   selected?: boolean;
   onClick?: () => void;
+  disabled?: boolean;
 };

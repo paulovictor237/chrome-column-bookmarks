@@ -1,4 +1,5 @@
 import { Folder } from '@/domain/entities/folder';
+import { Site } from '@/domain/entities/site';
 import bookmarks from '@/infra/assets/bookmarks.json';
 import {
   chromeAddListener,
@@ -68,16 +69,20 @@ export const useBookmarks = create<BookmarkState>()(
       },
       search: async (keyword) => {
         if (!keyword || keyword.trim() === '') {
-          return set((state) => {
+          set((state) => {
             state.searchFolder.children = [];
             state.searchKeywords = false;
             state.searchResults = false;
           });
+          return;
         }
+        let result: Site[] = [];
         const isDevMode = process.env.NODE_ENV === 'development';
-        const result = isDevMode
-          ? searchSites(keyword, get().bookmark)
-          : await chromeSearch(keyword);
+        if (isDevMode) result = searchSites(keyword, get().bookmark);
+        else {
+          const api = await chromeSearch(keyword);
+          result = api !== null ? api : searchSites(keyword, get().bookmark);
+        }
         set((state) => {
           state.searchFolder.children = result;
           state.searchKeywords = true;

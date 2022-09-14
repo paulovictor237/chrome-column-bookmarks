@@ -1,31 +1,38 @@
 import { BookmarkTreeNode } from '@/domain/entities/chrome';
-import { Folder } from '@/domain/entities/folder';
 import { Site } from '@/domain/entities/site';
 import bookmarks from '@/infra/assets/bookmarks.json';
-// import bookmarks from '@/infra/assets/dev.json';
-// import bookmarks from '@/infra/assets/peve.json';
-import { delay } from './delay';
 
 type getBookmarks = (keyword: string) => Promise<BookmarkTreeNode[]>;
 export const getBookmarks = async () => {
-  const BookmarkTreeNode = await new Promise<BookmarkTreeNode[]>((res) =>
-    chrome.bookmarks.getTree(res)
-  );
-  return BookmarkTreeNode;
+  try {
+    return await new Promise<BookmarkTreeNode[]>((res) =>
+      chrome.bookmarks.getTree(res)
+    );
+  } catch (error) {
+    return bookmarks;
+  }
 };
 
-type chromeSearch = (keyword: string) => Promise<Site[]>;
+type chromeSearch = (keyword: string) => Promise<Site[] | null>;
 export const chromeSearch: chromeSearch = async (keyword) => {
-  const local = await chrome.bookmarks.search(keyword);
-  const filter = local.filter((item) => {
-    return item.dateGroupModified === undefined && item.url !== undefined;
-  });
-  return filter as Site[];
+  try {
+    const local = await chrome.bookmarks.search(keyword);
+    const filter = local.filter((item) => {
+      return item.dateGroupModified === undefined && item.url !== undefined;
+    });
+    return filter as Site[];
+  } catch (error) {
+    return null;
+  }
 };
 
 type chromeRemove = (id: string) => void;
 export const chromeRemove: chromeRemove = (id) => {
-  chrome.bookmarks.remove(id);
+  try {
+    chrome.bookmarks.remove(id);
+  } catch (error) {
+    return;
+  }
 };
 
 type chromeRecent = (number: number) => Promise<Site[]>;

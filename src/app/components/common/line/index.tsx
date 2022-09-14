@@ -1,6 +1,4 @@
-import { useMenuOptions } from '@/app/zustand/options';
 import { twMerge } from 'tailwind-merge';
-import { Delete } from '../../header/components/delete';
 import { Props } from './types';
 
 export const Line = ({
@@ -9,21 +7,21 @@ export const Line = ({
   children,
   selected,
   className,
-  id,
+  disabled = false,
 }: Props) => {
-  const enableEditor = useMenuOptions((state) => state.enableEditor);
-
+  // const enableEditor = useMenuOptions((state) => state.enableEditor);
   return (
     <div
-      className={`
-        hover:bg-peve-selected bg-peve-dark p-1 px-3 h-10 flex items-center justify-between rounded-md ${
-          selected && 'bg-peve-zinc'
-        }`}
+      className={twMerge(
+        'bg-peve-dark p-1 px-3 h-10 flex items-center justify-between rounded-md w-full cursor-pointer ',
+        !disabled ? ' hover:bg-peve-selected' : 'cursor-default',
+        selected && 'bg-peve-zinc'
+      )}
       onClick={onClick}
     >
       <div
         className={twMerge(
-          'cursor-pointer flex items-center h-full w-full overflow-hidden',
+          'flex items-center h-full w-full overflow-hidden',
           className
         )}
       >
