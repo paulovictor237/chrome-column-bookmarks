@@ -12,5 +12,9 @@ export const DownloadJson = () => {
     link.click();
   };
 
-  return <button onClick={exportData}>Export Data</button>;
+  return (
+    <button className="w-full" onClick={exportData}>
+      Export Data
+    </button>
+  );
 };
