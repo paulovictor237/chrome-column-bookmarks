@@ -13,7 +13,7 @@ export const getBookmarks = async () => {
   }
 };
 
-type chromeSearch = (keyword: string) => Promise<Site[]>;
+type chromeSearch = (keyword: string) => Promise<Site[] | null>;
 export const chromeSearch: chromeSearch = async (keyword) => {
   try {
     const local = await chrome.bookmarks.search(keyword);
@@ -22,7 +22,7 @@ export const chromeSearch: chromeSearch = async (keyword) => {
     });
     return filter as Site[];
   } catch (error) {
-    return [];
+    return null;
   }
 };
 
