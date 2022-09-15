@@ -2,7 +2,6 @@ import { Folder } from '@/domain/entities/folder';
 import { Site } from '@/domain/entities/site';
 
 export type BookmarkState = {
-  showCounter: boolean;
   bookmark: Folder;
   searchFolder: Folder;
   searchResults: boolean;

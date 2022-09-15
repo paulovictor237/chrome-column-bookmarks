@@ -30,14 +30,7 @@ export const RecentColumn = () => {
   return (
     <>
       {showRecent && (
-        <Column
-          showTitle
-          folder={recentFolder}
-          index={-1}
-          title={'Recent'}
-          // status={searchResults ? 'search' : 'no results'}
-          // className={searchResults ? 'bg-green-600' : 'bg-red-600'}
-        />
+        <Column showTitle folder={recentFolder} index={-1} title={'Recent'} />
       )}
     </>
   );

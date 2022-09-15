@@ -3,7 +3,6 @@ import create from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
 
-// export const useBookmarks = create<BookmarkState>()(devtools(immer(persist(
 export const useMenuOptions = create<OptionsState>()(
   devtools(
     immer((set, get) => ({
