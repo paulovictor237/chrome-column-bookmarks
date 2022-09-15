@@ -34,7 +34,7 @@ export const Column = ({
         {showTitle && (
           <title
             className={twMerge(
-              'shadow-2xl border-2 border-peve-white bg-peve-selected font-bold select-none flex items-center justify-center mb-3 overflow-hidden h-10 rounded-md ',
+              ' border-peve-dark text-peve-dark bg-peve-selected font-bold select-none flex items-center justify-center mb-3 overflow-hidden h-10 rounded-md ',
               className
             )}
           >
