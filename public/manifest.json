@@ -7,12 +7,12 @@
   "permissions": ["bookmarks", "chrome://favicon/"],
   "browser_action": {
     "default_title": "Column",
-    "default_icon": "/images/favicon96.png"
+    "default_icon": "/img/favicon96.png"
   },
   "icons": {
-    "16": "/images/favicon.png",
-    "32": "/images/favicon.png",
-    "96": "/images/favicon.png"
+    "16": "/img/favicon.png",
+    "32": "/img/favicon.png",
+    "96": "/img/favicon.png"
   },
   "chrome_url_overrides": {
     "newtab": "index.html"

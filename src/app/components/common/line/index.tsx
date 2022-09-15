@@ -9,7 +9,6 @@ export const Line = ({
   className,
   disabled = false,
 }: Props) => {
-  // const enableEditor = useMenuOptions((state) => state.enableEditor);
   return (
     <div
       className={twMerge(
@@ -30,7 +29,6 @@ export const Line = ({
           {title}
         </span>
       </div>
-      {/* {enableEditor && <Delete id={id} title={title} />} */}
     </div>
   );
 };

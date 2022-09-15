@@ -33,7 +33,7 @@ export const SearchBar = () => {
       ref={formRef}
       onSubmit={onSubmit}
       className={twMerge(
-        'group transition-all duration-300 ease-linear',
+        'group transition-all duration-75 ease-linear',
         'border-2 border-peve-zinc hover:border-peve-selected focus-within:border-peve-selected',
         'text-peve-dark bg-peve-zinc',
         'flex flex-row items-center gap-2',
@@ -45,7 +45,7 @@ export const SearchBar = () => {
         <BiSearch
           size={20}
           className={twMerge(
-            'transition-all duration-300 group-hover:text-peve-selected group-focus-within:text-peve-selected',
+            'transition-all duration-75 ease-linear group-hover:text-peve-selected group-focus-within:text-peve-selected',
             searchKeywords && (searchResults ? greenStyle : redStyle)
           )}
         />

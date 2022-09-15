@@ -8,7 +8,6 @@ export function Settings() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // const settings = [<NewTab />, <Editable />, <DownloadJson />];
   const settings = [<NewTab />, <DownloadJson />];
 
   const handleClickOutside = (event: MouseEvent) => {

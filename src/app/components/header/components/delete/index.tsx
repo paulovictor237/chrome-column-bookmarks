@@ -18,19 +18,6 @@ export const Delete = ({ id, title }: Props) => {
     } finally {
       closeModal();
     }
-    // chrome.bookmarks.removeTree(
-    //   id: string,
-    //   callback?: function,
-    // )
-    // bookmarks.move(
-    //   id: string,
-    //   destination: { index, parentId },
-    //   callback?: function,
-    // )
-    // chrome.bookmarks.create(
-    //   bookmark: { index, parentId, title, url }
-    //   callback?: function,
-    // )
   };
 
   const customStyles = {
