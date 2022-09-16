@@ -2,8 +2,8 @@
 
 Links to reading more about Zustand
 
-- [github-zustand](<[https://](https://github.com/pmndrs/zustand)>)
-- [persisting-store-data](<[https://](https://github.com/pmndrs/zustand/blob/main/docs/integrations/persisting-store-data.md)>)
+- [github-zustand](https://github.com/pmndrs/zustand)
+- [persisting-store-data](https://github.com/pmndrs/zustand/blob/main/docs/integrations/persisting-store-data.md)
 
 # Favicon V3
 
