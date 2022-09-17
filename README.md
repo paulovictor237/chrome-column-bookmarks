@@ -7,7 +7,7 @@ Column Bookmarks New Tab
 
 <p align="center" margin-bottom="0">
   <a href="https://chrome-column-tab.vercel.app" target="_blank">
-    <img alt="demo" width="auto" height="auto" src="./.github/img/demo2.png"/>
+    <img alt="demo" width="auto" height="auto" src="./.github/img/demo(Desktop Normal).png"/>
   </a>
 </p>
 
