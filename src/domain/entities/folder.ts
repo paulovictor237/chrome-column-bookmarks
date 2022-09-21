@@ -1,11 +1,8 @@
-import { Site } from './site';
-
 export interface Folder {
-  children: (Site | Folder)[];
-  dateAdded: number;
-  dateGroupModified: number;
+  dateAdded?: number;
   id: string;
-  index: number;
-  parentId: string;
-  title: string;
+  index?: number;
+  parentId?: string;
+  title?: string;
+  dateGroupModified?: number;
 }

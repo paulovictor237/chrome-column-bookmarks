@@ -1,15 +1,13 @@
-import { Folder } from '@/domain/entities/folder';
-import { Site } from '@/domain/entities/site';
+import { ColumnType } from '@/domain/entities/column';
 
 export type BookmarkState = {
-  bookmark: Folder;
-  searchFolder: Folder;
+  bookmark: ColumnType;
+  searchFolder: ColumnType;
   searchResults: boolean;
   searchKeywords: boolean;
-  columns: Folder[];
-  initBookmark: () => void;
-  increment: (id: string, index: number) => void;
+  columns: ColumnType[];
+  initialState: () => void;
+  addColumn: (id: string, index: number) => void;
   search: (keyword: string) => void;
-  setColumns: (data: Folder[]) => void;
-  onChangedCallback: (id?: string, changeInfo?: object) => void;
+  onChangedCallback: () => void;
 };
