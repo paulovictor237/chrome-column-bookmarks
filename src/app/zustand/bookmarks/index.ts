@@ -1,16 +1,15 @@
-import { Folder } from '@/domain/entities/folder';
+import { ColumnChildren, ColumnType } from '@/domain/entities/column';
 import { Site } from '@/domain/entities/site';
-import bookmarks from '@/infra/assets/bookmarks.json';
+import localBookmarks from '@/infra/assets/bookmarks.json';
 import {
   chromeAddListener,
+  chromeGetChildren,
   chromeSearch,
-  getBookmarks,
 } from '@/infra/services/chrome';
-import { searchSites } from '@/infra/services/search';
+import { searchLocalColumn, searchLocalSites } from '@/infra/services/search';
 import create from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
-import { bookmark, searchFolder } from './init';
 import { BookmarkState } from './types';
 
 export const useBookmarks = create<BookmarkState>()(
@@ -19,67 +18,85 @@ export const useBookmarks = create<BookmarkState>()(
       persist(
         (set, get) => ({
           columns: [],
-          bookmark: bookmark,
+          bookmark: { id: '1', children: [] },
+          searchFolder: { id: '-1', children: [] },
           searchResults: false,
           searchKeywords: false,
-          searchFolder: searchFolder,
-          onChangedCallback: async (id, changeInfo) => {
+          initialState: async () => {
             const isDevMode = process.env.NODE_ENV === 'development';
-            const data = isDevMode ? bookmarks : await getBookmarks();
-            if (!data[0]?.children) return;
-            const [bookmark, otherBookmark] = data[0].children;
-            if ((otherBookmark as Folder).children?.length > 0) {
-              (bookmark as Folder).children.push(otherBookmark as Folder);
+            const data = get().bookmark;
+            try {
+              const bookmark = await chromeGetChildren('1');
+              const otherBookmark = await chromeGetChildren('0');
+              if (otherBookmark[1]) bookmark.push(otherBookmark[1]);
+              data.children = bookmark;
+            } catch (error) {
+              const local = localBookmarks[0].children;
+              const bookmark = local[0].children as ColumnChildren;
+              const otherBookmark = local[1];
+              if (otherBookmark) bookmark.push(otherBookmark);
+              data.children = bookmark;
             }
             set((state) => {
-              state.bookmark = bookmark as Folder;
-              state.columns = [bookmark as Folder];
+              state.bookmark = data;
+              state.columns = [data];
             });
-          },
-          initBookmark: async () => {
             const onChangedCallback = get().onChangedCallback;
-            onChangedCallback();
             chromeAddListener(onChangedCallback);
           },
-          increment: (id, index) => {
-            const newFolder = get().columns[index].children.find(
-              (item) => item.id === id
-            );
-            if (!newFolder) return;
-            if (index < get().columns.length - 1) {
-              const newColumns = get().columns.slice(0, index + 1);
-              newColumns.push(newFolder as Folder);
-              set((state) => void (state.columns = newColumns));
-            } else {
-              set((state) => void state.columns.push(newFolder as Folder));
+          addColumn: async (id, index) => {
+            let data: ColumnType = { id, children: [] };
+            try {
+              data.children = await chromeGetChildren(id);
+            } catch (error) {
+              const newFolder = searchLocalColumn(id, get().bookmark);
+              data = newFolder;
             }
-          },
-          setColumns: (data) => {
             set((state) => {
-              state.columns = data;
+              if (index < get().columns.length - 1) {
+                const newColumns = get().columns.slice(0, index + 1);
+                newColumns.push(data);
+                state.columns = newColumns;
+              } else {
+                state.columns.push(data);
+              }
             });
           },
           search: async (keyword) => {
             if (!keyword || keyword.trim() === '') {
-              set((state) => {
+              return set((state) => {
                 state.searchFolder.children = [];
                 state.searchKeywords = false;
                 state.searchResults = false;
               });
-              return;
             }
-            let result: Site[] = [];
-            const isDevMode = process.env.NODE_ENV === 'development';
-            if (isDevMode) result = searchSites(keyword, get().bookmark);
-            else {
-              const rs = await chromeSearch(keyword);
-              result = rs !== null ? rs : searchSites(keyword, get().bookmark);
+            let searchItens: Site[] = [];
+            try {
+              searchItens = await chromeSearch(keyword);
+            } catch (error) {
+              searchItens = searchLocalSites(keyword, get().bookmark);
             }
             set((state) => {
-              state.searchFolder.children = result;
+              state.searchFolder.children = searchItens;
               state.searchKeywords = true;
-              state.searchResults = result.length > 0;
+              state.searchResults = searchItens.length > 0;
             });
+          },
+          onChangedCallback: async () => {
+            const columns = get().columns;
+            const newColumns: ColumnType[] = [];
+            for (const column of columns) {
+              try {
+                const children = await chromeGetChildren(column.id);
+                const newColumn = { ...column, children };
+                newColumns.push(newColumn);
+              } catch (error) {
+                Promise.reject(error);
+              }
+            }
+            const otherBookmark = columns[0].children.find((a) => a.id === '2');
+            if (!!otherBookmark) newColumns[0].children.push(otherBookmark);
+            set((state) => void (state.columns = newColumns));
           },
         }),
         {

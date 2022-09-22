@@ -1,37 +1,30 @@
-import { Folder } from '@/domain/entities/folder';
+import { ColumnType } from '@/domain/entities/column';
 import { Site } from '@/domain/entities/site';
 
-type searchSitesType = (keyword: string, data: Folder) => Site[];
-export const searchSites: searchSitesType = (keyword, data) => {
+export const searchLocalSites = (keyword: string, data: ColumnType): Site[] => {
   let aux: Site[] = [];
-  const recursive = (data: Folder, aux: any) => {
+  const recursive = (data: ColumnType, aux: any) => {
     if (data.children !== undefined && data.children.length > 0) {
       data.children.forEach((element: any) => recursive(element, aux));
     } else aux.push(data);
   };
   recursive(data, aux);
   const filter = aux.filter((item) =>
-    item.title.toLowerCase().includes(keyword.toLowerCase().trim())
+    item.title?.toLowerCase().includes(keyword.toLowerCase().trim())
   );
   return filter;
 };
 
-type searchChildrensType = (reference: {
-  id: string;
-  data: Folder;
-  replace: (Folder | Site)[];
-}) => void;
-
-export const searchChildrens: searchChildrensType = ({ id, data, replace }) => {
-  const recursive: searchChildrensType = ({ id, data, replace }) => {
-    if (data.id === id) {
-      if (replace) data.children = Array.from(replace);
-      console.log(replace);
+export const searchLocalColumn = (id: string, data: ColumnType): ColumnType => {
+  let aux: ColumnType = { id: id, children: [] };
+  const recursive = (recData: ColumnType) => {
+    if (recData.id === id) {
+      return (aux = recData);
     }
-    data.children.forEach((folder: any, index) => {
-      if (folder.children !== undefined && folder.children.length > 0)
-        recursive({ id, data: data.children[index] as Folder, replace });
-    });
+    if (recData.children !== undefined && recData.children.length > 0) {
+      recData.children.forEach((element: any) => recursive(element));
+    }
   };
-  return recursive({ id, data, replace });
+  recursive(data);
+  return aux;
 };

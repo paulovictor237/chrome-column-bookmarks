@@ -6,14 +6,12 @@ import { Props } from './types';
 export const FolderUi = ({ folder, index }: Props) => {
   const [selected, setselected] = useState(false);
   const columns = useBookmarks((state) => state.columns);
-  const increment = useBookmarks((state) => state.increment);
+  const increment = useBookmarks((state) => state.addColumn);
 
   useEffect(() => {
-    if (columns.findIndex((c) => c.id === folder.id) !== -1) {
-      setselected(true);
-    } else {
-      setselected(false);
-    }
+    const selected = columns.findIndex((c) => c.id === folder.id) !== -1;
+    if (selected) return setselected(true);
+    return setselected(false);
   }, [columns]);
 
   const { title, id } = folder;

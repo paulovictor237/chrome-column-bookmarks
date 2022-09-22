@@ -3,7 +3,7 @@ import { useMenuOptions } from '@/app/zustand/options';
 import { getFaviconUrlV3 } from '@/infra/services/getFaviconUrl';
 import { Props } from './types';
 
-export const LinkUi = ({ link }: Props) => {
+export const SiteUi = ({ link }: Props) => {
   const { url, title, id } = link;
   const faviconSrc = url && getFaviconUrlV3(url);
   const newTab = useMenuOptions((state) => state.newTab);

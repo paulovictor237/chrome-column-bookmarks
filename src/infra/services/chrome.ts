@@ -1,9 +1,9 @@
 import { BookmarkTreeNode } from '@/domain/entities/chrome';
+import { ColumnType, ColumnChildren } from '@/domain/entities/column';
 import { Site } from '@/domain/entities/site';
 import bookmarks from '@/infra/assets/bookmarks.json';
 
-type getBookmarks = (keyword: string) => Promise<BookmarkTreeNode[]>;
-export const getBookmarks = async () => {
+export const chromeGetBookmarks = async (): Promise<BookmarkTreeNode[]> => {
   try {
     return await new Promise<BookmarkTreeNode[]>((res) =>
       chrome.bookmarks.getTree(res)
@@ -13,8 +13,19 @@ export const getBookmarks = async () => {
   }
 };
 
-type chromeSearch = (keyword: string) => Promise<Site[] | null>;
-export const chromeSearch: chromeSearch = async (keyword) => {
+export const chromeGetChildren = async (
+  id: string
+): Promise<ColumnChildren> => {
+  try {
+    return (await new Promise<BookmarkTreeNode[]>((res) =>
+      chrome.bookmarks.getChildren(id, res)
+    )) as ColumnChildren;
+  } catch (error) {
+    return Promise.reject();
+  }
+};
+
+export const chromeSearch = async (keyword: string): Promise<Site[]> => {
   try {
     const local = await chrome.bookmarks.search(keyword);
     const filter = local.filter((item) => {
@@ -22,21 +33,19 @@ export const chromeSearch: chromeSearch = async (keyword) => {
     });
     return filter as Site[];
   } catch (error) {
-    return null;
+    return Promise.reject();
   }
 };
 
-type chromeRemove = (id: string) => void;
-export const chromeRemove: chromeRemove = (id) => {
+export const chromeRemove = async (id: string): Promise<void> => {
   try {
-    chrome.bookmarks.remove(id);
+    await chrome.bookmarks.remove(id);
   } catch (error) {
     return;
   }
 };
 
-type chromeRecent = (number: number) => Promise<Site[]>;
-export const chromeRecent: chromeRecent = async (number) => {
+export const chromeRecent = async (number: number): Promise<Site[]> => {
   try {
     const local = await chrome.bookmarks.getRecent(number);
     const filter = local.filter((item) => {
@@ -48,10 +57,9 @@ export const chromeRecent: chromeRecent = async (number) => {
   }
 };
 
-type chromeAddListener = (
+export const chromeAddListener = async (
   callback: (id?: string, changeInfo?: object) => void
-) => Promise<void>;
-export const chromeAddListener: chromeAddListener = async (callback) => {
+): Promise<void> => {
   try {
     chrome.bookmarks.onChanged.addListener(callback);
     chrome.bookmarks.onChanged.addListener(callback);

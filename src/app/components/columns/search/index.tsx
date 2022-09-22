@@ -1,5 +1,4 @@
 import { useBookmarks } from '@/app/zustand/bookmarks';
-import { useMenuOptions } from '@/app/zustand/options';
 import { Column } from '../column';
 
 export const SearchColumn = () => {
@@ -11,10 +10,10 @@ export const SearchColumn = () => {
     <>
       {searchKeywords && (
         <Column
-          showTitle
-          folder={searchFolder}
           index={-1}
           title={searchResults ? 'search' : 'no results'}
+          column={searchFolder}
+          showTitle
         />
       )}
     </>
