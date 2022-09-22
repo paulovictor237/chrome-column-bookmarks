@@ -42,10 +42,7 @@ export const Column = ({
           {column.children.map((item, idx) => {
             const isSite = !!(item as Site).url;
             return (
-              <div
-                key={'||' + idx}
-                className="hover:scale-[103%] duration-100 transition-all"
-              >
+              <div key={'||' + idx}>
                 {isSite && <SiteUi link={item as Site} />}
                 {!isSite && <FolderUi folder={item as Folder} index={index} />}
               </div>

@@ -16,7 +16,7 @@ export const SiteUi = ({ link }: Props) => {
       draggable={false}
       role="button"
     >
-      <Line id={id} title={title} link={url}>
+      <Line title={title} link={url}>
         <img className="h-6 w-6 mr-3 rounded-sm" src={faviconSrc} alt="" />
       </Line>
     </a>

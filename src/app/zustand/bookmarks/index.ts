@@ -102,8 +102,8 @@ export const useBookmarks = create<BookmarkState>()(
         {
           name: 'Store only Columns',
           partialize: (state) => ({
-            columns: state.columns,
-            bookmark: state.bookmark,
+            // columns: state.columns,
+            // bookmark: state.bookmark,
           }),
         }
       )

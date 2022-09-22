@@ -17,7 +17,6 @@ export const FolderUi = ({ folder, index }: Props) => {
   const { title, id } = folder;
   return (
     <Line
-      id={id}
       title={title}
       onClick={() => increment(folder.id, index)}
       selected={selected}
