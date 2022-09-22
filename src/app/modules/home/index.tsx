@@ -1,4 +1,5 @@
 import { TreeColumns } from '@/app/components/columns';
+import { ContextMenu } from '@/app/components/context-menu';
 import { Header } from '@/app/components/header';
 import { useBookmarks } from '@/app/zustand/bookmarks';
 import { useMenuOptions } from '@/app/zustand/options';
@@ -15,6 +16,7 @@ export const Home = () => {
 
   return (
     <div className="h-screen w-screen flex flex-col relative">
+      <ContextMenu />
       <Header />
       <TreeColumns />
     </div>
