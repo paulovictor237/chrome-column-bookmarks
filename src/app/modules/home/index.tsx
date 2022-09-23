@@ -17,7 +17,6 @@ export const Home = () => {
 
   return (
     <div className="h-screen w-screen flex flex-col relative">
-      <ContextMenu />
       <Header />
       {/* <TreeColumns /> */}
       <Dragdrop />
