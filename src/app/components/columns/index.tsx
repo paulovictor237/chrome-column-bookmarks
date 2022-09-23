@@ -1,6 +1,5 @@
 import { useBookmarks } from '@/app/zustand/bookmarks';
 import { useMenuOptions } from '@/app/zustand/options';
-import { AnimatePresence } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 import { Column } from './column';
 import { RecentColumn } from './recent';
@@ -31,17 +30,11 @@ export const TreeColumns = () => {
       ref={ref}
       className=" overflow-x-auto scroll-smooth w-full flex sc2 p-1 h-full"
     >
-      <AnimatePresence presenceAffectsLayout>
-        <SearchColumn key={-1} />
-        <RecentColumn key={-2} />
-        {columns.map((column, index) => (
-          <Column
-            key={column.id + index + '[]'}
-            column={column}
-            index={index}
-          />
-        ))}
-      </AnimatePresence>
+      <SearchColumn key={-1} />
+      <RecentColumn key={-2} />
+      {columns.map((column, index) => (
+        <Column key={column.id + index + '[]'} column={column} index={index} />
+      ))}
     </div>
   );
 };
