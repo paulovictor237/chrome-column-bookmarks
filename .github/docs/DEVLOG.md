@@ -64,7 +64,7 @@ const get = (
 ) => void
 
 // chrome.bookmarks.getSubTree
-const = getSubTree(
+const getSubTree = (
   id: string,
   callback?: function,
 ) => void

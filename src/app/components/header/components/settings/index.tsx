@@ -1,14 +1,13 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { AiFillSetting } from 'react-icons/ai';
-import { DownloadJson } from '../download';
 import { NewTab } from '../switch-new-tab';
 
 export function Settings() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const settings = [<NewTab />, <DownloadJson />];
+  const settings = [<NewTab />];
 
   const handleClickOutside = (event: MouseEvent) => {
     const target = dropdownRef.current;

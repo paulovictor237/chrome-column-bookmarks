@@ -1,21 +1,43 @@
 import { useBookmarks } from '@/app/zustand/bookmarks';
+import { useMenuOptions } from '@/app/zustand/options';
 import { AnimatePresence } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 import { Column } from './column';
 import { RecentColumn } from './recent';
 import { SearchColumn } from './search';
 
 export const TreeColumns = () => {
   const columns = useBookmarks((state) => state.columns);
+  const searchKeywords = useBookmarks((state) => state.searchKeywords);
+  const showRecent = useMenuOptions((state) => state.showRecent);
+
+  const ref = useRef<HTMLDivElement>(null);
+
+  const buttonHandler = () => {
+    if (!ref.current) return;
+    if (searchKeywords || showRecent) return (ref.current.scrollLeft = 0);
+
+    const { offsetLeft, scrollWidth } = ref.current;
+    const end = offsetLeft + scrollWidth;
+    ref.current.scrollLeft = end;
+  };
+
+  useEffect(() => {
+    buttonHandler();
+  }, [searchKeywords, showRecent, columns]);
 
   return (
-    <div className=" overflow-x-auto w-full flex sc2 p-1 h-full">
+    <div
+      ref={ref}
+      className=" overflow-x-auto scroll-smooth w-full flex sc2 p-1 h-full"
+    >
       <AnimatePresence presenceAffectsLayout>
         <SearchColumn key={-1} />
         <RecentColumn key={-2} />
-        {columns.map((folder, index) => (
+        {columns.map((column, index) => (
           <Column
-            key={folder.id + String(index) + '[]'}
-            folder={folder}
+            key={column.id + index + '[]'}
+            column={column}
             index={index}
           />
         ))}

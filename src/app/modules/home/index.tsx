@@ -5,7 +5,7 @@ import { useMenuOptions } from '@/app/zustand/options';
 import { useEffect } from 'react';
 
 export const Home = () => {
-  const initBookmark = useBookmarks((state) => state.initBookmark);
+  const initBookmark = useBookmarks((state) => state.initialState);
   const initOptions = useMenuOptions((state) => state.initOptions);
 
   useEffect(() => {
