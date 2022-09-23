@@ -1,6 +1,6 @@
-import { LeftIcons } from './menu-left-icons';
-import { RightIcons } from './menu-right-icons';
-import { SearchBar } from './search-bar';
+import { LeftIcons } from './submodules/menu-left-icons';
+import { RightIcons } from './submodules/menu-right-icons';
+import { SearchBar } from './submodules/search-bar';
 
 export const Header = () => {
   return (

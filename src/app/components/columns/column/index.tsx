@@ -1,11 +1,10 @@
 import { Folder } from '@/domain/entities/folder';
 import { Site } from '@/domain/entities/site';
-import { motion } from 'framer-motion';
 import { TbDots } from 'react-icons/tb';
 import { twMerge } from 'tailwind-merge';
 import { Line } from '../../common/line';
 import { FolderUi } from '../folder-ui';
-import { SiteUi } from '../link-ui';
+import { SiteUi } from '../site-ui';
 import { Props } from './types';
 
 export const Column = ({
