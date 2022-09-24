@@ -3,6 +3,7 @@ import { ColumnType } from '@/domain/entities/column';
 import { chromeRecent } from '@/infra/services/chrome';
 import { useEffect, useState } from 'react';
 import { Column } from '../column';
+import { ColumnItem } from '../items';
 
 export const RecentColumn = () => {
   const showRecent = useMenuOptions((state) => state.showRecent);
@@ -21,7 +22,15 @@ export const RecentColumn = () => {
   return (
     <>
       {showRecent && (
-        <Column index={-1} title={'Recent'} column={recentFolder} showTitle />
+        <Column title={'Recent'} showTitle>
+          {recentFolder.children?.map((item, columnIndex) => (
+            <ColumnItem
+              key={item.id + 'ColumnItem'}
+              item={item}
+              columnIndex={columnIndex}
+            />
+          ))}
+        </Column>
       )}
     </>
   );

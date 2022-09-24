@@ -1,4 +1,4 @@
-import { TitleTag } from '@/app/components/common/title-tag';
+import { TitleTag } from '@/app/components/title-tag';
 import { FaGithub } from 'react-icons/fa';
 import { SiBuymeacoffee } from 'react-icons/si';
 

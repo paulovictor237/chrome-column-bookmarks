@@ -1,5 +1,6 @@
 import { useBookmarks } from '@/app/zustand/bookmarks';
 import { Column } from '../column';
+import { ColumnItem } from '../items';
 
 export const SearchColumn = () => {
   const searchResults = useBookmarks((state) => state.searchResults);
@@ -9,12 +10,15 @@ export const SearchColumn = () => {
   return (
     <>
       {searchKeywords && (
-        <Column
-          index={-1}
-          title={searchResults ? 'search' : 'no results'}
-          column={searchFolder}
-          showTitle
-        />
+        <Column title={searchResults ? 'search' : 'no results'} showTitle>
+          {searchFolder.children?.map((item, columnIndex) => (
+            <ColumnItem
+              key={item.id + 'ColumnItem'}
+              item={item}
+              columnIndex={columnIndex}
+            />
+          ))}
+        </Column>
       )}
     </>
   );

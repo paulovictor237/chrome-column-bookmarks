@@ -1,6 +1,6 @@
-import { Line } from '@/app/components/common/line';
 import { useBookmarks } from '@/app/zustand/bookmarks';
 import { useEffect, useState } from 'react';
+import { Line } from '../line';
 import { Props } from './types';
 
 export const FolderUi = ({ folder, index }: Props) => {

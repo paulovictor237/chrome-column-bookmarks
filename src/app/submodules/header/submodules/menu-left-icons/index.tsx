@@ -1,7 +1,7 @@
-import { TitleTag } from '@/app/components/common/title-tag';
-import { ShowRecent } from '@/app/components/header/components/recent';
+import { TitleTag } from '@/app/components/title-tag';
 import { useMenuOptions } from '@/app/zustand/options';
 import { LockEdit } from '../../components/lock-edit';
+import { ShowRecent } from '../../components/recent';
 
 export const LeftIcons = () => {
   const locked = useMenuOptions((state) => state.lockedEdition);

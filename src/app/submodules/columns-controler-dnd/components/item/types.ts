@@ -4,5 +4,5 @@ import { Site } from '@/domain/entities/site';
 export interface Props {
   item: Folder | Site;
   columId: number;
-  mapId: number;
+  itemId: number;
 }

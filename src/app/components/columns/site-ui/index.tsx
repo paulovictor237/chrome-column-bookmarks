@@ -1,4 +1,4 @@
-import { Line } from '@/app/components/common/line';
+import { Line } from '@/app/components/columns/line';
 import { useMenuOptions } from '@/app/zustand/options';
 import { getFaviconUrlV3 } from '@/infra/services/getFaviconUrl';
 import { Props } from './types';
@@ -7,10 +7,10 @@ export const SiteUi = ({ link }: Props) => {
   const { url, title, id } = link;
   const faviconSrc = url && getFaviconUrlV3(url);
   const newTab = useMenuOptions((state) => state.newTab);
-  const enableEditor = useMenuOptions((state) => state.enableEditor);
+  const locked = useMenuOptions((state) => state.lockedEdition);
   return (
     <a
-      href={enableEditor ? undefined : link.url}
+      href={!locked ? undefined : link.url}
       target={newTab ? '_blank' : '_self'}
       rel="noopener noreferrer"
       draggable={false}
