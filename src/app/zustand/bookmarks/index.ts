@@ -98,6 +98,9 @@ export const useBookmarks = create<BookmarkState>()(
           if (!!otherBookmark) newColumns[0].children.push(otherBookmark);
           set((state) => void (state.columns = newColumns));
         },
+        setColumns: (columns) => {
+          set((state) => void (state.columns = columns));
+        },
       })
       //   {
       //     name: 'Store only Columns',

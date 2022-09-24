@@ -15,15 +15,7 @@ export const DragDropColumn = ({
     hidden: {},
   };
   return (
-    <motion.div
-      className="md:w-80 w-full p-2 flex-shrink-0"
-      initial={{ x: 0, opacity: 0 }}
-      animate={{ x: [-60, 20, 0], opacity: 1 }}
-      variants={exitVariants}
-      exit={columId === -1 ? 'visible' : 'hidden'}
-      transition={{ duration: 0.3 }}
-      // layoutId={`Column${index}`}
-    >
+    <div className="md:w-80 w-full p-2 flex-shrink-0">
       <section
         className={twMerge(
           'rounded-2xl p-3 h-full overflow-y-auto sc2 shadow-lg',
@@ -54,6 +46,6 @@ export const DragDropColumn = ({
         </main>
         {provided.placeholder}
       </section>
-    </motion.div>
+    </div>
   );
 };

@@ -1,12 +1,12 @@
 import { FolderUi } from '@/app/components/columns/folder-ui';
-import { LinkUi } from '@/app/components/columns/link-ui';
+import { SiteUi } from '@/app/components/columns/site-ui';
 import { Folder } from '@/domain/entities/folder';
 import { Site } from '@/domain/entities/site';
 import { Draggable } from 'react-beautiful-dnd';
 import { Props } from './types';
 
 export const DragDropItem = ({ item, columId, mapId }: Props) => {
-  const isFolder = !!(item as Folder).children;
+  const isSite = !!(item as Site).url;
   const isDraggingStyle = 'outline outline-2 outline-peve-selected rounded-md';
   return (
     <Draggable draggableId={item.id} index={mapId}>
@@ -19,8 +19,8 @@ export const DragDropItem = ({ item, columId, mapId }: Props) => {
           {...provided.draggableProps}
           {...provided.dragHandleProps}
         >
-          {!isFolder && <LinkUi link={item as Site} />}
-          {isFolder && <FolderUi folder={item as Folder} index={columId} />}
+          {isSite && <SiteUi link={item as Site} />}
+          {!isSite && <FolderUi folder={item as Folder} index={columId} />}
         </section>
         // </motion.div>
       )}

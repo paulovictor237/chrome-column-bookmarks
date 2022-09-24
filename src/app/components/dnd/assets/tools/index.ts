@@ -1,11 +1,11 @@
-import { Folder } from '@/domain/entities/folder';
+import { ColumnType } from '@/domain/entities/column';
 import { DraggableLocation, DropResult } from 'react-beautiful-dnd';
 
 const reorder = (
-  folder: Folder,
+  folder: ColumnType,
   startIndex: number,
   endIndex: number
-): Folder => {
+): ColumnType => {
   const destinationFolder = Object.assign({}, folder);
   destinationFolder.children = Array.from(folder.children);
   const [removed] = destinationFolder.children.splice(startIndex, 1);
@@ -14,11 +14,11 @@ const reorder = (
 };
 
 const move = (
-  source: Folder,
-  destination: Folder,
+  source: ColumnType,
+  destination: ColumnType,
   droppableSource: DraggableLocation,
   droppableDestination: DraggableLocation
-): Folder[] => {
+): ColumnType[] => {
   const sourceFolder = Object.assign({}, source);
   sourceFolder.children = Array.from(source.children);
 
@@ -34,8 +34,8 @@ const move = (
 
 export const dndOnDragEnd = (
   result: DropResult,
-  state: Folder[],
-  setState: (state: Folder[]) => void
+  state: ColumnType[],
+  setState: (state: ColumnType[]) => void
 ) => {
   const { source, destination } = result;
   if (!destination) return;
