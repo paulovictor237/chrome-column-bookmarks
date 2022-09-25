@@ -17,7 +17,11 @@ export const ColumnsControllerDND = () => {
     <DragDropContext onDragEnd={handlerOnDragEnd}>
       <ColumnTree>
         {columns.map((column, columnIndex) => (
-          <DragDropColumn columnIndex={columnIndex} column={column} />
+          <DragDropColumn
+            key={column.id + 'DragDropColumn'}
+            columnIndex={columnIndex}
+            column={column}
+          />
         ))}
       </ColumnTree>
     </DragDropContext>

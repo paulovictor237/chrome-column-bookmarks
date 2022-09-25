@@ -1,5 +1,16 @@
 import { ColumnType } from '@/domain/entities/column';
+import { Site } from '@/domain/entities/site';
 import { DraggableLocation, DropResult } from 'react-beautiful-dnd';
+
+export const dndDelete = (
+  folder: ColumnType,
+  startIndex: number
+): ColumnType => {
+  const destinationFolder = Object.assign({}, folder);
+  destinationFolder.children = Array.from(folder.children);
+  const [removed] = destinationFolder.children.splice(startIndex, 1);
+  return destinationFolder;
+};
 
 const reorder = (
   folder: ColumnType,
@@ -37,19 +48,35 @@ export const dndOnDragEnd = (
   state: ColumnType[],
   setState: (state: ColumnType[]) => void
 ) => {
-  const { source, destination } = result;
-  if (!destination) return;
+  const { source, destination, combine } = result;
 
   const sourceId = +source.droppableId;
-  const destinationId = +destination.droppableId;
-
   const sourceFolder = state[sourceId];
-  const destinationFolder = state[destinationId];
 
   const newState = [...state];
 
+  if (combine) {
+    // TODO: arrumar essa lógica
+    for (const column of newState) {
+      for (const item of column.children) {
+        if (item.id === combine.draggableId) {
+          const isSite = !!(item as Site).url;
+          if (isSite) return;
+        }
+      }
+    }
+    const folder = dndDelete(sourceFolder, source.index);
+    newState[sourceId] = folder;
+    setState(newState);
+    return;
+  }
+
+  if (!destination) return;
+  const destinationId = +destination.droppableId;
+  const destinationFolder = state[destinationId];
+
   if (sourceId === destinationId) {
-    const folder = reorder(sourceFolder, source.index, destination!.index);
+    const folder = reorder(sourceFolder, source.index, destination.index);
     newState[sourceId] = folder;
     setState(newState);
     return;
@@ -64,23 +91,4 @@ export const dndOnDragEnd = (
   newState[destinationId] = destinationResult;
   setState(newState);
   return;
-};
-
-export const dndDelete = <T>(
-  ind: number,
-  index: number,
-  state: T[][],
-  setState: (e: T[][]) => void
-) => {
-  const newState = [...state];
-  newState[ind].splice(index, 1);
-  setState(newState.filter((group) => group.length));
-};
-
-export const dndAddNewGroup = <T>(state: T, setState: (e: T) => void) => {
-  // setState([...state, []]);
-};
-
-export const dndAddNewItem = <T>(state: T, setState: (e: T) => void) => {
-  // setState([...state, getItems(1)]);
 };

@@ -5,7 +5,11 @@ import { Props } from './types';
 
 export const DragDropColumn = ({ columnIndex, column }: Props) => {
   return (
-    <Droppable droppableId={columnIndex.toString()} isDropDisabled={false}>
+    <Droppable
+      isCombineEnabled
+      isDropDisabled={false}
+      droppableId={columnIndex.toString()}
+    >
       {(provided, snapshot) => (
         <Column
           className={snapshot.isDraggingOver ? 'bg-gray-700' : ''}
