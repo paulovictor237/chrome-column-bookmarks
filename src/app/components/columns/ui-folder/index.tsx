@@ -7,7 +7,7 @@ export const FolderUi = ({ folder, index }: Props) => {
   const [selected, setselected] = useState(false);
   const columns = useBookmarks((state) => state.columns);
   const increment = useBookmarks((state) => state.addColumn);
-
+  const isDevMode = process.env.NODE_ENV === 'development';
   useEffect(() => {
     const selected = columns.findIndex((c) => c.id === folder.id) !== -1;
     if (selected) return setselected(true);
@@ -22,7 +22,7 @@ export const FolderUi = ({ folder, index }: Props) => {
       selected={selected}
     >
       <span className="h-6 w-6 mr-3">{id !== '2' ? '📁' : '💼'}</span>
-      {id + '-'}
+      {isDevMode && <pre>[{id}]-</pre>}
     </Line>
   );
 };

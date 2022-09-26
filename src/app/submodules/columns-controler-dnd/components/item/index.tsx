@@ -1,13 +1,15 @@
 import { ColumnItem } from '@/app/components/columns/items';
+import { useMenuOptions } from '@/app/zustand/options';
 import { Site } from '@/domain/entities/site';
 import { Draggable } from 'react-beautiful-dnd';
 import { twMerge } from 'tailwind-merge';
 import { Props } from './types';
 
 export const DragDropItem = ({ item, columId, itemId }: Props) => {
+  const locked = useMenuOptions((state) => state.lockedEdition);
   const isSite = !!(item as Site).url;
   return (
-    <Draggable draggableId={item.id} index={itemId}>
+    <Draggable draggableId={item.id} index={itemId} isDragDisabled={locked}>
       {(provided, snapshot) => (
         <ColumnItem
           key={item.id + 'ColumnItem'}

@@ -1,8 +1,8 @@
 import { Folder } from '@/domain/entities/folder';
 import { Site } from '@/domain/entities/site';
 import { forwardRef } from 'react';
-import { FolderUi } from '../folder-ui';
-import { SiteUi } from '../site-ui';
+import { FolderUi } from '../ui-folder';
+import { SiteUi } from '../ui-site';
 import { Props } from './types';
 
 export const ColumnItem = forwardRef<HTMLDivElement, Props>(

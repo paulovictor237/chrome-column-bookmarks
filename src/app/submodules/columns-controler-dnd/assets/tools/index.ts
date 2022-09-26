@@ -43,7 +43,7 @@ const move = (
   return [sourceFolder, destinationFolder];
 };
 
-export const dndOnDragEnd = (
+export const dndOnDragEnd = async (
   result: DropResult,
   state: ColumnType[],
   setState: (state: ColumnType[]) => void

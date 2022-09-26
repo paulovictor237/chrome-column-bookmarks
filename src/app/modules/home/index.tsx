@@ -8,7 +8,6 @@ import { useEffect } from 'react';
 export const Home = () => {
   const initBookmark = useBookmarks((state) => state.initialState);
   const initOptions = useMenuOptions((state) => state.initOptions);
-  const locked = useMenuOptions((state) => state.lockedEdition);
 
   useEffect(() => {
     initBookmark();
@@ -18,8 +17,7 @@ export const Home = () => {
   return (
     <div className="h-screen w-screen flex flex-col relative">
       <Header />
-      {locked && <ColumnsController />}
-      {!locked && <ColumnsControllerDND />}
+      <ColumnsControllerDND />
     </div>
   );
 };
