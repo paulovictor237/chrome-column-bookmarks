@@ -22,7 +22,7 @@ export const FolderUi = ({ folder, index }: Props) => {
       selected={selected}
     >
       <span className="h-6 w-6 mr-3">{id !== '2' ? '📁' : '💼'}</span>
-      {isDevMode && <pre>[{id}]-</pre>}
+      {!isDevMode && <pre>[{id}]-</pre>}
     </Line>
   );
 };

@@ -8,7 +8,10 @@ export const ColumnsController = () => {
   return (
     <ColumnTree>
       {columns.map((column, columnIndex) => (
-        <Column key={column.id + 'Column'}>
+        <Column
+          key={column.id + 'Column'}
+          threeDots={column.children.length === 0}
+        >
           {column.children?.map((item) => (
             <ColumnItem
               key={item.id + 'ColumnItem'}

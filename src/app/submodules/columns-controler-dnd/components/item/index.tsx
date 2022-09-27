@@ -9,7 +9,11 @@ export const DragDropItem = ({ item, columId, itemId }: Props) => {
   const locked = useMenuOptions((state) => state.lockedEdition);
   const isSite = !!(item as Site).url;
   return (
-    <Draggable draggableId={item.id} index={itemId} isDragDisabled={locked}>
+    <Draggable
+      draggableId={item.id}
+      index={itemId}
+      isDragDisabled={locked || item.id === '2'}
+    >
       {(provided, snapshot) => (
         <ColumnItem
           key={item.id + 'ColumnItem'}

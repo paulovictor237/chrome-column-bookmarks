@@ -25,6 +25,31 @@ export const chromeGetChildren = async (
   }
 };
 
+export const chromeGet = async (idOrIdList: string): Promise<Site> => {
+  try {
+    const data = await new Promise<BookmarkTreeNode[]>((res) =>
+      chrome.bookmarks.get(idOrIdList, res)
+    );
+    return data[0];
+  } catch (error) {
+    return Promise.reject();
+  }
+};
+
+export const chromeMove = async (
+  id: string,
+  destination: {
+    index?: number;
+    parentId?: string;
+  }
+): Promise<BookmarkTreeNode> => {
+  try {
+    return await chrome.bookmarks.move(id, destination);
+  } catch (error) {
+    return Promise.reject();
+  }
+};
+
 export const chromeSearch = async (keyword: string): Promise<Site[]> => {
   try {
     const local = await chrome.bookmarks.search(keyword);

@@ -19,7 +19,7 @@ export const SiteUi = ({ link }: Props) => {
     >
       <Line title={title} link={url}>
         <img className="h-6 w-6 mr-3 rounded-sm" src={faviconSrc} alt="" />
-        {isDevMode && <pre>[{id}]-</pre>}
+        {!isDevMode && <pre>[{id}]-</pre>}
       </Line>
     </a>
   );

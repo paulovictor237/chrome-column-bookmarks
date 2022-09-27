@@ -1,18 +1,16 @@
 import { ColumnType } from '@/domain/entities/column';
 import { Site } from '@/domain/entities/site';
+import { chromeGet, chromeMove } from '@/infra/services/chrome';
 import { DraggableLocation, DropResult } from 'react-beautiful-dnd';
 
-export const dndDelete = (
-  folder: ColumnType,
-  startIndex: number
-): ColumnType => {
+const dndDelete = (folder: ColumnType, startIndex: number): ColumnType => {
   const destinationFolder = Object.assign({}, folder);
   destinationFolder.children = Array.from(folder.children);
   const [removed] = destinationFolder.children.splice(startIndex, 1);
   return destinationFolder;
 };
 
-const reorder = (
+const dndReorder = (
   folder: ColumnType,
   startIndex: number,
   endIndex: number
@@ -24,7 +22,7 @@ const reorder = (
   return destinationFolder;
 };
 
-const move = (
+const dndMove = (
   source: ColumnType,
   destination: ColumnType,
   droppableSource: DraggableLocation,
@@ -50,38 +48,63 @@ export const dndOnDragEnd = async (
 ) => {
   const { source, destination, combine } = result;
 
+  const id = result.draggableId;
+
   const sourceId = +source.droppableId;
   const sourceFolder = state[sourceId];
 
   const newState = [...state];
+  if (id === '2') return;
 
   if (combine) {
-    // TODO: arrumar essa lógica
-    for (const column of newState) {
-      for (const item of column.children) {
-        if (item.id === combine.draggableId) {
-          const isSite = !!(item as Site).url;
-          if (isSite) return;
+    let isSite = true;
+    try {
+      const data = await chromeGet(combine.draggableId);
+      isSite = !!data.url;
+      console.log(data);
+    } catch (error) {
+      for (const column of newState) {
+        for (const item of column.children) {
+          if (item.id === combine.draggableId && !!(item as Site).url) return;
         }
       }
+      isSite = false;
     }
+    if (isSite) return;
     const folder = dndDelete(sourceFolder, source.index);
     newState[sourceId] = folder;
-    setState(newState);
-    return;
+    try {
+      await chromeMove(id, { parentId: combine.draggableId });
+    } catch (error) {
+      setState(newState);
+    } finally {
+      return;
+    }
   }
-
+  // TODO: verificar se existe (otherBookmark)
   if (!destination) return;
   const destinationId = +destination.droppableId;
   const destinationFolder = state[destinationId];
+  const preventSubscribleOtherBookmakrs =
+    destinationId === 0 && destination.index >= state[0].children.length - 1;
 
   if (sourceId === destinationId) {
-    const folder = reorder(sourceFolder, source.index, destination.index);
+    const folder = dndReorder(sourceFolder, source.index, destination.index);
     newState[sourceId] = folder;
-    setState(newState);
-    return;
+    let index = destination.index;
+    if (source.index < destination.index) index += 1;
+    if (preventSubscribleOtherBookmakrs) index = state[0].children.length - 1;
+    try {
+      await chromeMove(id, {
+        index,
+      });
+    } catch (error) {
+      setState(newState);
+    } finally {
+      return;
+    }
   }
-  const [sourceResult, destinationResult] = move(
+  const [sourceResult, destinationResult] = dndMove(
     sourceFolder,
     destinationFolder,
     source,
@@ -89,6 +112,16 @@ export const dndOnDragEnd = async (
   );
   newState[sourceId] = sourceResult;
   newState[destinationId] = destinationResult;
-  setState(newState);
-  return;
+  let index = destination.index;
+  if (preventSubscribleOtherBookmakrs) index = state[0].children.length - 1;
+  try {
+    await chromeMove(id, {
+      index,
+      parentId: newState[+destination.droppableId].id,
+    });
+  } catch (error) {
+    setState(newState);
+  } finally {
+    return;
+  }
 };
