@@ -13,6 +13,7 @@ export const DragDropColumn = ({ columnIndex, column }: Props) => {
       {(provided, snapshot) => (
         <Column
           className={snapshot.isDraggingOver ? 'bg-gray-700' : ''}
+          threeDots={column.children.length === 0}
           ref={provided.innerRef}
           {...provided.droppableProps}
         >

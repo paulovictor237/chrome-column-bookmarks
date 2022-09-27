@@ -6,7 +6,15 @@ import { Props } from './types';
 
 export const Column = forwardRef<HTMLDivElement, Props>(
   (
-    { title, children, className, classNameTitle, showTitle = false, ...rest },
+    {
+      title,
+      children,
+      className,
+      classNameTitle,
+      threeDots = false,
+      showTitle = false,
+      ...rest
+    },
     ref
   ) => {
     return (
@@ -30,7 +38,7 @@ export const Column = forwardRef<HTMLDivElement, Props>(
             </title>
           )}
           <main className="flex flex-col gap-3">
-            {children?.toString() === '' && (
+            {threeDots && (
               <Line className="justify-center font-bold text-2xl" disabled>
                 <TbDots />
               </Line>

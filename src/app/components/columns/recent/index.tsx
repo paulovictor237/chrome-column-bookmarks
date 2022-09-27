@@ -22,7 +22,11 @@ export const RecentColumn = () => {
   return (
     <>
       {showRecent && (
-        <Column title={'Recent'} showTitle>
+        <Column
+          title={'Recent'}
+          threeDots={recentFolder.children.length === 0}
+          showTitle
+        >
           {recentFolder.children?.map((item, columnIndex) => (
             <ColumnItem
               key={item.id + 'ColumnItem'}

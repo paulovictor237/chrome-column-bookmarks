@@ -10,7 +10,11 @@ export const SearchColumn = () => {
   return (
     <>
       {searchKeywords && (
-        <Column title={searchResults ? 'search' : 'no results'} showTitle>
+        <Column
+          title={searchResults ? 'search' : 'no results'}
+          threeDots={searchFolder.children.length === 0}
+          showTitle
+        >
           {searchFolder.children?.map((item, columnIndex) => (
             <ColumnItem
               key={item.id + 'ColumnItem'}
