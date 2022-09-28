@@ -18,17 +18,14 @@ export const RecentColumn = () => {
     getRecent();
   }, []);
 
+  if (!showRecent) return null;
   return (
-    <>
-      {showRecent && (
-        <DragDropColumn
-          columnIndex={-1}
-          column={recentFolder}
-          title={'Recent'}
-          prefixId="recent"
-          isDropDisabled
-        />
-      )}
-    </>
+    <DragDropColumn
+      columnIndex={-1}
+      column={recentFolder}
+      title={'Recent'}
+      prefixId="recent"
+      isDropDisabled
+    />
   );
 };
