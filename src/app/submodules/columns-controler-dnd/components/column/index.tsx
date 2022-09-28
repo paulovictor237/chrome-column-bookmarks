@@ -3,11 +3,17 @@ import { Droppable } from 'react-beautiful-dnd';
 import { DragDropItem } from '../item';
 import { Props } from './types';
 
-export const DragDropColumn = ({ columnIndex, column }: Props) => {
+export const DragDropColumn = ({
+  columnIndex,
+  column,
+  isDropDisabled,
+  prefixId,
+  ...rest
+}: Props) => {
   return (
     <Droppable
       isCombineEnabled
-      isDropDisabled={false}
+      isDropDisabled={isDropDisabled}
       droppableId={columnIndex.toString()}
     >
       {(provided, snapshot) => (
@@ -15,12 +21,14 @@ export const DragDropColumn = ({ columnIndex, column }: Props) => {
           className={snapshot.isDraggingOver ? 'bg-gray-700' : ''}
           threeDots={column.children.length === 0}
           ref={provided.innerRef}
+          classNameTitle={rest.classNameTitle}
+          title={rest.title}
           {...provided.droppableProps}
         >
           {column.children?.map((item, itemId) => (
             <DragDropItem
               key={item.id + 'DragDropItem'}
-              item={item}
+              item={prefixId ? { ...item, id: prefixId + item.id } : item}
               itemId={itemId}
               columId={columnIndex}
             />

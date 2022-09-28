@@ -1,7 +1,6 @@
-export type ChromeMove = {
-  id: string;
-  destination?: {
-    index?: number;
-    parentId?: string;
-  };
-};
+export type DestinationType =
+  | undefined
+  | {
+      index?: number;
+      parentId?: string;
+    };

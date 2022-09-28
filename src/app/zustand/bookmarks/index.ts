@@ -20,7 +20,7 @@ export const useBookmarks = create<BookmarkState>()(
       (set, get) => ({
         columns: [],
         bookmark: { id: '1', children: [] },
-        searchFolder: { id: '-1', children: [] },
+        searchColumn: { id: '-1', children: [] },
         searchResults: false,
         searchKeywords: false,
         initialState: async () => {
@@ -73,7 +73,7 @@ export const useBookmarks = create<BookmarkState>()(
         search: async (keyword) => {
           if (!keyword || keyword.trim() === '') {
             return set((state) => {
-              state.searchFolder.children = [];
+              state.searchColumn.children = [];
               state.searchKeywords = false;
               state.searchResults = false;
             });
@@ -89,7 +89,7 @@ export const useBookmarks = create<BookmarkState>()(
             }
           }
           set((state) => {
-            state.searchFolder.children = searchItens;
+            state.searchColumn.children = searchItens;
             state.searchKeywords = true;
             state.searchResults = searchItens.length > 0;
           });

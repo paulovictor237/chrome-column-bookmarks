@@ -2,7 +2,7 @@ import { ColumnType } from '@/domain/entities/column';
 
 export type BookmarkState = {
   bookmark: ColumnType;
-  searchFolder: ColumnType;
+  searchColumn: ColumnType;
   searchResults: boolean;
   searchKeywords: boolean;
   columns: ColumnType[];

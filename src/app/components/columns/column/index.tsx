@@ -6,15 +6,7 @@ import { Props } from './types';
 
 export const Column = forwardRef<HTMLDivElement, Props>(
   (
-    {
-      title,
-      children,
-      className,
-      classNameTitle,
-      threeDots = false,
-      showTitle = false,
-      ...rest
-    },
+    { title, children, className, classNameTitle, threeDots = false, ...rest },
     ref
   ) => {
     return (
@@ -27,7 +19,7 @@ export const Column = forwardRef<HTMLDivElement, Props>(
           )}
           {...rest}
         >
-          {showTitle && (
+          {title && (
             <title
               className={twMerge(
                 ' border-peve-dark text-peve-dark bg-peve-selected font-bold select-none flex items-center justify-center mb-3 overflow-hidden h-10 rounded-md ',

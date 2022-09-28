@@ -1,3 +1,5 @@
+import { RecentColumn } from '@/app/components/columns/recent';
+import { SearchColumn } from '@/app/components/columns/search';
 import { useBookmarks } from '@/app/zustand/bookmarks';
 import { ColumnType } from '@/domain/entities/column';
 import { DragDropContext, DropResult } from 'react-beautiful-dnd';
@@ -16,6 +18,8 @@ export const ColumnsControllerDND = () => {
   return (
     <DragDropContext onDragEnd={handlerOnDragEnd}>
       <ColumnTree>
+        <SearchColumn key={'SearchColumn'} />
+        <RecentColumn key={'RecentColumn'} />
         {columns.map((column, columnIndex) => (
           <DragDropColumn
             key={column.id + 'DragDropColumn'}

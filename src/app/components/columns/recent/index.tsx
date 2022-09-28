@@ -1,9 +1,8 @@
+import { DragDropColumn } from '@/app/submodules/columns-controler-dnd/components/column';
 import { useMenuOptions } from '@/app/zustand/options';
 import { ColumnType } from '@/domain/entities/column';
 import { chromeRecent } from '@/infra/services/chrome';
 import { useEffect, useState } from 'react';
-import { Column } from '../column';
-import { ColumnItem } from '../items';
 
 export const RecentColumn = () => {
   const showRecent = useMenuOptions((state) => state.showRecent);
@@ -22,19 +21,13 @@ export const RecentColumn = () => {
   return (
     <>
       {showRecent && (
-        <Column
+        <DragDropColumn
+          columnIndex={-1}
+          column={recentFolder}
           title={'Recent'}
-          threeDots={recentFolder.children.length === 0}
-          showTitle
-        >
-          {recentFolder.children?.map((item, columnIndex) => (
-            <ColumnItem
-              key={item.id + 'ColumnItem'}
-              item={item}
-              columnIndex={columnIndex}
-            />
-          ))}
-        </Column>
+          prefixId="recent"
+          isDropDisabled
+        />
       )}
     </>
   );

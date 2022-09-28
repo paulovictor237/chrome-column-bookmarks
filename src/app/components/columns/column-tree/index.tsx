@@ -28,8 +28,6 @@ export const ColumnTree = ({ children }: Props) => {
       ref={ref}
       className=" overflow-x-auto scroll-smooth w-full flex sc2 p-1 h-full"
     >
-      <SearchColumn key={'SearchColumn'} />
-      <RecentColumn key={'RecentColumn'} />
       {children}
     </div>
   );

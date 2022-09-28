@@ -1,5 +1,4 @@
 import { ColumnsControllerDND } from '@/app/submodules/columns-controler-dnd';
-import { ColumnsController } from '@/app/submodules/columns-controller';
 import { Header } from '@/app/submodules/header';
 import { useBookmarks } from '@/app/zustand/bookmarks';
 import { useMenuOptions } from '@/app/zustand/options';

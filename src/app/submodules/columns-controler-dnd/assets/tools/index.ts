@@ -3,7 +3,7 @@ import { ColumnType } from '@/domain/entities/column';
 import { chromeGet, chromeMove } from '@/infra/services/chrome';
 import { DropResult } from 'react-beautiful-dnd';
 import { dndCombine, dndDifColumn, dndSameColumn } from './operations';
-import { ChromeMove } from './types';
+import { DestinationType } from './types';
 
 export const dndOnDragEnd = async (
   result: DropResult,
@@ -27,31 +27,31 @@ export const dndOnDragEnd = async (
     otherBookmarkExistis;
   if (lastPositionArrayZero) destinationIndex = state[0].children.length - 1;
 
-  const id = result.draggableId;
-  let resultParms: ChromeMove = { id };
+  const id = result.draggableId.replace(/^\D+/g, '');
+  let resultParms: DestinationType;
 
   if (combine) {
     if (VITE_DEV_MODE) return dndCombine(state, setState, source, combine);
     if ((await chromeGet(combine.draggableId)).url) return;
-    resultParms.destination = { parentId: combine.draggableId };
+    resultParms = { parentId: combine.draggableId };
   } else if (destination && sourceId === destinationId) {
     if (VITE_DEV_MODE)
       return dndSameColumn(state, setState, source, destination);
     let auxIndex = destinationIndex;
     if (sourceIndex < destinationIndex) auxIndex += 1;
-    resultParms.destination = { index: auxIndex };
+    resultParms = { index: auxIndex };
   } else if (destination && sourceId !== destinationId) {
     if (VITE_DEV_MODE)
       return dndDifColumn(state, setState, source, destination);
-    resultParms.destination = {
+    resultParms = {
       index: destinationIndex,
       parentId: state[+destination.droppableId].id,
     };
   }
 
   try {
-    if (resultParms.destination) {
-      await chromeMove(resultParms.id, resultParms.destination);
+    if (resultParms) {
+      await chromeMove(id, resultParms);
     }
   } catch (error) {
     console.error(error);
