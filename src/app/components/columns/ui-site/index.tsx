@@ -1,5 +1,6 @@
 import { Line } from '@/app/components/columns/line';
 import { useMenuOptions } from '@/app/zustand/options';
+import { VITE_SHOW_ID } from '@/domain/constants';
 import { getFaviconUrlV3 } from '@/infra/services/getFaviconUrl';
 import { Props } from './types';
 
@@ -8,7 +9,6 @@ export const SiteUi = ({ link }: Props) => {
   const faviconSrc = url && getFaviconUrlV3(url);
   const newTab = useMenuOptions((state) => state.newTab);
   const locked = useMenuOptions((state) => state.lockedEdition);
-  const isDevMode = process.env.NODE_ENV === 'development';
   return (
     <a
       href={!locked ? undefined : link.url}
@@ -19,7 +19,7 @@ export const SiteUi = ({ link }: Props) => {
     >
       <Line title={title} link={url}>
         <img className="h-6 w-6 mr-3 rounded-sm" src={faviconSrc} alt="" />
-        {!isDevMode && <pre>[{id}]-</pre>}
+        {VITE_SHOW_ID && <pre>[{id}]-</pre>}
       </Line>
     </a>
   );

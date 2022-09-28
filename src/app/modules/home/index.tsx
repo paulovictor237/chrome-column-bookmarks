@@ -13,7 +13,6 @@ export const Home = () => {
     initBookmark();
     initOptions();
   }, []);
-
   return (
     <div className="h-screen w-screen flex flex-col relative">
       <Header />

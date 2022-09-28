@@ -1,6 +1,8 @@
+import { VITE_DEV_MODE } from '@/domain/constants';
 import { ColumnType } from '@/domain/entities/column';
 import { chromeGet, chromeMove } from '@/infra/services/chrome';
 import { DropResult } from 'react-beautiful-dnd';
+import { dndCombine, dndDifColumn, dndSameColumn } from './operations';
 import { ChromeMove } from './types';
 
 export const dndOnDragEnd = async (
@@ -13,12 +15,10 @@ export const dndOnDragEnd = async (
 
   const sourceId = source.droppableId;
   const sourceIndex = source.index;
-  // const sourceFolder = state[+sourceId];
 
   const destinationId = destination?.droppableId;
   let destinationIndex =
     destination?.index !== undefined ? destination?.index : -1;
-  // const destinationFolder = destinationId && state[+destinationId];
 
   const otherBookmarkExistis = state[0].children.slice(-1).pop()?.id === '2';
   const lastPositionArrayZero =
@@ -27,18 +27,22 @@ export const dndOnDragEnd = async (
     otherBookmarkExistis;
   if (lastPositionArrayZero) destinationIndex = state[0].children.length - 1;
 
-  // const newState = [...state];
   const id = result.draggableId;
   let resultParms: ChromeMove = { id };
 
   if (combine) {
+    if (VITE_DEV_MODE) return dndCombine(state, setState, source, combine);
     if ((await chromeGet(combine.draggableId)).url) return;
     resultParms.destination = { parentId: combine.draggableId };
   } else if (destination && sourceId === destinationId) {
+    if (VITE_DEV_MODE)
+      return dndSameColumn(state, setState, source, destination);
     let auxIndex = destinationIndex;
     if (sourceIndex < destinationIndex) auxIndex += 1;
     resultParms.destination = { index: auxIndex };
   } else if (destination && sourceId !== destinationId) {
+    if (VITE_DEV_MODE)
+      return dndDifColumn(state, setState, source, destination);
     resultParms.destination = {
       index: destinationIndex,
       parentId: state[+destination.droppableId].id,
@@ -50,7 +54,7 @@ export const dndOnDragEnd = async (
       await chromeMove(resultParms.id, resultParms.destination);
     }
   } catch (error) {
-    //setState(newState);
+    console.error(error);
   } finally {
     return;
   }
