@@ -1,8 +1,7 @@
 import { useBookmarks } from '@/app/zustand/bookmarks';
-import { useMenuOptions } from '@/app/zustand/options';
 import { ChangeEvent, useId, useRef } from 'react';
+import { BiSearch } from 'react-icons/bi';
 import { FiXCircle } from 'react-icons/fi';
-import { BiSearch, BiSearchAlt } from 'react-icons/bi';
 import { twMerge } from 'tailwind-merge';
 
 export const SearchBar = () => {
