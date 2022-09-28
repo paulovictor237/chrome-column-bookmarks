@@ -44,7 +44,9 @@ export const chromeMove = async (
   }
 ): Promise<BookmarkTreeNode> => {
   try {
-    return await chrome.bookmarks.move(id, destination);
+    return await new Promise<BookmarkTreeNode>((res) =>
+      chrome.bookmarks.move(id, destination, res)
+    );
   } catch (error) {
     return Promise.reject();
   }

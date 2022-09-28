@@ -8,7 +8,7 @@ export const useMenuOptions = create<OptionsState>()(
     immer((set, get) => ({
       newTab: false,
       showRecent: false,
-      lockedEdition: false,
+      lockedEdition: true,
       initOptions: () => {
         const storage = localStorage.getItem('newTab');
         set((state) => {
