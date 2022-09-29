@@ -13,9 +13,12 @@ export const Delete = ({ isOpen, handleClose }: Props) => {
   if (!item) return null;
   return (
     <Modal isOpen={isOpen} handleClose={handleClose}>
-      <h1 className="text-3xl w-full text-center">Delete</h1>
-      <span>Name: {item?.title}</span>
-      <section className="flex gap-3 justify-center ">
+      <h1 className="text-3xl w-full text-center font-bold">Delete</h1>
+      <span className="text-xl">Title:</span>
+      <span className="text-peve-dark bg-peve-zinc rounded-md p-2">
+        {item?.title}
+      </span>
+      <section className="flex gap-3 justify-center">
         <Button onClick={handleAction}>Confirm</Button>
         <Button onClick={handleClose}>Cancel</Button>
       </section>

@@ -33,15 +33,15 @@ export const Update = ({ isOpen, handleClose }: Props) => {
   if (!item) return null;
   return (
     <Modal isOpen={isOpen} handleClose={handleClose}>
-      <h1 className="text-3xl w-full text-center">Update</h1>
       <ControlledForm
         formMethods={formMethods}
         onSubmit={onSubmit}
-        className="flex flex-col gap-3"
+        className="flex flex-col gap-4"
       >
+        <h1 className="text-3xl w-full text-center font-bold">Update</h1>
         <ControlledInput
           name="title"
-          label="title"
+          label="Title:"
           placeholder="Google"
           registerOptions={{ onBlur }}
           autoFocus
@@ -49,7 +49,7 @@ export const Update = ({ isOpen, handleClose }: Props) => {
         {url && (
           <ControlledInput
             name="url"
-            label="url"
+            label="Url:"
             placeholder="https://www.google.com"
           />
         )}

@@ -6,7 +6,7 @@ export const Button: FC<Props> = ({ children, className, ...rest }) => {
   return (
     <button
       className={twMerge(
-        'p-3 w-full rounded-md bg-peve-zinc hover:bg-peve-selected ',
+        'p-3 w-full rounded-md outline-none font-bold bg-peve-zinc hover:bg-peve-selected focus:bg-peve-selected',
         className
       )}
       {...rest}

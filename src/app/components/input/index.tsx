@@ -34,7 +34,7 @@ export const Input = forwardRef<HTMLInputElement, Props>(
         )}
       >
         {label && (
-          <label htmlFor={id} className={labelClassName}>
+          <label htmlFor={id} className={twMerge('text-xl', labelClassName)}>
             {label}
           </label>
         )}
@@ -45,7 +45,7 @@ export const Input = forwardRef<HTMLInputElement, Props>(
             'border-2 border-peve-zinc hover:border-peve-selected focus-within:border-peve-selected',
             'text-peve-dark bg-peve-zinc',
             'flex flex-row items-center gap-2',
-            'px-2 h-8 rounded-full',
+            'px-2 h-8 rounded-md',
             className,
             disabledStyle
           )}

@@ -33,23 +33,23 @@ export const Create = ({ isOpen, handleClose }: Props) => {
   if (!item) return null;
   return (
     <Modal isOpen={isOpen} handleClose={handleClose}>
-      <h1 className="text-3xl w-full text-center">Create</h1>
       <ControlledForm
         formMethods={formMethods}
         onSubmit={onSubmit}
         className="flex flex-col gap-3"
       >
+        <h1 className="text-3xl w-full text-center font-bold">Create</h1>
         <ControlledInput
           name="title"
-          label="title"
+          label="Title:"
           placeholder="Google"
           registerOptions={{ onBlur }}
           autoFocus
         />
         <ControlledInput
           name="url"
-          label="url"
-          placeholder="blank will create folder"
+          label="Url:"
+          placeholder="Blank will create folder"
         />
         <section className="flex gap-3 justify-center ">
           <Button type="submit">Confirm</Button>
