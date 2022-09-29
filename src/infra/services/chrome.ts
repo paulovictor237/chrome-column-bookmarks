@@ -1,5 +1,6 @@
 import { BookmarkTreeNode } from '@/domain/entities/chrome';
 import { ColumnType, ColumnChildren } from '@/domain/entities/column';
+import { Folder } from '@/domain/entities/folder';
 import { Site } from '@/domain/entities/site';
 import bookmarks from '@/infra/assets/bookmarks.json';
 
@@ -37,14 +38,6 @@ export const chromeSearch = async (keyword: string): Promise<Site[]> => {
   }
 };
 
-export const chromeRemove = async (id: string): Promise<void> => {
-  try {
-    await chrome.bookmarks.remove(id);
-  } catch (error) {
-    return;
-  }
-};
-
 export const chromeRecent = async (number: number): Promise<Site[]> => {
   try {
     const local = await chrome.bookmarks.getRecent(number);
@@ -71,5 +64,51 @@ export const chromeAddListener = async (
     chrome.bookmarks.onRemoved.addListener(callback);
   } catch (error) {
     return;
+  }
+};
+
+export const chromeGet = async (idOrIdList: string): Promise<Site | Folder> => {
+  try {
+    const data = await new Promise<BookmarkTreeNode[]>((res) =>
+      chrome.bookmarks.get(idOrIdList, res)
+    );
+    return data[0];
+  } catch (error) {
+    return Promise.reject();
+  }
+};
+
+export const chromeCreate = async (bookmark: {
+  index?: number;
+  parentId?: string;
+  title?: string;
+  url?: string;
+}): Promise<void> => {
+  try {
+    await chrome.bookmarks.create(bookmark);
+  } catch (error) {
+    return Promise.reject();
+  }
+};
+
+export const chromeUpdate = async (
+  id: string,
+  changes: {
+    title?: string;
+    url?: string;
+  }
+): Promise<void> => {
+  try {
+    await chrome.bookmarks.update(id, changes);
+  } catch (error) {
+    return Promise.reject();
+  }
+};
+
+export const chromeRemove = async (id: string): Promise<void> => {
+  try {
+    await chrome.bookmarks.removeTree(id);
+  } catch (error) {
+    return Promise.reject();
   }
 };

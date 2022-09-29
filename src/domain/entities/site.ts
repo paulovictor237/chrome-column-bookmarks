@@ -1,8 +1,8 @@
 export interface Site {
-  dateAdded?: number;
   id: string;
+  title: string;
+  dateAdded?: number;
   index?: number;
   parentId?: string;
-  title?: string;
   url?: string;
 }

@@ -1,8 +1,8 @@
 export interface Folder {
-  dateAdded?: number;
   id: string;
+  title: string;
+  dateAdded?: number;
   index?: number;
   parentId?: string;
-  title?: string;
   dateGroupModified?: number;
 }

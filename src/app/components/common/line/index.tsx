@@ -17,7 +17,7 @@ export const Line = forwardRef<HTMLDivElement, Props>(
             ? ' hover:bg-peve-selected hover:scale-[103%] focus-within:bg-peve-selected focus-within:scale-[103%]'
             : 'cursor-default',
           selected && 'bg-peve-zinc',
-          showMenu && 'bg-warcraft-red  hover:bg-warcraft-red scale-[103%] '
+          showMenu && 'bg-warcraft-red  hover:bg-warcraft-red scale-[103%]'
         )}
       >
         <div
