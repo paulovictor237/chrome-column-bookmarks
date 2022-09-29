@@ -1,28 +1,17 @@
-import Modal from '@/app/components/modal';
-import { Folder } from '@/domain/entities/folder';
-import { Site } from '@/domain/entities/site';
-import { chromeGet, chromeUpdate } from '@/infra/services/chrome';
-import { useEffect, useState } from 'react';
 import { Button } from '@/app/components/buttom';
-import { Props } from './types';
+import Modal from '@/app/components/modal';
+import { useContextMenu } from '@/app/zustand/context-menu';
+import { Site } from '@/domain/entities/site';
 import { Input } from '../../input';
+import { Props } from './types';
 
-export const Update = ({ id, isOpen, handleClose }: Props) => {
-  const [item, setItem] = useState<Site | Folder>({
-    id: '',
-    title: 'Loading...',
-  });
+export const Update = ({ isOpen, handleClose }: Props) => {
+  const item = useContextMenu((state) => state.item);
+  if (!item) return null;
   const handleAction = async () => {
     // chromeUpdate(id, { title, url });
     handleClose();
   };
-  const getItem = async () => {
-    const dataItem = await chromeGet(id);
-    dataItem && setItem(dataItem);
-  };
-  useEffect(() => {
-    getItem();
-  }, []);
   return (
     <Modal isOpen={isOpen} handleClose={handleClose}>
       <h1 className="text-3xl w-full text-center">Update</h1>

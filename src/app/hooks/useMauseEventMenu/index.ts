@@ -14,11 +14,17 @@ export const useMauseEventMenu = (closeMenu: () => void) => {
     if (target && !target.contains(event.target as Node)) closeMenu();
   };
 
+  const closeOnEscapeKey = (event: KeyboardEvent) => {
+    event.key === 'Escape' && closeMenu();
+  };
+
   useEffect(() => {
+    document.addEventListener('keydown', closeOnEscapeKey);
     document.addEventListener('contextmenu', handleWindowMouseMove);
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', closeOnEscapeKey);
+      document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('contextmenu', handleWindowMouseMove);
     };
   }, []);

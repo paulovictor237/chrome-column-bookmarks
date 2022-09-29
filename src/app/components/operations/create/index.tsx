@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { Button } from '@/app/components/buttom';
 import { Props } from './types';
 
-export const Create = ({ id, isOpen, handleClose }: Props) => {
+export const Create = ({ isOpen, handleClose }: Props) => {
   const [item, setItem] = useState<Site | Folder>({
     id: '',
     title: 'Loading...',
@@ -15,13 +15,6 @@ export const Create = ({ id, isOpen, handleClose }: Props) => {
     chromeCreate({});
     handleClose();
   };
-  const getItem = async () => {
-    const dataItem = await chromeGet(id);
-    dataItem && setItem(dataItem);
-  };
-  useEffect(() => {
-    getItem();
-  }, []);
   return (
     <Modal isOpen={isOpen} handleClose={handleClose}>
       <h1 className="text-3xl">Are you sure?</h1>

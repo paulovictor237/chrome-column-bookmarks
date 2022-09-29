@@ -1,4 +1,5 @@
 import { ColumnType } from '@/domain/entities/column';
+import { Folder } from '@/domain/entities/folder';
 
 export type BookmarkState = {
   bookmark: ColumnType;
@@ -7,7 +8,7 @@ export type BookmarkState = {
   searchKeywords: boolean;
   columns: ColumnType[];
   initialState: () => void;
-  addColumn: (id: string, index: number) => void;
+  addColumn: (folder: Folder, index: number) => void;
   search: (keyword: string) => void;
   onChangedCallback: () => void;
 };

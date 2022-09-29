@@ -11,7 +11,7 @@ const Modal = ({ children, className, isOpen, handleClose }: Props) => {
     return () => {
       document.body.removeEventListener('keydown', closeOnEscapeKey);
     };
-  }, [handleClose]);
+  }, []);
 
   if (!isOpen) return null;
   return (

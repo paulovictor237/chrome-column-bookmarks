@@ -2,12 +2,12 @@ import { Delete, Update } from '@/app/components/operations';
 import { useMauseEventMenu } from '@/app/hooks/useMauseEventMenu';
 import { useContextMenu } from '@/app/zustand/context-menu';
 import { useState } from 'react';
+import { AiFillPlusCircle } from 'react-icons/ai';
 import { MdDeleteForever, MdPushPin } from 'react-icons/md';
 import ReactPortal from '../tools/react-portal';
 import { ContextMenuButton } from './components/button';
 
 export const ContextMenu = () => {
-  const itemId = useContextMenu((state) => state.itemId);
   const showContextMenu = useContextMenu((state) => state.showContextMenu);
   const closeAndClean = useContextMenu((state) => state.closeAndClean);
   const cleanId = useContextMenu((state) => state.cleanId);
@@ -15,30 +15,35 @@ export const ContextMenu = () => {
   const [updateModal, setUpdateModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
   const CloseUpdate = () => {
-    setUpdateModal((p) => !p);
+    setUpdateModal(false);
     cleanId();
   };
   const CloseDelete = () => {
-    setDeleteModal((p) => !p);
+    setDeleteModal(false);
     cleanId();
   };
 
   return (
     <ReactPortal wrapperId="react-portal-context-menu">
-      <Update id={itemId} isOpen={updateModal} handleClose={CloseUpdate} />
-      <Delete id={itemId} isOpen={deleteModal} handleClose={CloseDelete} />
+      <Update isOpen={updateModal} handleClose={CloseUpdate} />
+      <Delete isOpen={deleteModal} handleClose={CloseDelete} />
       {showContextMenu && (
         <section ref={ref} className="absolute w-28" style={globalCoords}>
           <div className="bg-peve-light border-warcraft-yellow flex flex-col gap-1.5  p-1.5 rounded-lg border-2 ">
             <ContextMenuButton
+              name="create"
+              icon={<AiFillPlusCircle />}
+              onClick={() => setUpdateModal(true)}
+            />
+            <ContextMenuButton
               name="update"
               icon={<MdPushPin />}
-              onClick={() => setUpdateModal((p) => !p)}
+              onClick={() => setUpdateModal(true)}
             />
             <ContextMenuButton
               name="delete"
               icon={<MdDeleteForever />}
-              onClick={() => setDeleteModal((p) => !p)}
+              onClick={() => setDeleteModal(true)}
             />
           </div>
         </section>

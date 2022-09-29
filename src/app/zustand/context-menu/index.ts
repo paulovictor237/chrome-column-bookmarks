@@ -6,12 +6,12 @@ import { Props } from './types';
 export const useContextMenu = create<Props>()(
   devtools(
     immer((set, get) => ({
-      itemId: '',
+      item: undefined,
       showContextMenu: false,
-      onContextMenu: (e, id) => {
+      onContextMenu: (e, item) => {
         e.preventDefault();
         set((state) => {
-          state.itemId = id;
+          state.item = item;
           state.showContextMenu = true;
         });
       },
@@ -22,12 +22,12 @@ export const useContextMenu = create<Props>()(
       },
       cleanId: () => {
         set((state) => {
-          state.itemId = '';
+          state.item = undefined;
         });
       },
       closeAndClean: () => {
         set((state) => {
-          state.itemId = '';
+          state.item = undefined;
           state.showContextMenu = false;
         });
       },

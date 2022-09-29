@@ -9,12 +9,12 @@ export const SiteUi = ({ link }: Props) => {
   const faviconSrc = url && getFaviconUrlV3(url);
   const newTab = useMenuOptions((state) => state.newTab);
   const enableEditor = useMenuOptions((state) => state.enableEditor);
-  const itemId = useContextMenu((state) => state.itemId);
+  const itemId = useContextMenu((state) => state.item?.id);
   const onContextMenu = useContextMenu((state) => state.onContextMenu);
   const href = enableEditor || !(itemId === id) ? undefined : link.url;
   return (
     <a
-      onContextMenu={(e) => onContextMenu(e, id)}
+      onContextMenu={(e) => onContextMenu(e, link)}
       href={href}
       target={newTab ? '_blank' : '_self'}
       rel="noopener noreferrer"

@@ -7,10 +7,10 @@ import { Props } from './types';
 export const FolderUi = ({ folder, index }: Props) => {
   const [selected, setselected] = useState(false);
   const columns = useBookmarks((state) => state.columns);
-  const increment = useBookmarks((state) => state.addColumn);
+  const addColumn = useBookmarks((state) => state.addColumn);
 
   const { title, id } = folder;
-  const itemId = useContextMenu((state) => state.itemId);
+  const itemId = useContextMenu((state) => state.item?.id);
   const onContextMenu = useContextMenu((state) => state.onContextMenu);
 
   useEffect(() => {
@@ -20,10 +20,10 @@ export const FolderUi = ({ folder, index }: Props) => {
   }, [columns]);
 
   return (
-    <div onContextMenu={(e) => onContextMenu(e, id)}>
+    <div onContextMenu={(e) => onContextMenu(e, folder)}>
       <Line
         title={title}
-        onClick={() => increment(folder.id, index)}
+        onClick={() => addColumn(folder, index)}
         selected={selected}
         showMenu={itemId === id}
       >
