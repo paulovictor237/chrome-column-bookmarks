@@ -2,6 +2,7 @@ import { TreeColumns } from '@/app/components/columns';
 import { ContextMenu } from '@/app/components/context-menu';
 import { Header } from '@/app/components/header';
 import { useBookmarks } from '@/app/zustand/bookmarks';
+import { useContextMenu } from '@/app/zustand/context-menu';
 import { useMenuOptions } from '@/app/zustand/options';
 import { useEffect } from 'react';
 

@@ -2,10 +2,10 @@ import { useContextMenu } from '@/app/zustand/context-menu';
 import { Props } from './types';
 
 export const ContextMenuButton = ({ name, icon, onClick }: Props) => {
-  const closeMenu = useContextMenu((state) => state.closeMenu);
+  const closeContextMenu = useContextMenu((state) => state.closeContextMenu);
   const handleOnClick = () => {
     onClick();
-    closeMenu();
+    closeContextMenu();
   };
   return (
     <button

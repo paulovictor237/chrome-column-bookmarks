@@ -9,9 +9,9 @@ export const SiteUi = ({ link }: Props) => {
   const faviconSrc = url && getFaviconUrlV3(url);
   const newTab = useMenuOptions((state) => state.newTab);
   const enableEditor = useMenuOptions((state) => state.enableEditor);
-  const showMenuId = useContextMenu((state) => state.showMenuId);
+  const itemId = useContextMenu((state) => state.itemId);
   const onContextMenu = useContextMenu((state) => state.onContextMenu);
-  const href = enableEditor || !(showMenuId === id) ? undefined : link.url;
+  const href = enableEditor || !(itemId === id) ? undefined : link.url;
   return (
     <a
       onContextMenu={(e) => onContextMenu(e, id)}
@@ -21,7 +21,7 @@ export const SiteUi = ({ link }: Props) => {
       draggable={false}
       role="button"
     >
-      <Line title={title} link={url} showMenu={showMenuId === id}>
+      <Line title={title} link={url} showMenu={itemId === id}>
         <img className="h-6 w-6 mr-3 rounded-sm" src={faviconSrc} alt="" />
       </Line>
     </a>

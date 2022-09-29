@@ -6,16 +6,29 @@ import { Props } from './types';
 export const useContextMenu = create<Props>()(
   devtools(
     immer((set, get) => ({
-      showMenuId: undefined,
+      itemId: '',
+      showContextMenu: false,
       onContextMenu: (e, id) => {
         e.preventDefault();
         set((state) => {
-          state.showMenuId = id;
+          state.itemId = id;
+          state.showContextMenu = true;
         });
       },
-      closeMenu: () => {
+      closeContextMenu: () => {
         set((state) => {
-          state.showMenuId = undefined;
+          state.showContextMenu = false;
+        });
+      },
+      cleanId: () => {
+        set((state) => {
+          state.itemId = '';
+        });
+      },
+      closeAndClean: () => {
+        set((state) => {
+          state.itemId = '';
+          state.showContextMenu = false;
         });
       },
     }))

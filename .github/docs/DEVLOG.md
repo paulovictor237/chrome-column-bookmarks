@@ -23,37 +23,10 @@ Unfortunaly the Manifest V3 there is no favicon API, then i have to use alternat
 APIs not implemented, see all in [dev-chrome](https://developer.chrome.com/docs/extensions/reference/bookmarks).
 
 ```typescript
-// chrome.bookmarks.create
-type create = (
-  bookmark: {
-    index?:number
-    parentId?:string
-    title?:string
-    url:?string
-  },
-  callback?: function,
-) => void
-
-// chrome.bookmarks.update
-const update = (
-  id: string,
-  changes: {
-    title?: string
-    url?: string
-  },
-  callback?: function,
-) => void
-
 // chrome.bookmarks.move
 const  move = (
   id: string,
   destination: object,
-  callback?: function,
-) => void
-
-// chrome.bookmarks.removeTree
-const removeTree = (
-  id: string,
   callback?: function,
 ) => void
 

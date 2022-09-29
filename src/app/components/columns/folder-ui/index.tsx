@@ -10,7 +10,7 @@ export const FolderUi = ({ folder, index }: Props) => {
   const increment = useBookmarks((state) => state.addColumn);
 
   const { title, id } = folder;
-  const showMenuId = useContextMenu((state) => state.showMenuId);
+  const itemId = useContextMenu((state) => state.itemId);
   const onContextMenu = useContextMenu((state) => state.onContextMenu);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export const FolderUi = ({ folder, index }: Props) => {
         title={title}
         onClick={() => increment(folder.id, index)}
         selected={selected}
-        showMenu={showMenuId === id}
+        showMenu={itemId === id}
       >
         <span className="h-6 w-6 mr-3">{id !== '2' ? '📁' : '💼'}</span>
       </Line>
