@@ -19,7 +19,8 @@
     "paths": {
       // "*": ["./src/*"],
       "@/*": ["./src/*"]
-    }
+    },
+    "types": ["vite/client", "chrome"]
   },
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

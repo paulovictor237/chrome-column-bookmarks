@@ -8,7 +8,7 @@ export const useMenuOptions = create<OptionsState>()(
     immer((set, get) => ({
       newTab: false,
       showRecent: false,
-      enableEditor: false,
+      lockedEdition: true,
       initOptions: () => {
         const storage = localStorage.getItem('newTab');
         set((state) => {
@@ -24,9 +24,9 @@ export const useMenuOptions = create<OptionsState>()(
         const showRecent = get().showRecent;
         set((state) => void (state.showRecent = !showRecent));
       },
-      changeEnableEditor: () => {
-        const enableEditor = get().enableEditor;
-        set((state) => void (state.enableEditor = !enableEditor));
+      toggleLockedEdition: () => {
+        const enableEditor = get().lockedEdition;
+        set((state) => void (state.lockedEdition = !enableEditor));
       },
     }))
   )

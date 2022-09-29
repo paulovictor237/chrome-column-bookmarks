@@ -1,17 +1,17 @@
-import { TitleTag } from '@/app/components/common/title-tag';
-import { NewTabMenu } from '@/app/components/header/components/new-tab';
-import { ShowRecent } from '@/app/components/header/components/recent';
+import { TitleTag } from '@/app/components/title-tag';
 import { useMenuOptions } from '@/app/zustand/options';
+import { LockEdit } from '../../components/lock-edit';
+import { ShowRecent } from '../../components/recent';
 
 export const LeftIcons = () => {
-  const newTab = useMenuOptions((state) => state.newTab);
+  const locked = useMenuOptions((state) => state.lockedEdition);
   return (
     <section className="flex gap-2 justify-between items-center h-full">
       <TitleTag
-        title={newTab ? 'NewTab Enabled' : 'NewTab Disabled'}
         position="left"
+        title={locked ? 'Locked edition' : 'Unlocked edition'}
       >
-        <NewTabMenu />
+        <LockEdit />
       </TitleTag>
       <TitleTag title="Recent" position="left">
         <ShowRecent />
