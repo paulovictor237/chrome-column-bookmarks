@@ -1,4 +1,4 @@
-import { Delete, Update } from '@/app/components/operations';
+import { Create, Delete, Update } from '@/app/components/operations';
 import { useMauseEventMenu } from '@/app/hooks/useMauseEventMenu';
 import { useContextMenu } from '@/app/zustand/context-menu';
 import { useState } from 'react';
@@ -10,21 +10,21 @@ import { ContextMenuButton } from './components/button';
 export const ContextMenu = () => {
   const showContextMenu = useContextMenu((state) => state.showContextMenu);
   const closeAndClean = useContextMenu((state) => state.closeAndClean);
-  const cleanId = useContextMenu((state) => state.cleanId);
+
   const { ref, globalCoords } = useMauseEventMenu(closeAndClean);
+  const cleanId = useContextMenu((state) => state.cleanId);
+
+  const [createModal, setCreateModal] = useState(false);
   const [updateModal, setUpdateModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
-  const CloseUpdate = () => {
-    setUpdateModal(false);
-    cleanId();
-  };
-  const CloseDelete = () => {
-    setDeleteModal(false);
-    cleanId();
-  };
+
+  const CloseCreate = () => void (setCreateModal(false), cleanId());
+  const CloseUpdate = () => void (setUpdateModal(false), cleanId());
+  const CloseDelete = () => void (setDeleteModal(false), cleanId());
 
   return (
     <ReactPortal wrapperId="react-portal-context-menu">
+      <Create isOpen={createModal} handleClose={CloseCreate} />
       <Update isOpen={updateModal} handleClose={CloseUpdate} />
       <Delete isOpen={deleteModal} handleClose={CloseDelete} />
       {showContextMenu && (
@@ -33,7 +33,7 @@ export const ContextMenu = () => {
             <ContextMenuButton
               name="create"
               icon={<AiFillPlusCircle />}
-              onClick={() => setUpdateModal(true)}
+              onClick={() => setCreateModal(true)}
             />
             <ContextMenuButton
               name="update"

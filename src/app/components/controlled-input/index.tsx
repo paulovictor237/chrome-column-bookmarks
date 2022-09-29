@@ -10,6 +10,7 @@ export const ControlledInput: FC<Props> = ({
   formater = (text: string) => text,
   className,
   controlledClassName,
+  registerOptions,
   ...rest
 }) => {
   const {
@@ -34,12 +35,9 @@ export const ControlledInput: FC<Props> = ({
       )}
     >
       <Input
-        className={twMerge(
-          error ? 'border-red-600' : ' border-outline',
-          className
-        )}
+        className={twMerge(error && 'border-red-600', className)}
         {...rest}
-        {...register(name)}
+        {...register(name, registerOptions)}
       />
       {error && <InputErrorMessage message={error} className="mt-1" />}
     </div>

@@ -6,11 +6,11 @@ import { Props } from './types';
 
 export const Delete = ({ isOpen, handleClose }: Props) => {
   const item = useContextMenu((state) => state.item);
-  if (!item) return null;
   const handleAction = async () => {
-    chromeRemove(item.id);
+    item && chromeRemove(item.id);
     handleClose();
   };
+  if (!item) return null;
   return (
     <Modal isOpen={isOpen} handleClose={handleClose}>
       <h1 className="text-3xl w-full text-center">Delete</h1>
