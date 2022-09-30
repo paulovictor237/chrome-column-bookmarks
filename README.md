@@ -21,7 +21,9 @@ Column Bookmarks New Tab
 - Chrome Extension
 - Vite
 - Zustand
-- react-beautiful-dnd (discontinued)
+- React Portals
+- React Form Hook
+- React Beautiful DND
 
 ## Inspirations
 
