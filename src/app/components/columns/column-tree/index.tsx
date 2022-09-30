@@ -7,6 +7,7 @@ import { Props } from './types';
 
 export const ColumnTree = ({ children }: Props) => {
   const columnsLength = useBookmarks((state) => state.columns.length);
+  const lastId = useBookmarks((state) => state.columns[columnsLength - 1]?.id);
   const searchKeywords = useBookmarks((state) => state.searchKeywords);
   const showRecent = useMenuOptions((state) => state.showRecent);
   const ref = useRef<HTMLDivElement>(null);
@@ -21,7 +22,7 @@ export const ColumnTree = ({ children }: Props) => {
 
   useEffect(() => {
     buttonHandler();
-  }, [searchKeywords, showRecent, columnsLength]);
+  }, [searchKeywords, showRecent, columnsLength, lastId]);
 
   return (
     <div
