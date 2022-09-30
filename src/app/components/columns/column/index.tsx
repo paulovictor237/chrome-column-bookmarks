@@ -45,7 +45,7 @@ export const Column = forwardRef<HTMLDivElement, Props>((props, ref) => {
           onContextMenu={handleClickOutside}
           className={twMerge(
             'bg-peve-light rounded-2xl p-3 h-full overflow-y-auto sc2 shadow-lg',
-            itemId === column?.id && 'bg-warcraft-red',
+            itemId === column?.id && 'bg-peve-gray',
             className
           )}
           {...rest}

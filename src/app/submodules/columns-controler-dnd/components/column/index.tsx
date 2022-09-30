@@ -18,7 +18,7 @@ export const DragDropColumn = ({
     >
       {(provided, snapshot) => (
         <Column
-          className={snapshot.isDraggingOver ? 'bg-gray-700' : ''}
+          className={snapshot.isDraggingOver ? 'bg-peve-gray' : ''}
           threeDots={column.children.length === 0}
           ref={provided.innerRef}
           classNameTitle={rest.classNameTitle}

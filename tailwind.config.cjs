@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         'peve-zinc': '#71717a',
+        'peve-gray': '#374151',
         'peve-light': '#272830',
         'peve-dark': '#1f2027',
         'peve-selected': '#198cf0',
