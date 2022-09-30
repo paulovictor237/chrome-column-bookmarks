@@ -20,7 +20,7 @@ export const useBookmarks = create<BookmarkState>()(
       (set, get) => ({
         columns: [],
         bookmark: { id: '1', title: 'Bookmarks bar', children: [] },
-        searchFolder: { id: '2', title: 'Other bookmarks', children: [] },
+        searchColumn: { id: '2', title: 'Other bookmarks', children: [] },
         searchResults: false,
         searchKeywords: false,
         initialState: async () => {
@@ -48,14 +48,14 @@ export const useBookmarks = create<BookmarkState>()(
           const onChangedCallback = get().onChangedCallback;
           chromeAddListener(onChangedCallback);
         },
-        addColumn: async (item, index) => {
-          let data: ColumnType = { ...item, children: [] };
+        addColumn: async (folder, index) => {
+          let data: ColumnType = { ...folder, children: [] };
           if (VITE_DEV_MODE) {
-            const newFolder = searchLocalColumn(id, get().bookmark);
+            const newFolder = searchLocalColumn(folder.id, get().bookmark);
             data = newFolder;
           } else {
             try {
-              data.children = await chromeGetChildren(id);
+              data.children = await chromeGetChildren(folder.id);
             } catch (error) {
               console.error(error);
             }

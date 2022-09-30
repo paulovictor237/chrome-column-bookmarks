@@ -23,6 +23,7 @@ export const DragDropColumn = ({
           ref={provided.innerRef}
           classNameTitle={rest.classNameTitle}
           title={rest.title}
+          column={column}
           {...provided.droppableProps}
         >
           {column.children?.map((item, itemId) => (

@@ -25,8 +25,8 @@ export const useMenuOptions = create<OptionsState>()(
         set((state) => void (state.showRecent = !showRecent));
       },
       toggleLockedEdition: () => {
-        const enableEditor = get().lockedEdition;
-        set((state) => void (state.lockedEdition = !enableEditor));
+        const lockedEdition = get().lockedEdition;
+        set((state) => void (state.lockedEdition = !lockedEdition));
       },
     }))
   )

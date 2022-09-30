@@ -1,6 +1,5 @@
 import { BookmarkTreeNode } from '@/domain/entities/chrome';
-import { ColumnType, ColumnChildren } from '@/domain/entities/column';
-import { Folder } from '@/domain/entities/folder';
+import { ColumnChildren } from '@/domain/entities/column';
 import { Site } from '@/domain/entities/site';
 import bookmarks from '@/infra/assets/bookmarks.json';
 
@@ -91,17 +90,6 @@ export const chromeAddListener = async (
     chrome.bookmarks.onRemoved.addListener(callback);
   } catch (error) {
     return;
-  }
-};
-
-export const chromeGet = async (idOrIdList: string): Promise<Site | Folder> => {
-  try {
-    const data = await new Promise<BookmarkTreeNode[]>((res) =>
-      chrome.bookmarks.get(idOrIdList, res)
-    );
-    return data[0];
-  } catch (error) {
-    return Promise.reject();
   }
 };
 
