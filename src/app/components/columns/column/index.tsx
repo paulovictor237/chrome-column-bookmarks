@@ -26,10 +26,6 @@ export const Column = forwardRef<HTMLDivElement, Props>((props, ref) => {
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
     const targetRf1 = (event?.target as HTMLDivElement).contains(rf1?.current);
-    console.log(
-      '🚀 ~ file: index.tsx ~ line 29 ~ Column ~ targetRf1',
-      targetRf1
-    );
     const targetRf2 = (event?.target as HTMLDivElement).contains(rf2?.current);
     if (!(targetRf2 || targetRf1)) return;
     column && !locked && onContextMenu(event, column);

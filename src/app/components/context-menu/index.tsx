@@ -11,7 +11,17 @@ export const ContextMenu = () => {
   const showContextMenu = useContextMenu((state) => state.showContextMenu);
   const closeAndClean = useContextMenu((state) => state.closeAndClean);
 
-  const { ref, globalCoords } = useMauseEventMenu(closeAndClean);
+  const hooksMauseEvent = useMauseEventMenu(closeAndClean);
+  const { ref, globalCoords, screenSize, offset } = hooksMauseEvent;
+
+  const positionLeft = globalCoords.left > screenSize.left / 2;
+  const positionTop = globalCoords.top > screenSize.top / 2;
+
+  const offsetPossition = {
+    left: globalCoords.left - (positionLeft ? offset.left : 0),
+    top: globalCoords.top - (positionTop ? offset.top : 0),
+  };
+
   const cleanId = useContextMenu((state) => state.cleanId);
 
   const [createModal, setCreateModal] = useState(false);
@@ -28,7 +38,7 @@ export const ContextMenu = () => {
       <Update isOpen={updateModal} handleClose={CloseUpdate} />
       <Delete isOpen={deleteModal} handleClose={CloseDelete} />
       {showContextMenu && (
-        <section ref={ref} className="absolute w-28" style={globalCoords}>
+        <section ref={ref} className="absolute w-28" style={offsetPossition}>
           <div className="bg-peve-light border-warcraft-yellow flex flex-col gap-1.5  p-1.5 rounded-lg border-2 ">
             <ContextMenuButton
               name="create"
