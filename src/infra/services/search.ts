@@ -16,7 +16,7 @@ export const searchLocalSites = (keyword: string, data: ColumnType): Site[] => {
 };
 
 export const searchLocalColumn = (id: string, data: ColumnType): ColumnType => {
-  let aux: ColumnType = { id: id, children: [] };
+  let aux: ColumnType = { id: id, title: '', children: [] };
   const recursive = (recData: ColumnType) => {
     if (recData.id === id) {
       return (aux = recData);

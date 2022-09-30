@@ -1,9 +1,9 @@
 export type OptionsState = {
   showRecent: boolean;
   newTab: boolean;
-  enableEditor: boolean;
+  lockedEdition: boolean;
   changeRecent: () => void;
   changeNewTab: () => void;
-  changeEnableEditor: () => void;
+  toggleLockedEdition: () => void;
   initOptions: () => void;
 };

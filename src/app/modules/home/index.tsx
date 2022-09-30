@@ -1,5 +1,6 @@
-import { TreeColumns } from '@/app/components/columns';
-import { Header } from '@/app/components/header';
+import { ContextMenu } from '@/app/components/context-menu';
+import { ColumnsControllerDND } from '@/app/submodules/columns-controler-dnd';
+import { Header } from '@/app/submodules/header';
 import { useBookmarks } from '@/app/zustand/bookmarks';
 import { useMenuOptions } from '@/app/zustand/options';
 import { useEffect } from 'react';
@@ -12,11 +13,11 @@ export const Home = () => {
     initBookmark();
     initOptions();
   }, []);
-
   return (
     <div className="h-screen w-screen flex flex-col relative">
+      <ContextMenu />
       <Header />
-      <TreeColumns />
+      <ColumnsControllerDND />
     </div>
   );
 };

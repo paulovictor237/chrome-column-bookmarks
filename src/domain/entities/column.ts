@@ -3,8 +3,6 @@ import { Folder } from './folder';
 
 export type ColumnChildren = (Site | Folder)[];
 
-export type ColumnType = {
-  id: string;
-  title?: string;
+export type ColumnType = Folder & {
   children: ColumnChildren;
 };
