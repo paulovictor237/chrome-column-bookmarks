@@ -15,15 +15,7 @@ export const ContextMenu = () => {
   const url = item && (item as Site).url;
 
   const hooksMauseEvent = useMauseEventMenu(closeAndClean);
-  const { ref, globalCoords, screenSize, offset } = hooksMauseEvent;
-
-  const positionLeft = globalCoords.left > screenSize.left / 2;
-  const positionTop = globalCoords.top > screenSize.top / 2;
-
-  const offsetPossition = {
-    left: globalCoords.left - (positionLeft ? offset.left : 0),
-    top: globalCoords.top - (positionTop ? offset.top : 0),
-  };
+  const { ref, offsetPossition } = hooksMauseEvent;
 
   const cleanId = useContextMenu((state) => state.cleanId);
 

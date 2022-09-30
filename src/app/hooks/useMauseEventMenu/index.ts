@@ -25,6 +25,14 @@ export const useMauseEventMenu = (closeMenu: () => void) => {
     setScreenSize({ left, top });
   };
 
+  const positionLeft = globalCoords.left > screenSize.left / 2;
+  const positionTop = globalCoords.top > screenSize.top / 2;
+
+  const offsetPossition = {
+    left: globalCoords.left - (positionLeft ? offset.left : 0),
+    top: globalCoords.top - (positionTop ? offset.top : 0),
+  };
+
   useEffect(() => {
     document.addEventListener('keydown', closeOnEscapeKey);
     document.addEventListener('contextmenu', handleWindowMouseMove);
@@ -48,5 +56,5 @@ export const useMauseEventMenu = (closeMenu: () => void) => {
     }
   }, [ref.current]);
 
-  return { ref, globalCoords, screenSize, offset };
+  return { ref, offsetPossition };
 };
