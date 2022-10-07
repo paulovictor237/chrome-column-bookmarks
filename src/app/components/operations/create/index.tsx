@@ -49,7 +49,7 @@ export const Create = ({ isOpen, handleClose }: Props) => {
         <ControlledInput
           name="url"
           label="Url:"
-          placeholder="Blank will create folder"
+          placeholder="Keep blank to create a folder"
         />
         <section className="flex gap-3 justify-center ">
           <Button type="submit">Confirm</Button>
