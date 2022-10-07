@@ -15,7 +15,7 @@ const Modal = ({ children, className, isOpen, handleClose }: Props) => {
   return (
     <ReactPortal wrapperId="react-portal-modal-container">
       <section
-        className="fixed inset-0 bg-peve-zinc bg-opacity-25"
+        className="fixed inset-0 bg-peve-zinc bg-opacity-30"
         onClick={handleClose}
       />
       <main className="fixed p-8 rounded-md bg-peve-dark top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
