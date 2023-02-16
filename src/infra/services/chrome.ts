@@ -36,6 +36,17 @@ export const chromeGet = async (idOrIdList: string): Promise<Site> => {
   }
 };
 
+export const getSubTree = async (id: string): Promise<BookmarkTreeNode> => {
+  try {
+    const data = await new Promise<BookmarkTreeNode[]>((res) =>
+      chrome.bookmarks.getSubTree(id, res)
+    );
+    return data[0];
+  } catch (error) {
+    return Promise.reject();
+  }
+};
+
 export const chromeMove = async (
   id: string,
   destination: {
@@ -98,9 +109,9 @@ export const chromeCreate = async (bookmark: {
   parentId?: string;
   title?: string;
   url?: string;
-}): Promise<void> => {
+}): Promise<BookmarkTreeNode> => {
   try {
-    await chrome.bookmarks.create(bookmark);
+    return await chrome.bookmarks.create(bookmark);
   } catch (error) {
     return Promise.reject();
   }
