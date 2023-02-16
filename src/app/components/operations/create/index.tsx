@@ -4,6 +4,7 @@ import { useContextMenu } from '@/app/zustand/context-menu';
 import { chromeCreate } from '@/infra/services/chrome';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 import { ControlledForm } from '../../controlled-form';
 import { ControlledInput } from '../../controlled-input';
 import { Props } from './types';
@@ -17,12 +18,17 @@ export const Create = ({ isOpen, handleClose }: Props) => {
   const onSubmit = handleSubmit(async (submittedData) => {
     if (submittedData.title === '') return setFocus('title');
     const submitCreate = {
-      index: item?.index || 0,
+      index: 0,
       parentId: item?.id,
       title: submittedData.title,
       url: submittedData.url,
     };
-    chromeCreate(submitCreate);
+    try {
+      await chromeCreate(submitCreate);
+      toast('Imported successfully', { type: 'success' });
+    } catch (error) {
+      toast('Something went wrong', { type: 'error' });
+    }
     handleClose();
   });
 

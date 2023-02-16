@@ -1,10 +1,10 @@
 {
   "name": "Column Bookmarks",
   "description": "Column Bookmarks",
-  "version": "4.0.2",
+  "version": "5.0.0",
   "version_name": "release",
   "manifest_version": 3,
-  "permissions": ["bookmarks", "chrome://favicon/"],
+  "permissions": ["favicon", "bookmarks"],
   "browser_action": {
     "default_title": "Column",
     "default_icon": "/img/favicon96.png"
@@ -16,5 +16,12 @@
   },
   "chrome_url_overrides": {
     "newtab": "index.html"
-  }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["_favicon/*"],
+      "matches": ["<all_urls>"],
+      "extension_ids": ["*"]
+    }
+  ]
 }

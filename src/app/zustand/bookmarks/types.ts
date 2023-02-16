@@ -12,4 +12,5 @@ export type BookmarkState = {
   search: (keyword: string) => void;
   onChangedCallback: () => void;
   setColumns: (columns: ColumnType[]) => void;
+  resetColumns: (parentId?: string) => void;
 };

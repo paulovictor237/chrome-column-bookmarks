@@ -11,7 +11,7 @@ Column Bookmarks New Tab
   </a>
 </p>
 
-### Technologies
+## Technologies
 
 - React
 - Typescript
@@ -24,6 +24,13 @@ Column Bookmarks New Tab
 - React Portals
 - React Form Hook
 - React Beautiful DND
+- Zod validation
+- React toastify
+
+## Extra information
+
+- In January 2023, the official API for capturing favorite favicons was made available through manifest v3.
+- So far, Chrome does not have an API for bulk folder creation with data. As a solution, it was necessary to develop a recursive function to manually add favorites.
 
 ## Inspirations
 

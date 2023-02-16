@@ -9,7 +9,7 @@ export const LeftIcons = () => {
     <section className="flex gap-2 justify-between items-center h-full">
       <TitleTag
         position="left"
-        title={locked ? 'Locked edition' : 'Unlocked edition'}
+        title={`${locked ? 'Locked' : 'Unlocked'} edition [Alt + L]`}
       >
         <LockEdit />
       </TitleTag>
