@@ -8,10 +8,3 @@ export type ZustandStoreImmer<T> = StateCreator<
   [],
   T
 >;
-
-export type PersistInitializer<T> = StateCreator<
-  T,
-  [['zustand/immer', never], ['zustand/persist', unknown]],
-  [],
-  T
->;
