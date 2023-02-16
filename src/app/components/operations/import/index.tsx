@@ -55,7 +55,7 @@ export const Import = ({ isOpen, handleClose }: Props) => {
         <ControlledUpload
           name="file"
           label="Attach json file:"
-          placeholder="data.json"
+          placeholder="bookmarks.json"
           type="file"
           multiple={false}
         />
