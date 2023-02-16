@@ -4,7 +4,11 @@ import { useContextMenu } from '@/app/zustand/context-menu';
 import { Site } from '@/domain/entities/site';
 import { useState } from 'react';
 import { AiFillPlusCircle } from 'react-icons/ai';
+import { MdFileDownload } from 'react-icons/md';
+import { MdUpload } from 'react-icons/md';
 import { MdDeleteForever, MdPushPin } from 'react-icons/md';
+import { Export } from '../operations/export';
+import { Import } from '../operations/import';
 import ReactPortal from '../tools/react-portal';
 import { ContextMenuButton } from './components/button';
 
@@ -22,16 +26,19 @@ export const ContextMenu = () => {
   const [createModal, setCreateModal] = useState(false);
   const [updateModal, setUpdateModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
+  const [importModal, setImportModal] = useState(false);
 
   const CloseCreate = () => void (setCreateModal(false), cleanId());
   const CloseUpdate = () => void (setUpdateModal(false), cleanId());
   const CloseDelete = () => void (setDeleteModal(false), cleanId());
+  const CloseIMport = () => void (setImportModal(false), cleanId());
 
   return (
     <ReactPortal wrapperId="react-portal-context-menu">
       <Create isOpen={createModal} handleClose={CloseCreate} />
       <Update isOpen={updateModal} handleClose={CloseUpdate} />
       <Delete isOpen={deleteModal} handleClose={CloseDelete} />
+      <Import isOpen={importModal} handleClose={CloseIMport} />
       {showContextMenu && (
         <section ref={ref} className="absolute w-28" style={offsetPossition}>
           <div className="bg-peve-light border-warcraft-yellow flex flex-col gap-1.5  p-1.5 rounded-lg border-2 ">
@@ -52,6 +59,20 @@ export const ContextMenu = () => {
               icon={<MdDeleteForever />}
               onClick={() => setDeleteModal(true)}
             />
+            {!url && (
+              <ContextMenuButton
+                name="export"
+                icon={<MdFileDownload />}
+                onClick={() => Export(item!.id)}
+              />
+            )}
+            {!url && (
+              <ContextMenuButton
+                name="import"
+                icon={<MdUpload />}
+                onClick={() => setImportModal(true)}
+              />
+            )}
           </div>
         </section>
       )}
