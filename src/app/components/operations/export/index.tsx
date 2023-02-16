@@ -1,5 +1,6 @@
 import { useContextMenu } from '@/app/zustand/context-menu';
 import { getSubTree } from '@/infra/services/chrome';
+import { toast } from 'react-toastify';
 
 export const Export = async (id: string) => {
   const data = await getSubTree(id);
@@ -15,4 +16,5 @@ export const Export = async (id: string) => {
   link.click();
   link.remove();
   URL.revokeObjectURL(url);
+  toast('Delete successfully', { type: 'success' });
 };

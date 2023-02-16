@@ -4,6 +4,7 @@ import { useBookmarks } from '@/app/zustand/bookmarks';
 import { useContextMenu } from '@/app/zustand/context-menu';
 import { Site } from '@/domain/entities/site';
 import { chromeRemove } from '@/infra/services/chrome';
+import { toast } from 'react-toastify';
 import { Props } from './types';
 
 export const Delete = ({ isOpen, handleClose }: Props) => {
@@ -13,7 +14,12 @@ export const Delete = ({ isOpen, handleClose }: Props) => {
   const handleAction = async () => {
     const isFolder = !(item as Site).url;
     if (isFolder) resetColumns(item?.parentId!);
-    chromeRemove(item?.id!);
+    try {
+      await chromeRemove(item?.id!);
+      toast('Delete successfully', { type: 'success' });
+    } catch (error) {
+      toast('Something went wrong', { type: 'error' });
+    }
     handleClose();
   };
   if (!item) return null;

@@ -31,6 +31,7 @@
     "react-hook-form": "^7.36.1",
     "react-icons": "^4.4.0",
     "react-scripts": "5.0.1",
+    "react-toastify": "^9.1.1",
     "tailwind-merge": "^1.6.0",
     "typescript": "^4.4.2",
     "vite-tsconfig-paths": "^3.5.0",
