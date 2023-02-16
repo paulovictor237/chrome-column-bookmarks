@@ -33,7 +33,10 @@ export const Column = forwardRef<HTMLDivElement, Props>((props, ref) => {
   return (
     <div
       ref={ref}
-      className="md:w-80 w-full flex-shrink-0 flex flex-col animate-columns"
+      className={twMerge(
+        'md:w-80 w-full flex-shrink-0 flex flex-col animate-columns',
+        !locked && 'border-2 border-warcraft-red rounded-3xl '
+      )}
     >
       <div ref={rf1} onContextMenu={handleClickOutside} className="h-full p-2">
         <section
