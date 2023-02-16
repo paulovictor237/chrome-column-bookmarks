@@ -17,7 +17,7 @@ export const Create = ({ isOpen, handleClose }: Props) => {
   const onSubmit = handleSubmit(async (submittedData) => {
     if (submittedData.title === '') return setFocus('title');
     const submitCreate = {
-      index: item?.index || 0,
+      index: 0,
       parentId: item?.id,
       title: submittedData.title,
       url: submittedData.url,
