@@ -4,17 +4,15 @@ import { useContextMenu } from '@/app/zustand/context-menu';
 import { BookmarkTreeNode } from '@/domain/entities/chrome';
 import { createRecursive } from '@/infra/services/create-recursive';
 import { fileToJson } from '@/infra/services/files';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { ControlledForm } from '../../controlled-form';
 import { ControlledUpload } from '../../controlled-upload';
 import { fileResolver, FileType } from '../../controlled-upload/validation';
-import { Loading } from '../../loading';
 import { Props } from './types';
 
 export const Import = ({ isOpen, handleClose }: Props) => {
-  const [loading, setLoading] = useState(false);
   const formMethods = useForm<FileType>({
     resolver: fileResolver,
   });
@@ -22,19 +20,19 @@ export const Import = ({ isOpen, handleClose }: Props) => {
   const { reset, handleSubmit } = formMethods;
 
   const onSubmit = handleSubmit(async (submittedData) => {
-    setLoading(true);
-    try {
+    handleClose();
+    const asyncUpload = async () => {
       const data = await fileToJson(submittedData.file[0]);
       await createRecursive({
         item: data as BookmarkTreeNode,
         id: item?.id as string,
       });
-      toast('Imported successfully', { type: 'success' });
-    } catch (error) {
-      toast('Something went wrong', { type: 'error' });
-    }
-    setLoading(false);
-    handleClose();
+    };
+    toast.promise(asyncUpload, {
+      pending: 'Import is pending',
+      success: 'Import successfully',
+      error: 'Something went wrong',
+    });
   });
 
   useEffect(() => {
@@ -44,7 +42,6 @@ export const Import = ({ isOpen, handleClose }: Props) => {
   if (!item) return null;
   return (
     <Modal isOpen={isOpen} handleClose={handleClose}>
-      {loading && <Loading />}
       <ControlledForm
         formMethods={formMethods}
         onSubmit={onSubmit}
