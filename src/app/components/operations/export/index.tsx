@@ -11,7 +11,7 @@ export const Export = async (id: string) => {
 
   const link = document.createElement('a');
   link.href = url;
-  link.download = 'bookmarks.json';
+  link.download = `${bookmarks.title.toLowerCase()} - bookmarks.json`;
   document.body.appendChild(link);
   link.click();
   link.remove();
