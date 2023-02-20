@@ -10,6 +10,7 @@
     "build": "tsc && vite build",
     "build:id": "tsc && VITE_SHOW_ID=true vite build",
     "build:zip": "tsc && vite build && zip -r release dist",
+    "build:vercel": "tsc && VITE_DEV_MODE=true vite build",
     "preview": "vite preview"
   },
   "dependencies": {
