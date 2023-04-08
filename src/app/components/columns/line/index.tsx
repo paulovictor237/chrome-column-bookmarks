@@ -1,12 +1,32 @@
-import { forwardRef } from 'react';
+import { forwardRef, useRef, MouseEvent } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { Props } from './types';
+import { CgMenuBoxed } from 'react-icons/cg';
+import { useContextMenu } from '@/app/zustand/context-menu';
+import { useMenuOptions } from '@/app/zustand/options';
 
 export const Line = forwardRef<HTMLDivElement, Props>(
   (
-    { title, onClick, children, selected, className, disabled, showMenu },
+    { title, onClick, children, selected, className, disabled, showMenu, item },
     ref
   ) => {
+    const onContextMenu = useContextMenu((state) => state.onContextMenu);
+    const locked = useMenuOptions((state) => state.lockedEdition);
+    const actionRef = useRef<HTMLButtonElement>(null);
+    const showButton = !locked && !disabled;
+
+    const handleClick = (e: MouseEvent<HTMLElement>) => {
+      e.stopPropagation();
+      const buttonPosition = actionRef.current?.getBoundingClientRect();
+      if (!buttonPosition || !item) return;
+      const pos = {
+        x: buttonPosition.left + window.pageXOffset + buttonPosition.width,
+        y: buttonPosition.top + window.pageYOffset,
+        column: false,
+      };
+      onContextMenu(pos, item);
+    };
+
     return (
       <div
         ref={ref}
@@ -27,10 +47,17 @@ export const Line = forwardRef<HTMLDivElement, Props>(
           )}
         >
           {children}
-          <span className="text-ellipsis	whitespace-nowrap overflow-hidden">
-            {title}
-          </span>
+          <span className="truncate">{title}</span>
         </div>
+        {showButton && (
+          <button
+            ref={actionRef}
+            onClick={handleClick}
+            className={'ml-auto text-warcraft-yellow'}
+          >
+            <CgMenuBoxed className="hover:text-peve-gray" size={28} />
+          </button>
+        )}
       </div>
     );
   }

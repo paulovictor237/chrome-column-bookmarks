@@ -1,3 +1,5 @@
+import { Folder } from '@/domain/entities/folder';
+import { Site } from '@/domain/entities/site';
 import { ReactNode } from 'react';
 
 export type Props = {
@@ -9,4 +11,5 @@ export type Props = {
   showMenu?: boolean;
   className?: string;
   children?: ReactNode;
+  item?: Site | Folder;
 };

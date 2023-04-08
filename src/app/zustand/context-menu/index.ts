@@ -6,9 +6,10 @@ import { Props } from './types';
 const contextMenuStore: ZustandStoreImmer<Props> = (set, get) => ({
   item: undefined,
   showContextMenu: false,
-  onContextMenu: (e, item) => {
-    e.preventDefault();
+  pos: { x: 0, y: 0, column: false },
+  onContextMenu: (pos, item) => {
     set((state) => {
+      state.pos = pos;
       state.item = item;
       state.showContextMenu = true;
     });

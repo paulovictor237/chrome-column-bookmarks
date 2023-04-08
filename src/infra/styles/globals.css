@@ -37,19 +37,13 @@ input {
 }
 
 .sc2::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  @apply w-3 h-3;
 }
-
 .sc2::-webkit-scrollbar-track {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+  @apply bg-peve-light;
 }
-
 .sc2::-webkit-scrollbar-thumb {
-  /* background-color: #11171a; */
-  background-color: #198cf0;
-  border-radius: 10px;
+  @apply bg-peve-zinc hover:bg-warcraft-yellow rounded-xl;
 }
 
 /* clears the ‘X’ from Internet Explorer */

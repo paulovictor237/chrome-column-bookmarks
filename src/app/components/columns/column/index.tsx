@@ -1,74 +1,94 @@
 import { useContextMenu } from '@/app/zustand/context-menu';
 import { useMenuOptions } from '@/app/zustand/options';
-import { forwardRef, useRef } from 'react';
+import { MouseEvent, forwardRef, useRef } from 'react';
+import { CgMenuBoxed } from 'react-icons/cg';
 import { TbDots } from 'react-icons/tb';
 import { twMerge } from 'tailwind-merge';
 import { Line } from '../line';
 import { Props } from './types';
 
-export const Column = forwardRef<HTMLDivElement, Props>((props, ref) => {
-  const {
-    column,
-    title,
-    children,
-    className,
-    classNameTitle,
-    threeDots = false,
-    ...rest
-  } = props;
-  const rf1 = useRef<HTMLDivElement>(null);
-  const rf2 = useRef<HTMLDivElement>(null);
-  const itemId = useContextMenu((state) => state.item?.id);
-  const onContextMenu = useContextMenu((state) => state.onContextMenu);
-  const locked = useMenuOptions((state) => state.lockedEdition);
-
-  const handleClickOutside = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+export const Column = forwardRef<HTMLDivElement, Props>(
+  (
+    {
+      column,
+      defaultTitle,
+      children,
+      className,
+      classNameTitle,
+      threeDots = false,
+      ...rest
+    },
+    ref
   ) => {
-    const targetRf1 = (event?.target as HTMLDivElement).contains(rf1?.current);
-    const targetRf2 = (event?.target as HTMLDivElement).contains(rf2?.current);
-    if (!(targetRf2 || targetRf1)) return;
-    column && !locked && onContextMenu(event, column);
-  };
-  return (
-    <div
-      ref={ref}
-      className={twMerge(
-        'md:w-80 w-full flex-shrink-0 flex flex-col animate-columns',
-        !locked && 'border-2 border-warcraft-red rounded-3xl '
-      )}
-    >
-      <div ref={rf1} onContextMenu={handleClickOutside} className="h-full p-2">
-        <section
-          ref={rf2}
-          onContextMenu={handleClickOutside}
-          className={twMerge(
-            'bg-peve-light rounded-2xl p-3 h-full overflow-y-auto sc2 shadow-lg',
-            itemId === column?.id && 'bg-peve-gray',
-            className
-          )}
-          {...rest}
-        >
-          {title && (
-            <title
-              className={twMerge(
-                ' border-peve-dark text-peve-dark bg-peve-selected font-bold select-none flex items-center justify-center mb-3 overflow-hidden h-10 rounded-md ',
-                classNameTitle
-              )}
-            >
-              {title}
-            </title>
-          )}
-          <main className="flex flex-col gap-3">
-            {threeDots && (
-              <Line className="justify-center font-bold text-2xl" disabled>
-                <TbDots />
-              </Line>
+    const onContextMenu = useContextMenu((state) => state.onContextMenu);
+    const itemId = useContextMenu((state) => state.item?.id);
+    const locked = useMenuOptions((state) => state.lockedEdition);
+    const actionRef = useRef<HTMLButtonElement>(null);
+
+    const title = defaultTitle ? defaultTitle : column?.title;
+
+    const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+      e.stopPropagation();
+      const buttonPosition = actionRef.current?.getBoundingClientRect();
+      if (!buttonPosition || !column) return;
+      const pos = {
+        x: buttonPosition.left + window.pageXOffset + buttonPosition.width / 2,
+        y: buttonPosition.top + window.pageYOffset,
+        column: true,
+      };
+      onContextMenu(pos, column);
+    };
+
+    const enableEdition = !locked && !defaultTitle;
+
+    return (
+      <div
+        ref={ref}
+        className={twMerge(
+          'md:w-80 w-full flex-shrink-0 flex flex-col animate-columns border-2 rounded-lg',
+          locked ? 'border-transparent' : 'border-warcraft-red'
+        )}
+      >
+        <div className="h-full p-1 flex flex-col">
+          <section
+            className={twMerge(
+              'bg-peve-light rounded-2xl p-3 h-full sc2 shadow-lg overflow-y-auto',
+              itemId === column?.id && 'bg-peve-gray',
+              className
             )}
-            {children}
-          </main>
-        </section>
+            {...rest}
+          >
+            <main className="flex flex-col gap-3">
+              <button
+                ref={actionRef}
+                onClick={handleClick}
+                disabled={locked || !!defaultTitle}
+                className={twMerge(
+                  'group relative mb-1 border-peve-dark text-peve-dark bg-warcraft-yellow font-bold select-none flex items-center justify-center h-10 rounded-md',
+                  enableEdition && 'hover:bg-peve-selected',
+                  enableEdition ? 'cursor-pointer' : 'cursor-default',
+                  itemId === column?.id && 'bg-warcraft-red',
+                  classNameTitle
+                )}
+              >
+                <h1 className="truncate w-52"> {title}</h1>
+                {enableEdition && (
+                  <CgMenuBoxed
+                    className="absolute right-3 group-hover:text-peve-gray"
+                    size={28}
+                  />
+                )}
+              </button>
+              {threeDots && (
+                <Line className="justify-center font-bold text-2xl" disabled>
+                  <TbDots />
+                </Line>
+              )}
+              {children}
+            </main>
+          </section>
+        </div>
       </div>
-    </div>
-  );
-});
+    );
+  }
+);

@@ -22,7 +22,7 @@ export const DragDropColumn = ({
           threeDots={column.children.length === 0}
           ref={provided.innerRef}
           classNameTitle={rest.classNameTitle}
-          title={rest.title}
+          defaultTitle={rest.title}
           column={column}
           {...provided.droppableProps}
         >

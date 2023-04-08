@@ -35,15 +35,15 @@ export const useMauseEventMenu = (closeMenu: () => void) => {
 
   useEffect(() => {
     document.addEventListener('keydown', closeOnEscapeKey);
-    document.addEventListener('contextmenu', handleWindowMouseMove);
     document.addEventListener('mousedown', handleClickOutside);
-    window.addEventListener('resize', handleResize);
+    // document.addEventListener('contextmenu', handleWindowMouseMove);
+    // window.addEventListener('resize', handleResize);
     handleResize();
     return () => {
       document.removeEventListener('keydown', closeOnEscapeKey);
       document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('contextmenu', handleWindowMouseMove);
-      window.removeEventListener('resize', handleResize);
+      // document.removeEventListener('contextmenu', handleWindowMouseMove);
+      // window.removeEventListener('resize', handleResize);
     };
   }, []);
 
