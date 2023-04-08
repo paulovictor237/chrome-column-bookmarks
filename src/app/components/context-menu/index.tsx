@@ -11,15 +11,21 @@ import { Export } from '../operations/export';
 import { Import } from '../operations/import';
 import ReactPortal from '../tools/react-portal';
 import { ContextMenuButton } from './components/button';
+import { twMerge } from 'tailwind-merge';
 
 export const ContextMenu = () => {
   const showContextMenu = useContextMenu((state) => state.showContextMenu);
   const closeAndClean = useContextMenu((state) => state.closeAndClean);
   const item = useContextMenu((state) => state.item);
+  const pos = useContextMenu((state) => state.pos);
   const url = item && (item as Site).url;
 
-  const hooksMauseEvent = useMauseEventMenu(closeAndClean);
-  const { ref, offsetPossition } = hooksMauseEvent;
+  const offsetPosition = { left: pos.x, top: pos.y };
+
+  const yPosition = pos.y + window.pageYOffset;
+  const bottom = yPosition > window.innerHeight / 2;
+
+  const { ref } = useMauseEventMenu(closeAndClean);
 
   const cleanId = useContextMenu((state) => state.cleanId);
 
@@ -40,7 +46,15 @@ export const ContextMenu = () => {
       <Delete isOpen={deleteModal} handleClose={CloseDelete} />
       <Import isOpen={importModal} handleClose={CloseIMport} />
       {showContextMenu && (
-        <section ref={ref} className="absolute w-28" style={offsetPossition}>
+        <section
+          ref={ref}
+          className={twMerge(
+            'absolute w-28',
+            !pos.column ? '-translate-x-full' : '-translate-x-1/2',
+            bottom && '-translate-y-[89%]'
+          )}
+          style={offsetPosition}
+        >
           <div className="bg-peve-light border-warcraft-yellow flex flex-col gap-1.5  p-1.5 rounded-lg border-2 ">
             {!url && (
               <ContextMenuButton

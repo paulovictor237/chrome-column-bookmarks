@@ -1,6 +1,7 @@
 import { useContextMenu } from '@/app/zustand/context-menu';
 import { useMenuOptions } from '@/app/zustand/options';
-import { forwardRef, useRef } from 'react';
+import { MouseEvent, forwardRef, useRef } from 'react';
+import { CgMenuBoxed } from 'react-icons/cg';
 import { TbDots } from 'react-icons/tb';
 import { twMerge } from 'tailwind-merge';
 import { Line } from '../line';
@@ -16,34 +17,35 @@ export const Column = forwardRef<HTMLDivElement, Props>((props, ref) => {
     threeDots = false,
     ...rest
   } = props;
-  const rf1 = useRef<HTMLDivElement>(null);
-  const rf2 = useRef<HTMLDivElement>(null);
-  const itemId = useContextMenu((state) => state.item?.id);
   const onContextMenu = useContextMenu((state) => state.onContextMenu);
+  const itemId = useContextMenu((state) => state.item?.id);
   const locked = useMenuOptions((state) => state.lockedEdition);
+  const actionRef = useRef<HTMLDivElement>(null);
 
-  const handleClickOutside = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
-    const targetRf1 = (event?.target as HTMLDivElement).contains(rf1?.current);
-    const targetRf2 = (event?.target as HTMLDivElement).contains(rf2?.current);
-    if (!(targetRf2 || targetRf1)) return;
-    column && !locked && onContextMenu(event, column);
+  const handleClick = (e: MouseEvent<HTMLElement>) => {
+    e.stopPropagation();
+    const buttonPosition = actionRef.current?.getBoundingClientRect();
+    if (!buttonPosition || !column) return;
+    const pos = {
+      x: buttonPosition.left + window.pageXOffset + buttonPosition.width / 2,
+      y: buttonPosition.top + window.pageYOffset,
+      column: true,
+    };
+    onContextMenu(pos, column);
   };
+
   return (
     <div
       ref={ref}
       className={twMerge(
-        'md:w-80 w-full flex-shrink-0 flex flex-col animate-columns',
-        !locked && 'border-2 border-warcraft-red rounded-3xl '
+        'md:w-80 w-full flex-shrink-0 flex flex-col animate-columns border-2 rounded-lg',
+        locked ? 'border-transparent' : 'border-warcraft-red'
       )}
     >
-      <div ref={rf1} onContextMenu={handleClickOutside} className="h-full p-2">
+      <div className="h-full p-1 flex flex-col">
         <section
-          ref={rf2}
-          onContextMenu={handleClickOutside}
           className={twMerge(
-            'bg-peve-light rounded-2xl p-3 h-full overflow-y-auto sc2 shadow-lg',
+            'bg-peve-light rounded-2xl p-3 h-full sc2 shadow-lg overflow-y-auto',
             itemId === column?.id && 'bg-peve-gray',
             className
           )}
@@ -68,6 +70,16 @@ export const Column = forwardRef<HTMLDivElement, Props>((props, ref) => {
             {children}
           </main>
         </section>
+        {!locked && (
+          <button
+            className="flex-1 w-full group text-warcraft-yellow hover:bg-peve-selected flex items-center justify-center border-2 border-warcraft-yellow rounded-lg mt-2"
+            onClick={handleClick}
+          >
+            <div ref={actionRef}>
+              <CgMenuBoxed className="group-hover:text-peve-gray" size={28} />
+            </div>
+          </button>
+        )}
       </div>
     </div>
   );
