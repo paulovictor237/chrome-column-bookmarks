@@ -11,9 +11,10 @@ export const SearchColumn = () => {
     <DragDropColumn
       columnIndex={-2}
       column={searchColumn}
-      title={searchResults ? 'search' : 'no results'}
+      title={searchResults ? 'Search' : 'no results'}
       prefixId="search"
       isDropDisabled
+      classNameTitle="bg-green-700"
     />
   );
 };

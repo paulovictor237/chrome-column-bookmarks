@@ -26,6 +26,7 @@ export const RecentColumn = () => {
       title={'Recent'}
       prefixId="recent"
       isDropDisabled
+      classNameTitle="bg-green-700"
     />
   );
 };
