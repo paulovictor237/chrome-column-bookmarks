@@ -3,7 +3,7 @@ import { useContextMenu } from '@/client/zustand/context-menu';
 import { VITE_SHOW_ID } from '@/client/constants';
 import { useEffect, useState } from 'react';
 import { Props } from './types';
-import { Line } from '../../molecules/folder-line';
+import { Line } from '../../molecules/column-line';
 
 export const FolderUi = ({ folder, index }: Props) => {
   const [selected, setselected] = useState(false);

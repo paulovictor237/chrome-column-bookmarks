@@ -3,7 +3,7 @@ import { useMenuOptions } from '@/client/zustand/options';
 import { VITE_SHOW_ID } from '@/client/constants';
 import { getFaviconUrlV3 } from '@/infra/services/getFaviconUrl';
 import { Props } from './types';
-import { Line } from '../../molecules/folder-line';
+import { Line } from '../../molecules/column-line';
 
 export const SiteUi = ({ link }: Props) => {
   const { url, title, id } = link;

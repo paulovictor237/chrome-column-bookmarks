@@ -47,7 +47,9 @@ export const Line = forwardRef<HTMLDivElement, Props>(
           )}
         >
           {children}
-          <span className="truncate">{title}</span>
+          <span className="truncate" title={title}>
+            {title}
+          </span>
         </div>
         {showButton && (
           <button

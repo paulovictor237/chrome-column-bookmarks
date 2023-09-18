@@ -41,7 +41,7 @@ Code Inspire:
 
 Visual Inspire:
 
-- [Qlearly Light - Bookmark Manager](https://chrome.google.com/webstore/detail/qlearly-light-bookmark-ma/lkmkjmklcnhfcfpojimnbjpaimbdjeao)
+- [Qlearly Light - Bookmark Manager](https://chrome.google.com/webstore/detail/qlearly/kpbhikmncbpfajojloojehafbiijgaem)
 
 ### Developing locally
 

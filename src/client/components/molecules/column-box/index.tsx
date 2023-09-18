@@ -4,7 +4,7 @@ import { MouseEvent, forwardRef, useRef } from 'react';
 import { CgMenuBoxed } from 'react-icons/cg';
 import { TbDots } from 'react-icons/tb';
 import { twMerge } from 'tailwind-merge';
-import { Line } from '../folder-line';
+import { Line } from '../column-line';
 import { Props } from './types';
 
 export const Column = forwardRef<HTMLDivElement, Props>(
@@ -71,7 +71,9 @@ export const Column = forwardRef<HTMLDivElement, Props>(
                   classNameTitle
                 )}
               >
-                <h1 className="truncate w-52"> {title}</h1>
+                <h1 className="truncate w-52" title={title}>
+                  {title}
+                </h1>
                 {enableEdition && (
                   <CgMenuBoxed
                     className="absolute right-3 group-hover:text-peve-gray"

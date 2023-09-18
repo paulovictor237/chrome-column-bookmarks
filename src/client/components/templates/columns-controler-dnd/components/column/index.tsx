@@ -1,7 +1,7 @@
 import { Droppable } from 'react-beautiful-dnd';
 import { DragDropItem } from '../item';
 import { Props } from './types';
-import { Column } from '@/client/components/molecules/folder-column';
+import { Column } from '@/client/components/molecules/column-box';
 
 export const DragDropColumn = ({
   columnIndex,
