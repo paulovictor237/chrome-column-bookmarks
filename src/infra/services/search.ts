@@ -1,5 +1,5 @@
-import { ColumnType } from '@/domain/entities/column';
-import { Site } from '@/domain/entities/site';
+import { ColumnType } from '@/infra/types/column';
+import { Site } from '@/infra/types/site';
 
 export const searchLocalSites = (keyword: string, data: ColumnType): Site[] => {
   let aux: Site[] = [];

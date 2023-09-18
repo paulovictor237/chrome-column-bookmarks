@@ -1,5 +1,5 @@
-import { VITE_DEV_MODE } from '@/domain/constants';
-import { BookmarkTreeNode } from '@/domain/entities/chrome';
+import { VITE_DEV_MODE } from '@/client/constants';
+import { BookmarkTreeNode } from '@/infra/entities/chrome';
 import { chromeCreate } from './chrome';
 
 const createItem = (item: BookmarkTreeNode, id: string, isFirst = false) => ({

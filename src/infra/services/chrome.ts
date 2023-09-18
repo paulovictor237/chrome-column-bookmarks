@@ -1,6 +1,6 @@
-import { BookmarkTreeNode } from '@/domain/entities/chrome';
-import { ColumnChildren } from '@/domain/entities/column';
-import { Site } from '@/domain/entities/site';
+import { BookmarkTreeNode } from '@/infra/entities/chrome';
+import { ColumnChildren } from '@/infra/types/column';
+import { Site } from '@/infra/types/site';
 import bookmarks from '@/infra/assets/bookmarks.json';
 
 export const chromeGetBookmarks = async (): Promise<BookmarkTreeNode[]> => {

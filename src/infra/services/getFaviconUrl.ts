@@ -1,4 +1,4 @@
-import { VITE_DEV_MODE } from '@/domain/constants';
+import { VITE_DEV_MODE } from '@/client/constants';
 
 export const getFaviconUrlV3 = (link: string) => {
   try {
